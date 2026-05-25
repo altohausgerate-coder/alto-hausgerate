@@ -307,6 +307,64 @@ section{padding:80px 0}
 .reveal-d7{transition-delay:0.42s}
 .reveal-d8{transition-delay:0.48s}
 .reveal-d9{transition-delay:0.54s}
+
+/* Auth modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:300;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:var(--transition)}
+.modal-overlay.open{opacity:1;pointer-events:auto}
+.auth-modal{background:var(--white);border-radius:var(--radius-2xl);padding:36px;width:420px;max-width:90vw;position:relative;transform:scale(0.92) translateY(16px);transition:transform 0.35s var(--spring);max-height:90vh;overflow-y:auto}
+.modal-overlay.open .auth-modal{transform:scale(1) translateY(0)}
+.auth-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border:none;background:var(--gray-50);border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
+.auth-close:hover{background:var(--pink-light);color:var(--pink)}
+.auth-tabs{display:flex;gap:0;margin-bottom:24px;border-bottom:2px solid var(--gray-100)}
+.auth-tab{flex:1;padding:12px;text-align:center;font-size:14px;font-weight:600;border:none;background:none;cursor:pointer;color:var(--gray-text);transition:var(--transition);font-family:var(--font);border-bottom:2px solid transparent;margin-bottom:-2px}
+.auth-tab.active{color:var(--pink);border-bottom-color:var(--pink)}
+.auth-form{display:none;flex-direction:column;gap:14px}
+.auth-form.active{display:flex}
+.auth-form input{width:100%;padding:14px 16px;border:1.5px solid var(--gray-100);border-radius:var(--radius-md);font-size:14px;font-family:var(--font);outline:none;transition:all 0.3s var(--spring);background:var(--white)}
+.auth-form input:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(233,30,140,0.08)}
+.auth-submit{width:100%;padding:14px;background:var(--pink);color:#fff;border:none;border-radius:var(--radius-md);font-size:15px;font-weight:600;font-family:var(--font);cursor:pointer;transition:var(--transition)}
+.auth-submit:hover{opacity:0.9;transform:translateY(-1px)}
+.auth-error{color:#e74c3c;font-size:13px;text-align:center;display:none}
+
+/* Cart modal */
+.cart-modal{background:var(--white);border-radius:var(--radius-2xl);padding:32px;width:520px;max-width:90vw;position:relative;transform:scale(0.92) translateY(16px);transition:transform 0.35s var(--spring);max-height:90vh;overflow-y:auto}
+.modal-overlay.open .cart-modal{transform:scale(1) translateY(0)}
+.cart-modal h2{font-size:22px;font-weight:700;margin-bottom:20px}
+.cart-items{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.cart-item{display:flex;gap:12px;align-items:center;padding:12px;background:var(--gray-50);border-radius:var(--radius-md);border:1px solid var(--gray-100)}
+.cart-item img{width:56px;height:56px;object-fit:cover;border-radius:var(--radius-sm);background:var(--white)}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-info h4{font-size:13px;font-weight:600;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cart-item-info .ci-price{font-size:15px;font-weight:700;color:var(--pink)}
+.cart-item-qty{display:flex;align-items:center;gap:6px}
+.cart-item-qty button{width:28px;height:28px;border:1px solid var(--gray-100);background:var(--white);border-radius:50%;cursor:pointer;font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:center;transition:var(--transition);color:var(--gray-text)}
+.cart-item-qty button:hover{background:var(--pink-light);color:var(--pink);border-color:var(--pink)}
+.cart-item-qty span{font-size:14px;font-weight:600;width:24px;text-align:center}
+.cart-item-del{width:32px;height:32px;border:none;background:transparent;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:var(--transition);color:#ccc;flex-shrink:0}
+.cart-item-del:hover{background:#fee;color:#e74c3c}
+.cart-delivery{margin-bottom:20px;padding:16px;background:var(--gray-50);border-radius:var(--radius-md);border:1px solid var(--gray-100)}
+.cart-delivery h4{font-size:14px;font-weight:600;margin-bottom:10px}
+.delivery-option{display:flex;align-items:center;gap:8px;padding:8px 0;cursor:pointer;font-size:14px;color:var(--gray-text)}
+.delivery-option input[type=radio]{accent-color:var(--pink)}
+.delivery-option .do-label{flex:1}
+.delivery-option .do-price{font-weight:600;color:var(--black)}
+.cart-summary{border-top:1px solid var(--gray-100);padding-top:16px;margin-bottom:20px}
+.cs-row{display:flex;justify-content:space-between;font-size:14px;padding:4px 0;color:var(--gray-text)}
+.cs-row.total{font-size:18px;font-weight:700;color:var(--black);border-top:1px solid var(--gray-100);padding-top:12px;margin-top:8px}
+.cart-checkout{width:100%;padding:15px;background:var(--pink);color:#fff;border:none;border-radius:var(--radius-md);font-size:15px;font-weight:600;font-family:var(--font);cursor:pointer;transition:var(--transition)}
+.cart-checkout:hover{opacity:0.9;transform:translateY(-1px);box-shadow:0 4px 14px rgba(233,30,140,0.25)}
+.cart-empty{text-align:center;padding:40px 20px;color:var(--gray-text)}
+.cart-empty .ce-icon{font-size:40px;margin-bottom:12px;opacity:0.4}
+.cart-thanks{text-align:center;padding:32px 20px}
+.cart-thanks .ct-icon{font-size:48px;margin-bottom:12px}
+.cart-thanks p{font-size:16px;color:var(--gray-text);line-height:1.6}
+
+/* User button */
+.user-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:none;background:transparent;border-radius:100px;cursor:pointer;font-size:13px;font-weight:600;font-family:var(--font);color:var(--gray-text);transition:var(--transition)}
+.user-btn:hover{background:var(--pink-light);color:var(--pink)}
+.user-btn .user-name{max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logout-btn{font-size:12px;color:#e74c3c;background:none;border:none;cursor:pointer;padding:2px 8px;border-radius:100px;font-family:var(--font);transition:var(--transition)}
+.logout-btn:hover{background:#fee}
 </style>
 </head>
 <body>
@@ -326,7 +384,8 @@ section{padding:80px 0}
     <button class="lang-btn active" data-lang="AZ" onclick="setLang('AZ')">AZ</button>
     <button class="lang-btn" data-lang="RU" onclick="setLang('RU')">RU</button>
     <button class="lang-btn" data-lang="EN" onclick="setLang('EN')">EN</button>
-    <button class="cart-btn" aria-label="Səbət">
+    <button class="user-btn" id="userBtn" onclick="openAuthModal()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span id="userLabel">Giriş</span></button>
+    <button class="cart-btn" onclick="openCartModal()" aria-label="Səbət">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
       <span class="cart-count">0</span>
     </button>
@@ -347,6 +406,40 @@ section{padding:80px 0}
     <button class="lang-btn active" data-lang="AZ" onclick="setLang('AZ')">AZ</button>
     <button class="lang-btn" data-lang="RU" onclick="setLang('RU')">RU</button>
     <button class="lang-btn" data-lang="EN" onclick="setLang('EN')">EN</button>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-overlay" id="authOverlay" onclick="if(event.target===this)closeAuthModal()">
+  <div class="auth-modal">
+    <button class="auth-close" onclick="closeAuthModal()">✕</button>
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-tab="login" onclick="switchAuthTab('login')">Giriş</button>
+      <button class="auth-tab" data-tab="register" onclick="switchAuthTab('register')">Qeydiyyat</button>
+    </div>
+    <form class="auth-form active" id="loginForm" onsubmit="handleLogin(event)">
+      <input type="email" id="loginEmail" placeholder="E-poçt" required />
+      <input type="password" id="loginPass" placeholder="Şifrə" required />
+      <div class="auth-error" id="loginError"></div>
+      <button type="submit" class="auth-submit">Giriş</button>
+    </form>
+    <form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
+      <input type="text" id="regName" placeholder="Adınız" required />
+      <input type="email" id="regEmail" placeholder="E-poçt" required />
+      <input type="password" id="regPass" placeholder="Şifrə" required minlength="4" />
+      <input type="password" id="regConfirm" placeholder="Şifrəni təsdiqlə" required minlength="4" />
+      <div class="auth-error" id="regError"></div>
+      <button type="submit" class="auth-submit">Qeydiyyat</button>
+    </form>
+  </div>
+</div>
+
+<!-- CART MODAL -->
+<div class="modal-overlay" id="cartOverlay" onclick="if(event.target===this)closeCartModal()">
+  <div class="cart-modal" id="cartModal">
+    <button class="auth-close" onclick="closeCartModal()">✕</button>
+    <h2>Səbət</h2>
+    <div id="cartContent"></div>
   </div>
 </div>
 
@@ -611,6 +704,10 @@ const PROD=[
 const allCats=[...new Set(PROD.map(p=>p.cat))].sort();
 
 function init(){
+  const savedUser = JSON.parse(localStorage.getItem('au_current') || 'null');
+  if (savedUser) currentUser = savedUser;
+  updateUserUI();
+  updateCartCount();
   prodData=PROD;
   // Categories grid
   const cg=document.getElementById('catGrid');
@@ -747,24 +844,165 @@ function onSearchInput(val){
   }
 }
 
-let cartCount=0;
-function addCart(btn,id){
-  btn.textContent='✓';
-  btn.classList.add('added');
-  cartCount++;
-  document.querySelectorAll('.cart-count').forEach(el=>el.textContent=cartCount);
+// Auth system
+let currentUser = null;
+let pendingAddId = null;
 
-  // flying cart icon
-  const fly=document.createElement('div');
-  fly.className='cart-fly';
-  fly.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>';
-  const rect=btn.getBoundingClientRect();
-  fly.style.left=(rect.left+rect.width/2-12)+'px';
-  fly.style.top=(rect.top-12)+'px';
-  document.body.appendChild(fly);
-  setTimeout(()=>fly.remove(),900);
+function handleRegister(e) {
+  e.preventDefault();
+  const name = document.getElementById('regName').value.trim();
+  const email = document.getElementById('regEmail').value.trim();
+  const pass = document.getElementById('regPass').value;
+  const confirm = document.getElementById('regConfirm').value;
+  const err = document.getElementById('regError');
+  if (pass !== confirm) { err.textContent = 'Şifrələr uyğun gəlmir'; err.style.display = 'block'; return; }
+  const users = JSON.parse(localStorage.getItem('au_users') || '[]');
+  if (users.find(u => u.email === email)) { err.textContent = 'Bu e-poçt artıq qeydiyyatdan keçib'; err.style.display = 'block'; return; }
+  users.push({ name, email, password: pass });
+  localStorage.setItem('au_users', JSON.stringify(users));
+  currentUser = { name, email };
+  localStorage.setItem('au_current', JSON.stringify(currentUser));
+  updateUserUI();
+  closeAuthModal();
+  if (pendingAddId) { doAddCart(pendingAddId); pendingAddId = null; }
+}
 
-  setTimeout(()=>{btn.textContent=tr('addCart');btn.classList.remove('added')},1500);
+function handleLogin(e) {
+  e.preventDefault();
+  const email = document.getElementById('loginEmail').value.trim();
+  const pass = document.getElementById('loginPass').value;
+  const err = document.getElementById('loginError');
+  const users = JSON.parse(localStorage.getItem('au_users') || '[]');
+  const user = users.find(u => u.email === email && u.password === pass);
+  if (!user) { err.textContent = 'E-poçt və ya şifrə yanlışdır'; err.style.display = 'block'; return; }
+  currentUser = { name: user.name, email: user.email };
+  localStorage.setItem('au_current', JSON.stringify(currentUser));
+  updateUserUI();
+  closeAuthModal();
+  if (pendingAddId) { doAddCart(pendingAddId); pendingAddId = null; }
+}
+
+function openAuthModal() {
+  document.getElementById('authOverlay').classList.add('open');
+  document.getElementById('loginError').style.display = 'none';
+  document.getElementById('regError').style.display = 'none';
+}
+function closeAuthModal() {
+  document.getElementById('authOverlay').classList.remove('open');
+  pendingAddId = null;
+}
+function switchAuthTab(tab) {
+  document.querySelectorAll('.auth-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+  document.querySelectorAll('.auth-form').forEach(f => f.classList.toggle('active', f.id === tab + 'Form'));
+  document.getElementById('loginError').style.display = 'none';
+  document.getElementById('regError').style.display = 'none';
+}
+function logout() {
+  currentUser = null;
+  localStorage.removeItem('au_current');
+  updateUserUI();
+}
+function updateUserUI() {
+  const btn = document.getElementById('userBtn');
+  if (currentUser) {
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="user-name">' + currentUser.name + '</span><button class="logout-btn" onclick="event.stopPropagation();logout()">Çıxış</button>';
+  } else {
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span id="userLabel">Giriş</span>';
+  }
+}
+
+// Cart system
+function getCart() { return JSON.parse(localStorage.getItem('au_cart') || '[]'); }
+function saveCart(cart) { localStorage.setItem('au_cart', JSON.stringify(cart)); updateCartCount(); }
+
+function updateCartCount() {
+  const cart = getCart();
+  const total = cart.reduce((s, i) => s + i.qty, 0);
+  document.querySelectorAll('.cart-count').forEach(el => el.textContent = total);
+}
+
+function doAddCart(id) {
+  const cart = getCart();
+  const existing = cart.find(i => i.id === id);
+  if (existing) { existing.qty++; } else { const p = PROD.find(x => x.id === id); if (p) cart.push({ ...p, qty: 1 }); }
+  saveCart(cart);
+  document.querySelectorAll('.add-btn').forEach(b => {
+    const m = b.getAttribute('onclick');
+    if (m && m.includes(',' + id + ')') && !b.classList.contains('added')) {
+      b.textContent = '✓';
+      b.classList.add('added');
+      const fly = document.createElement('div');
+      fly.className = 'cart-fly';
+      fly.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>';
+      const rect = b.getBoundingClientRect();
+      fly.style.left = (rect.left + rect.width / 2 - 12) + 'px';
+      fly.style.top = (rect.top - 12) + 'px';
+      document.body.appendChild(fly);
+      setTimeout(() => fly.remove(), 900);
+      setTimeout(() => { b.textContent = tr('addCart'); b.classList.remove('added'); }, 1500);
+    }
+  });
+}
+
+function addCart(btn, id) {
+  if (!currentUser) {
+    pendingAddId = id;
+    openAuthModal();
+    return;
+  }
+  doAddCart(id);
+}
+
+function openCartModal() {
+  renderCart();
+  document.getElementById('cartOverlay').classList.add('open');
+}
+function closeCartModal() {
+  document.getElementById('cartOverlay').classList.remove('open');
+}
+
+function renderCart() {
+  const el = document.getElementById('cartContent');
+  const cart = getCart();
+  if (!cart.length) {
+    el.innerHTML = '<div class="cart-empty"><div class="ce-icon">🛒</div><p>Səbət boşdur</p></div>';
+    return;
+  }
+  const selDelivery = document.querySelector('input[name="delivery"]:checked');
+  const deliveryCost = selDelivery ? (selDelivery.value === 'city' ? 10 : 0) : 10;
+  const itemsTotal = cart.reduce((s, i) => s + i.rrp * i.qty, 0);
+  const grandTotal = itemsTotal + deliveryCost;
+  let html = '<div class="cart-items">';
+  cart.forEach(item => {
+    html += '<div class="cart-item"><img src="' + item.img + '" alt="' + item.name + '" /><div class="cart-item-info"><h4>' + item.name + '</h4><div class="ci-price">' + item.rrp.toFixed(2) + ' ₼</div></div><div class="cart-item-qty"><button onclick="changeQty(' + item.id + ',-1)">−</button><span>' + item.qty + '</span><button onclick="changeQty(' + item.id + ',1)">+</button></div><button class="cart-item-del" onclick="removeFromCart(' + item.id + ')">✕</button></div>';
+  });
+  html += '</div>';
+  html += '<div class="cart-delivery"><h4>Çatdırılma</h4><label class="delivery-option"><input type="radio" name="delivery" value="city" onchange="renderCart()" ' + (deliveryCost === 10 ? 'checked' : '') + ' /><span class="do-label">Şəhər daxili çatdırılma</span><span class="do-price">10 AZN</span></label><label class="delivery-option"><input type="radio" name="delivery" value="pickup" onchange="renderCart()" ' + (deliveryCost === 0 ? 'checked' : '') + ' /><span class="do-label">Mağazadan götürmə</span><span class="do-price">Pulsuz</span></label></div>';
+  html += '<div class="cart-summary"><div class="cs-row"><span>Məhsullar cəmi</span><span>' + itemsTotal.toFixed(2) + ' ₼</span></div><div class="cs-row"><span>Çatdırılma</span><span>' + (deliveryCost === 0 ? 'Pulsuz' : deliveryCost.toFixed(2) + ' ₼') + '</span></div><div class="cs-row total"><span>Ümumi cəm</span><span>' + grandTotal.toFixed(2) + ' ₼</span></div></div>';
+  html += '<button class="cart-checkout" onclick="checkout()">Sifarişi təsdiqlə</button>';
+  el.innerHTML = html;
+}
+
+function changeQty(id, delta) {
+  let cart = getCart();
+  const item = cart.find(i => i.id === id);
+  if (item) {
+    item.qty += delta;
+    if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+    saveCart(cart);
+    renderCart();
+  }
+}
+function removeFromCart(id) {
+  let cart = getCart().filter(i => i.id !== id);
+  saveCart(cart);
+  renderCart();
+}
+function checkout() {
+  const el = document.getElementById('cartContent');
+  localStorage.removeItem('au_cart');
+  updateCartCount();
+  el.innerHTML = '<div class="cart-thanks"><div class="ct-icon">✅</div><p>Sifarişiniz qəbul edildi! Tezliklə sizinlə əlaqə saxlayacağıq.</p></div>';
 }
 
 function updateCartText(){
