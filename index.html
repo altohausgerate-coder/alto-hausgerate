@@ -1005,10 +1005,17 @@ function checkout() {
   const deliveryCost = selDelivery && selDelivery.value === 'city' ? 10 : 0;
   const itemsTotal = cart.reduce((s, i) => s + i.rrp * i.qty, 0);
   const grandTotal = itemsTotal + deliveryCost;
-  let itemsStr = '';
-  cart.forEach(i => { itemsStr += i.name + ' - ' + i.qty + ' ədəd - ' + (i.rrp * i.qty).toFixed(2) + ' AZN\n'; });
-  const msg = '🛒 YENİ SİFARİŞ\n\n👤 Müştəri: ' + (currentUser ? currentUser.name : '—') + '\n📧 E-mail: ' + (currentUser ? currentUser.email : '—') + '\n\n🛍️ Sifariş:\n' + itemsStr + '\n🚚 Çatdırılma: ' + deliveryType + '\n💰 Məhsullar cəmi: ' + itemsTotal.toFixed(2) + ' AZN\n💰 Çatdırılma: ' + deliveryCost.toFixed(2) + ' AZN\n💰 Ümumi: ' + grandTotal.toFixed(2) + ' AZN';
-  fetch('https://api.telegram.org/bot8738984642:AAF8LUgQjDo-ScsubDZ-RU3eGcpkqmPOpYA/sendMessage', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: '8657129388', text: msg }) }).catch(function(){});
+  const cartItems = cart.map(i => i.name + ' - ' + i.qty + ' ədəd - ' + (i.rrp * i.qty).toFixed(2) + ' AZN').join('\n');
+  const subtotal = itemsTotal.toFixed(2);
+  const delivery = deliveryCost.toFixed(2);
+  const total = grandTotal.toFixed(2);
+  fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      message: '🛒 YENİ SİFARİŞ\n\n👤 Müştəri: ' + (currentUser ? currentUser.name : '—') + '\n📞 Telefon: ' + (currentUser ? currentUser.phone : '—') + '\n📧 E-mail: ' + (currentUser ? currentUser.email : '—') + '\n\n🛍️ Sifariş:\n' + cartItems + '\n\n🚚 Çatdırılma: ' + deliveryType + '\n💰 Məhsullar cəmi: ' + subtotal + ' AZN\n💰 Çatdırılma: ' + delivery + ' AZN\n💰 Ümumi: ' + total + ' AZN'
+    })
+  });
   const el = document.getElementById('cartContent');
   localStorage.removeItem('au_cart');
   updateCartCount();
