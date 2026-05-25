@@ -358,6 +358,14 @@ section{padding:80px 0}
 .cart-thanks{text-align:center;padding:32px 20px}
 .cart-thanks .ct-icon{font-size:48px;margin-bottom:12px}
 .cart-thanks p{font-size:16px;color:var(--gray-text);line-height:1.6}
+.do-strike{text-decoration:line-through;color:#bbb;margin-right:6px}
+.do-free{color:#22c55e;font-weight:600}
+.order-track{border-top:1px solid var(--gray-100);padding-top:16px;margin-top:16px}
+.order-track h4{font-size:14px;font-weight:600;margin-bottom:12px;color:var(--black)}
+.track-steps{display:flex;flex-direction:column;gap:8px}
+.track-step{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-text);padding:6px 10px;border-radius:var(--radius-sm);background:var(--gray-50)}
+.track-step.active{color:#22c55e;font-weight:600;background:#f0fdf4}
+.track-step .ts-icon{font-size:16px}
 
 /* User button */
 .user-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:none;background:transparent;border-radius:100px;cursor:pointer;font-size:13px;font-weight:600;font-family:var(--font);color:var(--gray-text);transition:var(--transition)}
@@ -974,17 +982,31 @@ function renderCart() {
     return;
   }
   const selDelivery = document.querySelector('input[name="delivery"]:checked');
-  const deliveryCost = selDelivery ? (selDelivery.value === 'city' ? 10 : 0) : 10;
   const itemsTotal = cart.reduce((s, i) => s + i.rrp * i.qty, 0);
-  const grandTotal = itemsTotal + deliveryCost;
+  const freeDelivery = itemsTotal >= 400;
+  let rawCost = 0;
+  if (selDelivery) {
+    if (selDelivery.value === 'city') rawCost = freeDelivery ? 0 : 10;
+    else if (selDelivery.value === 'courier') rawCost = freeDelivery ? 0 : 6;
+    else rawCost = 0;
+  } else { rawCost = 10; }
+  const showStrike = (selDelivery && selDelivery.value !== 'pickup' && freeDelivery);
+  const displayCost = rawCost;
+  const grandTotal = itemsTotal + displayCost;
+  const orderStatus = localStorage.getItem('au_order_status') || '';
   let html = '<div class="cart-items">';
   cart.forEach(item => {
     html += '<div class="cart-item"><img src="' + item.img + '" alt="' + item.name + '" /><div class="cart-item-info"><h4>' + item.name + '</h4><div class="ci-price">' + item.rrp.toFixed(2) + ' ₼</div></div><div class="cart-item-qty"><button onclick="changeQty(' + item.id + ',-1)">−</button><span>' + item.qty + '</span><button onclick="changeQty(' + item.id + ',1)">+</button></div><button class="cart-item-del" onclick="removeFromCart(' + item.id + ')">✕</button></div>';
   });
   html += '</div>';
-  html += '<div class="cart-delivery"><h4>Çatdırılma</h4><label class="delivery-option"><input type="radio" name="delivery" value="city" onchange="renderCart()" ' + (deliveryCost === 10 ? 'checked' : '') + ' /><span class="do-label">Şəhər daxili çatdırılma</span><span class="do-price">10 AZN</span></label><label class="delivery-option"><input type="radio" name="delivery" value="pickup" onchange="renderCart()" ' + (deliveryCost === 0 ? 'checked' : '') + ' /><span class="do-label">Mağazadan götürmə</span><span class="do-price">Pulsuz</span></label></div>';
-  html += '<div class="cart-summary"><div class="cs-row"><span>Məhsullar cəmi</span><span>' + itemsTotal.toFixed(2) + ' ₼</span></div><div class="cs-row"><span>Çatdırılma</span><span>' + (deliveryCost === 0 ? 'Pulsuz' : deliveryCost.toFixed(2) + ' ₼') + '</span></div><div class="cs-row total"><span>Ümumi cəm</span><span>' + grandTotal.toFixed(2) + ' ₼</span></div></div>';
+  html += '<div class="cart-delivery"><h4>Çatdırılma</h4>';
+  html += '<label class="delivery-option"><input type="radio" name="delivery" value="city" onchange="renderCart()" ' + (selDelivery && selDelivery.value === 'city' ? 'checked' : '') + ' /><span class="do-label">Şəhər daxili çatdırılma</span><span class="do-price">' + (freeDelivery ? '<span class="do-strike">10 AZN</span><span class="do-free">0 AZN - Pulsuz!</span>' : '10 AZN') + '</span></label>';
+  html += '<label class="delivery-option"><input type="radio" name="delivery" value="courier" onchange="renderCart()" ' + (selDelivery && selDelivery.value === 'courier' ? 'checked' : '') + ' /><span class="do-label">Kuryer ilə çatdırılma</span><span class="do-price">' + (freeDelivery ? '<span class="do-strike">6 AZN</span><span class="do-free">0 AZN - Pulsuz!</span>' : '6 AZN') + '</span></label>';
+  html += '<label class="delivery-option"><input type="radio" name="delivery" value="pickup" onchange="renderCart()" ' + (selDelivery && selDelivery.value === 'pickup' ? 'checked' : '') + ' /><span class="do-label">Mağazadan götürmə</span><span class="do-price">Pulsuz</span></label>';
+  html += '</div>';
+  html += '<div class="cart-summary"><div class="cs-row"><span>Məhsullar cəmi</span><span>' + itemsTotal.toFixed(2) + ' ₼</span></div><div class="cs-row"><span>Çatdırılma</span><span>' + (displayCost === 0 ? 'Pulsuz' : displayCost.toFixed(2) + ' ₼') + '</span></div><div class="cs-row total"><span>Ümumi cəm</span><span>' + grandTotal.toFixed(2) + ' ₼</span></div></div>';
   html += '<button class="cart-checkout" onclick="checkout()">Sifarişi təsdiqlə</button>';
+  html += '<div class="order-track"><h4>Sifarişin gedişatı</h4><div class="track-steps"><div class="track-step' + (orderStatus === 'sent' ? ' active' : '') + '"><span class="ts-icon">✉️</span> Sifariş ofisə göndərildi</div><div class="track-step"><span class="ts-icon">✅</span> Sifariş təsdiqləndi</div><div class="track-step"><span class="ts-icon">📦</span> Sifariş çatdırıldı</div></div></div>';
   el.innerHTML = html;
 }
 
@@ -1007,20 +1029,21 @@ async function confirmOrder() {
   const user = JSON.parse(localStorage.getItem('au_user') || '{}');
   const cart = JSON.parse(localStorage.getItem('au_cart') || '[]');
   const delivery = document.querySelector('input[name="delivery"]:checked');
-  const deliveryText = delivery ? delivery.value : 'Seçilməyib';
-  const deliveryCost = deliveryText.includes('10') ? 10 : 0;
-  
-  let cartText = '';
+  const deliveryVal = delivery ? delivery.value : 'pickup';
+  const deliveryLabel = deliveryVal === 'city' ? 'Şəhər daxili çatdırılma' : deliveryVal === 'courier' ? 'Kuryer ilə çatdırılma' : 'Mağazadan götürmə';
   let subtotal = 0;
+  let cartText = '';
   cart.forEach(item => {
     cartText += '• ' + item.name + ' - ' + item.qty + ' ədəd - ' + item.rrp + ' AZN\n';
     subtotal += item.rrp * item.qty;
   });
-  
+  const freeDelivery = subtotal >= 400;
+  let deliveryCost = 0;
+  if (deliveryVal === 'city') deliveryCost = freeDelivery ? 0 : 10;
+  else if (deliveryVal === 'courier') deliveryCost = freeDelivery ? 0 : 6;
+  else deliveryCost = 0;
   const total = subtotal + deliveryCost;
-  
-  const message = '🛒 YENİ SİFARİŞ\n\n👤 Müştəri: ' + (user.name || '-') + '\n📞 Telefon: ' + (user.phone || '-') + '\n📧 E-mail: ' + (user.email || '-') + '\n\n🛍️ Sifariş:\n' + cartText + '\n🚚 Çatdırılma: ' + deliveryText + '\n💰 Məhsullar cəmi: ' + subtotal + ' AZN\n💰 Çatdırılma: ' + deliveryCost + ' AZN\n💰 Ümumi: ' + total + ' AZN';
-
+  const message = '🛒 YENİ SİFARİŞ\n\n👤 Müştəri: ' + (user.name || '-') + '\n📞 Telefon: ' + (user.phone || '-') + '\n📧 E-mail: ' + (user.email || '-') + '\n\n🛍️ Sifariş:\n' + cartText + '\n🚚 Çatdırılma: ' + deliveryLabel + '\n💰 Məhsullar cəmi: ' + subtotal + ' AZN\n💰 Çatdırılma: ' + deliveryCost + ' AZN\n💰 Ümumi: ' + total + ' AZN';
   try {
     await fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/', {
       method: 'POST',
@@ -1033,6 +1056,7 @@ async function confirmOrder() {
 }
 function checkout() {
   confirmOrder();
+  localStorage.setItem('au_order_status', 'sent');
   const el = document.getElementById('cartContent');
   localStorage.removeItem('au_cart');
   updateCartCount();
