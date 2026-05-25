@@ -976,6 +976,14 @@ function closeCartModal() {
 
 function renderCart() {
   const el = document.getElementById('cartContent');
+  const orderData = localStorage.getItem('au_order_status');
+  if (orderData) {
+    try { var orderInfo = JSON.parse(orderData); } catch(e) { orderInfo = null; }
+    if (orderInfo && orderInfo.status === 'sent') {
+      el.innerHTML = '<div class="cart-thanks"><div class="ct-icon">✅</div><p>Sifarişiniz qəbul edildi! Tezliklə sizinlə əlaqə saxlayacağıq.</p></div><div class="order-track" style="margin-top:0;border-top:none"><h4>Sifarişin gedişatı</h4><div class="track-steps"><div class="track-step active"><span class="ts-icon">✉️</span> Sifariş ofisə göndərildi</div><div class="track-step"><span class="ts-icon">✅</span> Sifariş təsdiqləndi</div><div class="track-step"><span class="ts-icon">📦</span> Sifariş çatdırıldı</div></div></div>';
+      return;
+    }
+  }
   const cart = getCart();
   if (!cart.length) {
     el.innerHTML = '<div class="cart-empty"><div class="ce-icon">🛒</div><p>Səbət boşdur</p></div>';
@@ -990,10 +998,8 @@ function renderCart() {
     else if (selDelivery.value === 'courier') rawCost = freeDelivery ? 0 : 6;
     else rawCost = 0;
   } else { rawCost = 10; }
-  const showStrike = (selDelivery && selDelivery.value !== 'pickup' && freeDelivery);
   const displayCost = rawCost;
   const grandTotal = itemsTotal + displayCost;
-  const orderStatus = localStorage.getItem('au_order_status') || '';
   let html = '<div class="cart-items">';
   cart.forEach(item => {
     html += '<div class="cart-item"><img src="' + item.img + '" alt="' + item.name + '" /><div class="cart-item-info"><h4>' + item.name + '</h4><div class="ci-price">' + item.rrp.toFixed(2) + ' ₼</div></div><div class="cart-item-qty"><button onclick="changeQty(' + item.id + ',-1)">−</button><span>' + item.qty + '</span><button onclick="changeQty(' + item.id + ',1)">+</button></div><button class="cart-item-del" onclick="removeFromCart(' + item.id + ')">✕</button></div>';
@@ -1006,7 +1012,6 @@ function renderCart() {
   html += '</div>';
   html += '<div class="cart-summary"><div class="cs-row"><span>Məhsullar cəmi</span><span>' + itemsTotal.toFixed(2) + ' ₼</span></div><div class="cs-row"><span>Çatdırılma</span><span>' + (displayCost === 0 ? 'Pulsuz' : displayCost.toFixed(2) + ' ₼') + '</span></div><div class="cs-row total"><span>Ümumi cəm</span><span>' + grandTotal.toFixed(2) + ' ₼</span></div></div>';
   html += '<button class="cart-checkout" onclick="checkout()">Sifarişi təsdiqlə</button>';
-  html += '<div class="order-track"><h4>Sifarişin gedişatı</h4><div class="track-steps"><div class="track-step' + (orderStatus === 'sent' ? ' active' : '') + '"><span class="ts-icon">✉️</span> Sifariş ofisə göndərildi</div><div class="track-step"><span class="ts-icon">✅</span> Sifariş təsdiqləndi</div><div class="track-step"><span class="ts-icon">📦</span> Sifariş çatdırıldı</div></div></div>';
   el.innerHTML = html;
 }
 
@@ -1056,11 +1061,10 @@ async function confirmOrder() {
 }
 function checkout() {
   confirmOrder();
-  localStorage.setItem('au_order_status', 'sent');
-  const el = document.getElementById('cartContent');
+  localStorage.setItem('au_order_status', JSON.stringify({ status: 'sent', timestamp: Date.now() }));
   localStorage.removeItem('au_cart');
   updateCartCount();
-  el.innerHTML = '<div class="cart-thanks"><div class="ct-icon">✅</div><p>Sifarişiniz qəbul edildi! Tezliklə sizinlə əlaqə saxlayacağıq.</p></div>';
+  renderCart();
 }
 
 function updateCartText(){
