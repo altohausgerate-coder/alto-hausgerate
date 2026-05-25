@@ -998,24 +998,36 @@ function removeFromCart(id) {
   saveCart(cart);
   renderCart();
 }
-function checkout() {
-  const cart = getCart();
-  const selDelivery = document.querySelector('input[name="delivery"]:checked');
-  const deliveryType = selDelivery && selDelivery.value === 'city' ? 'Şəhər daxili çatdırılma' : 'Mağazadan götürmə';
-  const deliveryCost = selDelivery && selDelivery.value === 'city' ? 10 : 0;
-  const itemsTotal = cart.reduce((s, i) => s + i.rrp * i.qty, 0);
-  const grandTotal = itemsTotal + deliveryCost;
-  const cartItems = cart.map(i => i.name + ' - ' + i.qty + ' ədəd - ' + (i.rrp * i.qty).toFixed(2) + ' AZN').join('\n');
-  const subtotal = itemsTotal.toFixed(2);
-  const delivery = deliveryCost.toFixed(2);
-  const total = grandTotal.toFixed(2);
-  fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      message: '🛒 YENİ SİFARİŞ\n\n👤 Müştəri: ' + (currentUser ? currentUser.name : '—') + '\n📞 Telefon: ' + (currentUser ? currentUser.phone : '—') + '\n📧 E-mail: ' + (currentUser ? currentUser.email : '—') + '\n\n🛍️ Sifariş:\n' + cartItems + '\n\n🚚 Çatdırılma: ' + deliveryType + '\n💰 Məhsullar cəmi: ' + subtotal + ' AZN\n💰 Çatdırılma: ' + delivery + ' AZN\n💰 Ümumi: ' + total + ' AZN'
-    })
+async function confirmOrder() {
+  const user = JSON.parse(localStorage.getItem('au_user') || '{}');
+  const cart = JSON.parse(localStorage.getItem('au_cart') || '[]');
+  const delivery = document.querySelector('input[name="delivery"]:checked');
+  const deliveryText = delivery ? delivery.value : 'Seçilməyib';
+  const deliveryCost = deliveryText.includes('10') ? 10 : 0;
+  
+  let cartText = '';
+  let subtotal = 0;
+  cart.forEach(item => {
+    cartText += '• ' + item.name + ' - ' + item.qty + ' ədəd - ' + item.rrp + ' AZN\n';
+    subtotal += item.rrp * item.qty;
   });
+  
+  const total = subtotal + deliveryCost;
+  
+  const message = '🛒 YENİ SİFARİŞ\n\n👤 Müştəri: ' + (user.name || '-') + '\n📞 Telefon: ' + (user.phone || '-') + '\n📧 E-mail: ' + (user.email || '-') + '\n\n🛍️ Sifariş:\n' + cartText + '\n🚚 Çatdırılma: ' + deliveryText + '\n💰 Məhsullar cəmi: ' + subtotal + ' AZN\n💰 Çatdırılma: ' + deliveryCost + ' AZN\n💰 Ümumi: ' + total + ' AZN';
+
+  try {
+    await fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: message })
+    });
+  } catch(e) {
+    console.error('Telegram xətası:', e);
+  }
+}
+function checkout() {
+  confirmOrder();
   const el = document.getElementById('cartContent');
   localStorage.removeItem('au_cart');
   updateCartCount();
