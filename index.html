@@ -424,9 +424,10 @@ section{padding:80px 0}
       <button type="submit" class="auth-submit">Giriş</button>
     </form>
     <form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
-      <input type="text" id="regName" placeholder="Adınız" required />
+      <input type="text" id="regName" placeholder="Ad Soyad" required />
+      <input type="tel" id="regPhone" placeholder="+994 XX XXX XX XX" required />
       <input type="email" id="regEmail" placeholder="E-poçt" required />
-      <input type="password" id="regPass" placeholder="Şifrə" required minlength="4" />
+      <input type="password" id="regPassword" placeholder="Şifrə" required minlength="4" />
       <input type="password" id="regConfirm" placeholder="Şifrəni təsdiqlə" required minlength="4" />
       <div class="auth-error" id="regError"></div>
       <button type="submit" class="auth-submit">Qeydiyyat</button>
@@ -851,16 +852,19 @@ let pendingAddId = null;
 function handleRegister(e) {
   e.preventDefault();
   const name = document.getElementById('regName').value.trim();
+  const phone = document.getElementById('regPhone').value.trim();
   const email = document.getElementById('regEmail').value.trim();
-  const pass = document.getElementById('regPass').value;
+  const pass = document.getElementById('regPassword').value;
   const confirm = document.getElementById('regConfirm').value;
   const err = document.getElementById('regError');
   if (pass !== confirm) { err.textContent = 'Şifrələr uyğun gəlmir'; err.style.display = 'block'; return; }
   const users = JSON.parse(localStorage.getItem('au_users') || '[]');
   if (users.find(u => u.email === email)) { err.textContent = 'Bu e-poçt artıq qeydiyyatdan keçib'; err.style.display = 'block'; return; }
-  users.push({ name, email, password: pass });
+  const userObj = { name, phone, email, password: pass };
+  users.push(userObj);
   localStorage.setItem('au_users', JSON.stringify(users));
-  currentUser = { name, email };
+  localStorage.setItem('au_user', JSON.stringify(userObj));
+  currentUser = { name, phone, email };
   localStorage.setItem('au_current', JSON.stringify(currentUser));
   updateUserUI();
   closeAuthModal();
@@ -875,7 +879,8 @@ function handleLogin(e) {
   const users = JSON.parse(localStorage.getItem('au_users') || '[]');
   const user = users.find(u => u.email === email && u.password === pass);
   if (!user) { err.textContent = 'E-poçt və ya şifrə yanlışdır'; err.style.display = 'block'; return; }
-  currentUser = { name: user.name, email: user.email };
+  localStorage.setItem('au_user', JSON.stringify(user));
+  currentUser = { name: user.name, phone: user.phone, email: user.email };
   localStorage.setItem('au_current', JSON.stringify(currentUser));
   updateUserUI();
   closeAuthModal();
