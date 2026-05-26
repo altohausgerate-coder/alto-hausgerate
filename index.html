@@ -485,36 +485,12 @@ section{padding:80px 0}
   .pm-title{font-size:17px}
   .pm-rrp{font-size:22px}
 }
-/* Birbank Modal */
-.bb-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:600;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.35s ease}
-.bb-overlay.open{opacity:1;pointer-events:auto}
-.bb-modal{background:#fff;border-radius:var(--radius-2xl);padding:40px;width:460px;max-width:92vw;position:relative;transform:scale(0.92) translateY(20px);transition:transform 0.4s var(--spring);max-height:90vh;overflow-y:auto;box-shadow:0 25px 60px rgba(0,0,0,0.15)}
-.bb-overlay.open .bb-modal{transform:scale(1) translateY(0)}
-.bb-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border:none;background:var(--gray-50);border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:var(--transition);color:var(--gray-text)}
-.bb-close:hover{background:var(--pink-light);color:var(--pink)}
-.bb-header{text-align:center;margin-bottom:28px}
-.bb-header .bb-logo{width:56px;height:56px;background:#e31e24;border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:24px;font-weight:800;color:#fff}
-.bb-header h2{font-size:22px;font-weight:700;margin-bottom:6px}
-.bb-header p{font-size:14px;color:var(--gray-text);line-height:1.5}
-.bb-field{margin-bottom:18px}
-.bb-field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--black)}
-.bb-field input{width:100%;padding:14px 16px;border:1.5px solid var(--gray-100);border-radius:var(--radius-md);font-size:14px;font-family:var(--font);outline:none;transition:all 0.3s var(--spring);background:var(--white)}
-.bb-field input:focus{border-color:#e31e24;box-shadow:0 0 0 4px rgba(227,30,36,0.08)}
-.bb-field .bb-error{color:#e74c3c;font-size:12px;display:none;margin-top:4px}
-.bb-info{display:flex;align-items:flex-start;gap:10px;padding:14px 16px;background:#fff5f5;border:1px solid #fdd;border-radius:var(--radius-md);margin-bottom:22px;font-size:13px;color:#666;line-height:1.5}
-.bb-info svg{flex-shrink:0;margin-top:1px}
-.bb-btn{width:100%;padding:16px;background:#e31e24;color:#fff;border:none;border-radius:var(--radius-md);font-size:15px;font-weight:700;font-family:var(--font);cursor:pointer;transition:all 0.25s var(--spring);display:flex;align-items:center;justify-content:center;gap:10px}
-.bb-btn:hover{background:#c41a1f;transform:translateY(-1px);box-shadow:0 6px 20px rgba(227,30,36,0.3)}
-.bb-btn:active{transform:scale(0.97)}
-.bb-divider{display:flex;align-items:center;gap:14px;margin:20px 0;color:#bbb;font-size:12px}
-.bb-divider::before,.bb-divider::after{content:'';flex:1;height:1px;background:var(--gray-100)}
-.bb-cards{display:flex;justify-content:center;gap:10px;margin-bottom:4px}
-.bb-cards span{padding:4px 12px;background:var(--gray-50);border:1px solid var(--gray-100);border-radius:6px;font-size:11px;font-weight:600;color:var(--gray-text)}
-@media(max-width:480px){
-  .bb-modal{padding:28px 20px}
-  .bb-header h2{font-size:19px}
-}
 /* Payment Methods */
+.pay-methods{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.cash-btn{background:#22c55e!important}
+.cash-btn:hover{background:#16a34a!important}
+.card-btn{background:#3b82f6!important}
+.card-btn:hover{background:#2563eb!important}
 .payment-methods{border-top:1px solid var(--gray-100);padding-top:16px;margin-bottom:18px}
 .payment-methods h4{font-size:14px;font-weight:600;margin-bottom:10px}
 .payment-option{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1.5px solid var(--gray-100);border-radius:var(--radius-md);cursor:pointer;transition:all 0.25s var(--spring);margin-bottom:8px;background:var(--white)}
@@ -617,6 +593,26 @@ section{padding:80px 0}
       <div class="auth-error" id="regError"></div>
       <button type="submit" class="auth-submit">Qeydiyyat</button>
     </form>
+  </div>
+</div>
+
+<!-- BIRBANK MODAL -->
+<div class="modal-overlay" id="birbankOverlay" onclick="if(event.target===this)closeBirbankModal()">
+  <div class="auth-modal" id="birbankModal" style="max-width:380px">
+    <button class="auth-close" onclick="closeBirbankModal()">✕</button>
+    <div style="text-align:center;margin-bottom:20px">
+      <div style="font-size:40px;margin-bottom:8px">💳</div>
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:4px">Birbank ilə ödəniş</h3>
+      <p style="color:#999;font-size:13px">Məlumatlarınızı daxil edin</p>
+    </div>
+    <div style="background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:12px;padding:14px;margin-bottom:20px;text-align:center">
+      <p style="font-size:13px;color:#15803d;margin-bottom:4px">Ödəniş məbləği</p>
+      <p style="font-size:28px;font-weight:800;color:#15803d" id="birbankAmount">0.00 ₼</p>
+    </div>
+    <input type="text" id="birbankName" placeholder="Ad Soyad" class="pm-review-input" style="margin-bottom:10px;display:block;width:100%;box-sizing:border-box" maxlength="60" />
+    <input type="tel" id="birbankPhone" placeholder="+994 XX XXX XX XX" class="pm-review-input" style="margin-bottom:16px;display:block;width:100%;box-sizing:border-box" maxlength="20" />
+    <button class="cart-checkout" style="width:100%" onclick="redirectToBirbank()">Birbank-a keç və ödə</button>
+    <p style="text-align:center;font-size:11px;color:#bbb;margin-top:10px">Birbank tətbiqi açılacaq. Məbləği dəyişmək mümkün deyil.</p>
   </div>
 </div>
 
@@ -1333,7 +1329,10 @@ function renderCart() {
   html += '<label class="payment-option' + (selPayment && selPayment.value === 'card' ? ' active' : '') + '"><input type="radio" name="payment" value="card" onchange="document.querySelectorAll(\'.payment-option\').forEach(el=>el.classList.remove(\'active\'));this.closest(\'.payment-option\').classList.add(\'active\')" ' + (selPayment && selPayment.value === 'card' ? 'checked' : '') + ' /><span class="po-icon">💳</span><span class="po-label">Kartla onlayn ödəniş <span class="po-desc">· Visa / Mastercard / Birbank</span></span></label>';
   html += '</div>';
   html += '<div class="cart-summary"><div class="cs-row"><span>Məhsullar cəmi</span><span>' + itemsTotal.toFixed(2) + ' ₼</span></div><div class="cs-row"><span>Çatdırılma</span><span>' + (displayCost === 0 ? 'Pulsuz' : displayCost.toFixed(2) + ' ₼') + '</span></div><div class="cs-row total"><span>Ümumi cəm</span><span>' + grandTotal.toFixed(2) + ' ₼</span></div></div>';
-  html += '<button class="cart-checkout" onclick="checkout()">Sifarişi təsdiqlə</button>';
+  html += '<div class="pay-methods">';
+  html += '<button class="cart-checkout cash-btn" onclick="checkout()">💵 Nağd ödəniş</button>';
+  html += '<button class="cart-checkout card-btn" onclick="openBirbankModal(' + grandTotal.toFixed(2) + ')">💳 Kartla ödəniş</button>';
+  html += '</div>';
   el.innerHTML = html;
 }
 
@@ -1426,50 +1425,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 
 document.addEventListener('DOMContentLoaded',init);
 
-/* Birbank Modal functions */
-function openBirbankModal(){document.getElementById('bbOverlay').classList.add('open');document.body.style.overflow='hidden'}
-function closeBirbankModal(){document.getElementById('bbOverlay').classList.remove('open');document.body.style.overflow=''}
+var _birbankTotal=0;function openBirbankModal(total){_birbankTotal=total;document.getElementById('birbankAmount').textContent=total.toFixed(2)+' ₼';document.getElementById('birbankName').value='';document.getElementById('birbankPhone').value='';const user=JSON.parse(localStorage.getItem('au_user')||'{}');if(user.name)document.getElementById('birbankName').value=user.name;if(user.phone)document.getElementById('birbankPhone').value=user.phone;document.getElementById('birbankOverlay').classList.add('open')}function closeBirbankModal(){document.getElementById('birbankOverlay').classList.remove('open')}async function redirectToBirbank(){const name=document.getElementById('birbankName').value.trim();const phone=document.getElementById('birbankPhone').value.trim();if(!name){alert('Adınızı daxil edin');return}if(!phone){alert('Telefon nömrəsini daxil edin');return}const cart=getCart();const cartText=cart.map(i=>i.name+' × '+i.qty).join(', ');const amountQepik=Math.round(_birbankTotal*100);const birbankUrl='https://app.birbank.az/qp?t=2&id=19F94C0A2EE5E3A2E0630100007FE546&amount='+amountQepik;const message='💳 YENİ KART ÖDƏNİŞİ\n\n👤 Ad: '+name+'\n📱 Tel: '+phone+'\n💰 Məbləğ: '+_birbankTotal.toFixed(2)+' ₼\n🛒 Məhsullar: '+cartText+'\n⏰ Vaxt: '+new Date().toLocaleString('az-AZ');try{await fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:message})})}catch(e){console.error('Telegram xətası:',e)}const delivery=document.querySelector('input[name="delivery"]:checked');const deliveryVal=delivery?delivery.value:'pickup';const orderRecord={id:Date.now(),date:new Date().toLocaleString('az-AZ'),items:cart.map(i=>({name:i.name,qty:i.qty,price:i.rrp})),total:_birbankTotal,delivery:deliveryVal==='city'?'Şəhər daxili':deliveryVal==='courier'?'Kuryer':'Mağazadan götürmə',deliveryCost:0,payMethod:'kart'};const history=JSON.parse(localStorage.getItem('orderHistory')||'[]');history.unshift(orderRecord);localStorage.setItem('orderHistory',JSON.stringify(history));localStorage.removeItem('au_cart');updateCartCount();closeBirbankModal();closeCartModal();window.location.href=birbankUrl}
+
 function openOrdersModal(){renderOrders();document.getElementById('ordersOverlay').classList.add('open')}
 function closeOrdersModal(){document.getElementById('ordersOverlay').classList.remove('open')}
 function renderOrders(){const el=document.getElementById('ordersContent');const history=JSON.parse(localStorage.getItem('orderHistory')||'[]');if(!history.length){el.innerHTML='<div class="cart-empty"><div class="ce-icon">📋</div><p>Hələ sifariş yoxdur</p></div>';return}el.innerHTML=history.map(function(o){return'<div class="order-history-card"><div class="ohc-header"><span class="ohc-date">📅 '+o.date+'</span><span class="ohc-total">'+o.total.toFixed(2)+' ₼</span></div><div class="ohc-items">'+o.items.map(function(i){return'<div class="ohc-item"><span class="ohc-name">'+i.name+'</span><span class="ohc-qty">'+i.qty+' ədəd × '+i.price.toFixed(2)+' ₼</span></div>'}).join('')+'</div><div class="ohc-footer"><span class="ohc-delivery">🚚 '+(o.delivery||'Çatdırılma')+(o.deliveryCost>0?' — '+o.deliveryCost+' ₼':' — Pulsuz')+'</span></div></div>'}).join('')}
-function submitBirbankPayment(e){e.preventDefault();const name=document.getElementById('bbName').value.trim();const phone=document.getElementById('bbPhone').value.trim();let valid=true;if(!name){document.getElementById('bbNameError').style.display='block';valid=false}else{document.getElementById('bbNameError').style.display='none'}if(!phone){document.getElementById('bbPhoneError').style.display='block';valid=false}else{document.getElementById('bbPhoneError').style.display='none'}if(!valid)return;const cart=JSON.parse(localStorage.getItem('au_cart')||'[]');let subtotal=0;let items='';cart.forEach((it,i)=>{subtotal+=it.rrp*it.qty;items+=(i>0?', ':'')+it.name+' ('+it.qty+' əd)'});let deliveryCost=0;const dl=document.querySelector('input[name="delivery"]:checked');const dv=dl?dl.value:'pickup';const freeD=subtotal>=400;if(dv==='city')deliveryCost=freeD?0:10;else if(dv==='courier')deliveryCost=freeD?0:6;const total=subtotal+deliveryCost;const now=new Date();const vaxt=now.getDate().toString().padStart(2,'0')+'.'+(now.getMonth()+1).toString().padStart(2,'0')+'.'+now.getFullYear()+' '+now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');const msg='💳 YENİ KART ÖDƏNİŞİ\n👤 Ad: '+name+'\n📱 Tel: '+phone+'\n💰 Məbləğ: '+total+' ₼\n🛒 Məhsullar: '+items+'\n⏰ Vaxt: '+vaxt;fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg})}).catch(function(e){console.error('Telegram xətası:',e)});closeBirbankModal();window.open('https://app.birbank.az/qp?t=2&id=19F94C0A2EE5E3A2E0630100007FE546&amount='+total,'_blank');confirmOrder(cart,dv,subtotal,deliveryCost,total).then(function(){localStorage.removeItem('au_cart');updateCartCount();renderCart();setTimeout(function(){closeCartModal()},4000)})}
 </script>
 
-<!-- Birbank Payment Modal -->
-<div class="bb-overlay" id="bbOverlay" onclick="if(event.target===this)closeBirbankModal()">
-  <div class="bb-modal">
-    <button class="bb-close" onclick="closeBirbankModal()">✕</button>
-    <div class="bb-header">
-      <div class="bb-logo">B</div>
-      <h2>Onlayn Kartla Ödəniş</h2>
-      <p>Kapital Bank / Birbank və ya istənilən digər bank kartı ilə təhlükəsiz ödəniş.</p>
-    </div>
-    <form onsubmit="submitBirbankPayment(event)">
-      <div class="bb-field">
-        <label for="bbName">Adınız və Soyadınız</label>
-        <input type="text" id="bbName" placeholder="Ad Soyad" required />
-        <div class="bb-error" id="bbNameError">Ad və Soyad daxil edin</div>
-      </div>
-      <div class="bb-field">
-        <label for="bbPhone">Telefon Nömrəniz</label>
-        <input type="tel" id="bbPhone" placeholder="+994 XX XXX XX XX" required />
-        <div class="bb-error" id="bbPhoneError">Telefon nömrəsi daxil edin</div>
-      </div>
-      <div class="bb-info">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e31e24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-        <span>Hörmətli müştəri, ödənişi təhlükəsiz şəkildə Birbank, Visa və ya Mastercard ilə onlayn edə bilərsiniz.<br><br>Aşağıdakı düyməyə klikləyərək ödənişi tamamlayın.<br><br>Qeyd: Ödəniş zamanı adınızı və soyadınızı qeyd etməyi unutmayın.</span>
-      </div>
-      <button type="submit" class="bb-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-        Birbank ilə Ödə
-      </button>
-    </form>
-    <div class="bb-divider">təhlükəsiz ödəniş</div>
-    <div class="bb-cards">
-      <span>Visa</span><span>Mastercard</span><span>Birbank</span>
-    </div>
-  </div>
-</div>
 
 <!-- ORDERS MODAL -->
 <div class="modal-overlay" id="ordersOverlay" onclick="if(event.target===this)closeOrdersModal()">
