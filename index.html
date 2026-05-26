@@ -485,6 +485,47 @@ section{padding:80px 0}
   .pm-title{font-size:17px}
   .pm-rrp{font-size:22px}
 }
+/* Birbank Modal */
+.bb-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:600;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.35s ease}
+.bb-overlay.open{opacity:1;pointer-events:auto}
+.bb-modal{background:#fff;border-radius:var(--radius-2xl);padding:40px;width:460px;max-width:92vw;position:relative;transform:scale(0.92) translateY(20px);transition:transform 0.4s var(--spring);max-height:90vh;overflow-y:auto;box-shadow:0 25px 60px rgba(0,0,0,0.15)}
+.bb-overlay.open .bb-modal{transform:scale(1) translateY(0)}
+.bb-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border:none;background:var(--gray-50);border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:var(--transition);color:var(--gray-text)}
+.bb-close:hover{background:var(--pink-light);color:var(--pink)}
+.bb-header{text-align:center;margin-bottom:28px}
+.bb-header .bb-logo{width:56px;height:56px;background:#e31e24;border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:24px;font-weight:800;color:#fff}
+.bb-header h2{font-size:22px;font-weight:700;margin-bottom:6px}
+.bb-header p{font-size:14px;color:var(--gray-text);line-height:1.5}
+.bb-field{margin-bottom:18px}
+.bb-field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--black)}
+.bb-field input{width:100%;padding:14px 16px;border:1.5px solid var(--gray-100);border-radius:var(--radius-md);font-size:14px;font-family:var(--font);outline:none;transition:all 0.3s var(--spring);background:var(--white)}
+.bb-field input:focus{border-color:#e31e24;box-shadow:0 0 0 4px rgba(227,30,36,0.08)}
+.bb-field .bb-error{color:#e74c3c;font-size:12px;display:none;margin-top:4px}
+.bb-info{display:flex;align-items:flex-start;gap:10px;padding:14px 16px;background:#fff5f5;border:1px solid #fdd;border-radius:var(--radius-md);margin-bottom:22px;font-size:13px;color:#666;line-height:1.5}
+.bb-info svg{flex-shrink:0;margin-top:1px}
+.bb-btn{width:100%;padding:16px;background:#e31e24;color:#fff;border:none;border-radius:var(--radius-md);font-size:15px;font-weight:700;font-family:var(--font);cursor:pointer;transition:all 0.25s var(--spring);display:flex;align-items:center;justify-content:center;gap:10px}
+.bb-btn:hover{background:#c41a1f;transform:translateY(-1px);box-shadow:0 6px 20px rgba(227,30,36,0.3)}
+.bb-btn:active{transform:scale(0.97)}
+.bb-divider{display:flex;align-items:center;gap:14px;margin:20px 0;color:#bbb;font-size:12px}
+.bb-divider::before,.bb-divider::after{content:'';flex:1;height:1px;background:var(--gray-100)}
+.bb-cards{display:flex;justify-content:center;gap:10px;margin-bottom:4px}
+.bb-cards span{padding:4px 12px;background:var(--gray-50);border:1px solid var(--gray-100);border-radius:6px;font-size:11px;font-weight:600;color:var(--gray-text)}
+@media(max-width:480px){
+  .bb-modal{padding:28px 20px}
+  .bb-header h2{font-size:19px}
+}
+/* Payment Methods */
+.payment-methods{border-top:1px solid var(--gray-100);padding-top:16px;margin-bottom:18px}
+.payment-methods h4{font-size:14px;font-weight:600;margin-bottom:10px}
+.payment-option{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1.5px solid var(--gray-100);border-radius:var(--radius-md);cursor:pointer;transition:all 0.25s var(--spring);margin-bottom:8px;background:var(--white)}
+.payment-option:hover{border-color:var(--pink);background:var(--pink-light)}
+.payment-option input[type=radio]{accent-color:var(--pink);width:18px;height:18px;cursor:pointer;flex-shrink:0}
+.payment-option .po-icon{width:36px;height:36px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;background:var(--gray-50);color:var(--gray-text);transition:all 0.25s var(--spring)}
+.payment-option:hover .po-icon{background:var(--pink-light);color:var(--pink)}
+.payment-option .po-label{flex:1;font-size:13px;font-weight:600;color:var(--black)}
+.payment-option .po-desc{font-size:11px;color:var(--gray-text);font-weight:400}
+.payment-option.active{border-color:var(--pink);background:var(--pink-light)}
+.payment-option.active .po-icon{background:var(--pink);color:#fff}
 </style>
 </head>
 <body>
@@ -1296,6 +1337,11 @@ function renderCart() {
   html += '<label class="delivery-option"><input type="radio" name="delivery" value="courier" onchange="renderCart()" ' + (selDelivery && selDelivery.value === 'courier' ? 'checked' : '') + ' /><span class="do-label">Kuryer ilə çatdırılma</span><span class="do-price">' + (freeDelivery ? '<span class="do-strike">6 AZN</span><span class="do-free">0 AZN - Pulsuz!</span>' : '6 AZN') + '</span></label>';
   html += '<label class="delivery-option"><input type="radio" name="delivery" value="pickup" onchange="renderCart()" ' + (selDelivery && selDelivery.value === 'pickup' ? 'checked' : '') + ' /><span class="do-label">Mağazadan götürmə</span><span class="do-price">Pulsuz</span></label>';
   html += '</div>';
+  html += '<div class="payment-methods"><h4>Ödəniş üsulu</h4>';
+  const selPayment = document.querySelector('input[name="payment"]:checked');
+  html += '<label class="payment-option' + (selPayment && selPayment.value === 'cash' ? ' active' : '') + '"><input type="radio" name="payment" value="cash" onchange="document.querySelectorAll(\'.payment-option\').forEach(el=>el.classList.remove(\'active\'));this.closest(\'.payment-option\').classList.add(\'active\')" ' + (!selPayment || selPayment.value === 'cash' ? 'checked' : '') + ' /><span class="po-icon">💵</span><span class="po-label">Nağd ödəniş <span class="po-desc">· Kuryerə nəğd ödə</span></span></label>';
+  html += '<label class="payment-option' + (selPayment && selPayment.value === 'card' ? ' active' : '') + '"><input type="radio" name="payment" value="card" onchange="document.querySelectorAll(\'.payment-option\').forEach(el=>el.classList.remove(\'active\'));this.closest(\'.payment-option\').classList.add(\'active\')" ' + (selPayment && selPayment.value === 'card' ? 'checked' : '') + ' /><span class="po-icon">💳</span><span class="po-label">Kartla onlayn ödəniş <span class="po-desc">· Visa / Mastercard / Birbank</span></span></label>';
+  html += '</div>';
   html += '<div class="cart-summary"><div class="cs-row"><span>Məhsullar cəmi</span><span>' + itemsTotal.toFixed(2) + ' ₼</span></div><div class="cs-row"><span>Çatdırılma</span><span>' + (displayCost === 0 ? 'Pulsuz' : displayCost.toFixed(2) + ' ₼') + '</span></div><div class="cs-row total"><span>Ümumi cəm</span><span>' + grandTotal.toFixed(2) + ' ₼</span></div></div>';
   html += '<button class="cart-checkout" onclick="checkout()">Sifarişi təsdiqlə</button>';
   el.innerHTML = html;
@@ -1334,7 +1380,9 @@ async function confirmOrder() {
   else if (deliveryVal === 'courier') deliveryCost = freeDelivery ? 0 : 6;
   else deliveryCost = 0;
   const total = subtotal + deliveryCost;
-  const message = '🛒 YENİ SİFARİŞ\n\n👤 Müştəri: ' + (user.name || '-') + '\n📞 Telefon: ' + (user.phone || '-') + '\n📧 E-mail: ' + (user.email || '-') + '\n\n🛍️ Sifariş:\n' + cartText + '\n🚚 Çatdırılma: ' + deliveryLabel + '\n💰 Məhsullar cəmi: ' + subtotal + ' AZN\n💰 Çatdırılma: ' + deliveryCost + ' AZN\n💰 Ümumi: ' + total + ' AZN';
+  const paymentMethod = document.querySelector('input[name="payment"]:checked');
+  const paymentLabel = paymentMethod && paymentMethod.value === 'card' ? 'Kartla onlayn ödəniş' : 'Nağd ödəniş';
+  const message = '🛒 YENİ SİFARİŞ\n\n👤 Müştəri: ' + (user.name || '-') + '\n📞 Telefon: ' + (user.phone || '-') + '\n📧 E-mail: ' + (user.email || '-') + '\n\n🛍️ Sifariş:\n' + cartText + '\n🚚 Çatdırılma: ' + deliveryLabel + '\n💳 Ödəniş: ' + paymentLabel + '\n💰 Məhsullar cəmi: ' + subtotal + ' AZN\n💰 Çatdırılma: ' + deliveryCost + ' AZN\n💰 Ümumi: ' + total + ' AZN';
   try {
     const response = await fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/', {
       method: 'POST',
@@ -1359,11 +1407,16 @@ function updateOrderStatusUI(status) {
 }
 
 function checkout() {
-  confirmOrder().then(function() {
-    localStorage.removeItem('au_cart');
-    updateCartCount();
-    renderCart();
-  });
+  const payment = document.querySelector('input[name="payment"]:checked');
+  if (payment && payment.value === 'card') {
+    openBirbankModal();
+  } else {
+    confirmOrder().then(function() {
+      localStorage.removeItem('au_cart');
+      updateCartCount();
+      renderCart();
+    });
+  }
 }
 
 function updateCartText(){
@@ -1378,6 +1431,48 @@ function handleForm(e){e.preventDefault();const btn=e.target.querySelector('.sub
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}}));
 
 document.addEventListener('DOMContentLoaded',init);
+
+/* Birbank Modal functions */
+function openBirbankModal(){document.getElementById('bbOverlay').classList.add('open');document.body.style.overflow='hidden'}
+function closeBirbankModal(){document.getElementById('bbOverlay').classList.remove('open');document.body.style.overflow=''}
+function submitBirbankPayment(e){e.preventDefault();const name=document.getElementById('bbName').value.trim();const phone=document.getElementById('bbPhone').value.trim();let valid=true;if(!name){document.getElementById('bbNameError').style.display='block';valid=false}else{document.getElementById('bbNameError').style.display='none'}if(!phone){document.getElementById('bbPhoneError').style.display='block';valid=false}else{document.getElementById('bbPhoneError').style.display='none'}if(!valid)return;closeBirbankModal();window.open('https://app.birbank.az/qp?t=2&id=19F94C0A2EE5E3A2E0630100007FE546','_blank');confirmOrder().then(function(){localStorage.removeItem('au_cart');updateCartCount();renderCart()})}
 </script>
+
+<!-- Birbank Payment Modal -->
+<div class="bb-overlay" id="bbOverlay" onclick="if(event.target===this)closeBirbankModal()">
+  <div class="bb-modal">
+    <button class="bb-close" onclick="closeBirbankModal()">✕</button>
+    <div class="bb-header">
+      <div class="bb-logo">B</div>
+      <h2>Onlayn Kartla Ödəniş</h2>
+      <p>Kapital Bank / Birbank və ya istənilən digər bank kartı ilə təhlükəsiz ödəniş.</p>
+    </div>
+    <form onsubmit="submitBirbankPayment(event)">
+      <div class="bb-field">
+        <label for="bbName">Adınız və Soyadınız</label>
+        <input type="text" id="bbName" placeholder="Ad Soyad" required />
+        <div class="bb-error" id="bbNameError">Ad və Soyad daxil edin</div>
+      </div>
+      <div class="bb-field">
+        <label for="bbPhone">Telefon Nömrəniz</label>
+        <input type="tel" id="bbPhone" placeholder="+994 XX XXX XX XX" required />
+        <div class="bb-error" id="bbPhoneError">Telefon nömrəsi daxil edin</div>
+      </div>
+      <div class="bb-info">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e31e24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        <span>Hörmətli müştəri, ödənişi təhlükəsiz şəkildə Birbank, Visa və ya Mastercard ilə onlayn edə bilərsiniz.<br><br>Aşağıdakı düyməyə klikləyərək ödənişi tamamlayın.<br><br>Qeyd: Ödəniş zamanı adınızı və soyadınızı qeyd etməyi unutmayın.</span>
+      </div>
+      <button type="submit" class="bb-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        Birbank ilə Ödə
+      </button>
+    </form>
+    <div class="bb-divider">təhlükəsiz ödəniş</div>
+    <div class="bb-cards">
+      <span>Visa</span><span>Mastercard</span><span>Birbank</span>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
