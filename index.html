@@ -486,22 +486,13 @@ section{padding:80px 0}
   .pm-rrp{font-size:22px}
 }
 /* Payment Methods */
-.pay-methods{display:flex;flex-direction:column;gap:10px;margin-top:8px}
-.cash-btn{background:#22c55e!important}
-.cash-btn:hover{background:#16a34a!important}
+.cart-checkout{width:100%;padding:16px;border:none;border-radius:var(--radius-md);font-size:16px;font-weight:700;cursor:pointer;font-family:var(--font);margin-top:12px;transition:opacity 0.2s;color:#fff}
+.cash-btn{background:var(--pink)!important}
+.cash-btn:hover{opacity:0.88}
 .card-btn{background:#3b82f6!important}
-.card-btn:hover{background:#2563eb!important}
-.payment-methods{border-top:1px solid var(--gray-100);padding-top:16px;margin-bottom:18px}
-.payment-methods h4{font-size:14px;font-weight:600;margin-bottom:10px}
-.payment-option{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1.5px solid var(--gray-100);border-radius:var(--radius-md);cursor:pointer;transition:all 0.25s var(--spring);margin-bottom:8px;background:var(--white)}
-.payment-option:hover{border-color:var(--pink);background:var(--pink-light)}
-.payment-option input[type=radio]{accent-color:var(--pink);width:18px;height:18px;cursor:pointer;flex-shrink:0}
-.payment-option .po-icon{width:36px;height:36px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;background:var(--gray-50);color:var(--gray-text);transition:all 0.25s var(--spring)}
-.payment-option:hover .po-icon{background:var(--pink-light);color:var(--pink)}
-.payment-option .po-label{flex:1;font-size:13px;font-weight:600;color:var(--black)}
-.payment-option .po-desc{font-size:11px;color:var(--gray-text);font-weight:400}
-.payment-option.active{border-color:var(--pink);background:var(--pink-light)}
-.payment-option.active .po-icon{background:var(--pink);color:#fff}
+.card-btn:hover{opacity:0.88}
+.cart-pay-select{border-top:1px solid var(--gray-100);padding-top:16px;margin-bottom:8px}
+.cart-pay-select h4{font-size:14px;font-weight:600;margin-bottom:10px}
 /* Order History */
 .orders-btn{width:40px;height:40px;border:none;background:transparent;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--transition);color:var(--gray-text)}
 .orders-btn:hover{background:var(--pink-light);color:var(--pink)}
@@ -1323,16 +1314,18 @@ function renderCart() {
   html += '<label class="delivery-option"><input type="radio" name="delivery" value="courier" onchange="renderCart()" ' + (selDelivery && selDelivery.value === 'courier' ? 'checked' : '') + ' /><span class="do-label">Kuryer ilə çatdırılma</span><span class="do-price">' + (freeDelivery ? '<span class="do-strike">6 AZN</span><span class="do-free">0 AZN - Pulsuz!</span>' : '6 AZN') + '</span></label>';
   html += '<label class="delivery-option"><input type="radio" name="delivery" value="pickup" onchange="renderCart()" ' + (selDelivery && selDelivery.value === 'pickup' ? 'checked' : '') + ' /><span class="do-label">Mağazadan götürmə</span><span class="do-price">Pulsuz</span></label>';
   html += '</div>';
-  html += '<div class="payment-methods"><h4>Ödəniş üsulu</h4>';
-  const selPayment = document.querySelector('input[name="payment"]:checked');
-  html += '<label class="payment-option' + (selPayment && selPayment.value === 'cash' ? ' active' : '') + '"><input type="radio" name="payment" value="cash" onchange="document.querySelectorAll(\'.payment-option\').forEach(el=>el.classList.remove(\'active\'));this.closest(\'.payment-option\').classList.add(\'active\')" ' + (!selPayment || selPayment.value === 'cash' ? 'checked' : '') + ' /><span class="po-icon">💵</span><span class="po-label">Nağd ödəniş <span class="po-desc">· Kuryerə nəğd ödə</span></span></label>';
-  html += '<label class="payment-option' + (selPayment && selPayment.value === 'card' ? ' active' : '') + '"><input type="radio" name="payment" value="card" onchange="document.querySelectorAll(\'.payment-option\').forEach(el=>el.classList.remove(\'active\'));this.closest(\'.payment-option\').classList.add(\'active\')" ' + (selPayment && selPayment.value === 'card' ? 'checked' : '') + ' /><span class="po-icon">💳</span><span class="po-label">Kartla onlayn ödəniş <span class="po-desc">· Visa / Mastercard / Birbank</span></span></label>';
+  html += '<div class="cart-pay-select"><h4>Ödəniş üsulu</h4>';
+  html += '<label class="delivery-option"><input type="radio" name="paymethod" value="cash" onchange="renderCart()" checked /><span class="do-label">💵 Nağd ödəniş</span><span class="do-price" style="font-size:12px;color:#999">Kuryerə nağd öd</span></label>';
+  html += '<label class="delivery-option"><input type="radio" name="paymethod" value="card" onchange="renderCart()" /><span class="do-label">💳 Kartla onlayn ödəniş</span><span class="do-price" style="font-size:12px;color:#999">Visa / Mastercard / Birbank</span></label>';
   html += '</div>';
   html += '<div class="cart-summary"><div class="cs-row"><span>Məhsullar cəmi</span><span>' + itemsTotal.toFixed(2) + ' ₼</span></div><div class="cs-row"><span>Çatdırılma</span><span>' + (displayCost === 0 ? 'Pulsuz' : displayCost.toFixed(2) + ' ₼') + '</span></div><div class="cs-row total"><span>Ümumi cəm</span><span>' + grandTotal.toFixed(2) + ' ₼</span></div></div>';
-  html += '<div class="pay-methods">';
-  html += '<button class="cart-checkout cash-btn" onclick="checkout()">💵 Nağd ödəniş</button>';
-  html += '<button class="cart-checkout card-btn" onclick="openBirbankModal(' + grandTotal.toFixed(2) + ')">💳 Kartla ödəniş</button>';
-  html += '</div>';
+  const selPay = document.querySelector('input[name="paymethod"]:checked');
+  const isCard = selPay && selPay.value === 'card';
+  if (isCard) {
+    html += '<button class="cart-checkout card-btn" onclick="openBirbankModal(' + grandTotal.toFixed(2) + ')">💳 Kartla ödə — ' + grandTotal.toFixed(2) + ' ₼</button>';
+  } else {
+    html += '<button class="cart-checkout cash-btn" onclick="checkout()">💵 Nağd ödəniş</button>';
+  }
   el.innerHTML = html;
 }
 
@@ -1425,7 +1418,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 
 document.addEventListener('DOMContentLoaded',init);
 
-var _birbankTotal=0;function openBirbankModal(total){_birbankTotal=total;document.getElementById('birbankAmount').textContent=total.toFixed(2)+' ₼';document.getElementById('birbankName').value='';document.getElementById('birbankPhone').value='';const user=JSON.parse(localStorage.getItem('au_user')||'{}');if(user.name)document.getElementById('birbankName').value=user.name;if(user.phone)document.getElementById('birbankPhone').value=user.phone;document.getElementById('birbankOverlay').classList.add('open')}function closeBirbankModal(){document.getElementById('birbankOverlay').classList.remove('open')}async function redirectToBirbank(){const name=document.getElementById('birbankName').value.trim();const phone=document.getElementById('birbankPhone').value.trim();if(!name){alert('Adınızı daxil edin');return}if(!phone){alert('Telefon nömrəsini daxil edin');return}const cart=getCart();const cartText=cart.map(i=>i.name+' × '+i.qty).join(', ');const amountQepik=Math.round(_birbankTotal*100);const birbankUrl='https://app.birbank.az/qp?t=2&id=19F94C0A2EE5E3A2E0630100007FE546&amount='+amountQepik;const message='💳 YENİ KART ÖDƏNİŞİ\n\n👤 Ad: '+name+'\n📱 Tel: '+phone+'\n💰 Məbləğ: '+_birbankTotal.toFixed(2)+' ₼\n🛒 Məhsullar: '+cartText+'\n⏰ Vaxt: '+new Date().toLocaleString('az-AZ');try{await fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:message})})}catch(e){console.error('Telegram xətası:',e)}const delivery=document.querySelector('input[name="delivery"]:checked');const deliveryVal=delivery?delivery.value:'pickup';const orderRecord={id:Date.now(),date:new Date().toLocaleString('az-AZ'),items:cart.map(i=>({name:i.name,qty:i.qty,price:i.rrp})),total:_birbankTotal,delivery:deliveryVal==='city'?'Şəhər daxili':deliveryVal==='courier'?'Kuryer':'Mağazadan götürmə',deliveryCost:0,payMethod:'kart'};const history=JSON.parse(localStorage.getItem('orderHistory')||'[]');history.unshift(orderRecord);localStorage.setItem('orderHistory',JSON.stringify(history));localStorage.removeItem('au_cart');updateCartCount();closeBirbankModal();closeCartModal();window.location.href=birbankUrl}
+var _birbankTotal=0;function openBirbankModal(total){_birbankTotal=total;document.getElementById('birbankAmount').textContent=total.toFixed(2)+' ₼';document.getElementById('birbankName').value='';document.getElementById('birbankPhone').value='';const user=JSON.parse(localStorage.getItem('au_user')||'{}');if(user.name)document.getElementById('birbankName').value=user.name;if(user.phone)document.getElementById('birbankPhone').value=user.phone;document.getElementById('birbankOverlay').classList.add('open')}function closeBirbankModal(){document.getElementById('birbankOverlay').classList.remove('open')}async function redirectToBirbank(){const name=document.getElementById('birbankName').value.trim();const phone=document.getElementById('birbankPhone').value.trim();if(!name){alert('Adınızı daxil edin');return}if(!phone){alert('Telefon nömrəsini daxil edin');return}const cart=getCart();const cartText=cart.map(i=>i.name+' × '+i.qty).join(', ');const birbankUrl='https://app.birbank.az/qp?t=2&id=19F94C0A2EE5E3A2E0630100007FE546&amount='+_birbankTotal.toFixed(2);const message='💳 YENİ KART ÖDƏNİŞİ\n\n👤 Ad: '+name+'\n📱 Tel: '+phone+'\n💰 Məbləğ: '+_birbankTotal.toFixed(2)+' ₼\n🛒 Məhsullar: '+cartText+'\n⏰ Vaxt: '+new Date().toLocaleString('az-AZ');try{await fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:message})})}catch(e){console.error('Telegram xətası:',e)}const delivery=document.querySelector('input[name="delivery"]:checked');const deliveryVal=delivery?delivery.value:'pickup';const orderRecord={id:Date.now(),date:new Date().toLocaleString('az-AZ'),items:cart.map(i=>({name:i.name,qty:i.qty,price:i.rrp})),total:_birbankTotal,delivery:deliveryVal==='city'?'Şəhər daxili':deliveryVal==='courier'?'Kuryer':'Mağazadan götürmə',deliveryCost:0,payMethod:'kart'};const history=JSON.parse(localStorage.getItem('orderHistory')||'[]');history.unshift(orderRecord);localStorage.setItem('orderHistory',JSON.stringify(history));localStorage.removeItem('au_cart');updateCartCount();closeBirbankModal();closeCartModal();setTimeout(function(){window.location.href=birbankUrl},300)}
 
 function openOrdersModal(){renderOrders();document.getElementById('ordersOverlay').classList.add('open')}
 function closeOrdersModal(){document.getElementById('ordersOverlay').classList.remove('open')}
