@@ -1289,43 +1289,18 @@ function addCart(btn, id) {
   doAddCart(id);
 }
 
-var cartPollInterval = null;
+
 function openCartModal() {
   renderCart();
   document.getElementById('cartOverlay').classList.add('open');
-  const orderData = JSON.parse(localStorage.getItem('au_order_status') || '{}');
-  if (orderData.orderId) {
-    if (cartPollInterval) clearInterval(cartPollInterval);
-    cartPollInterval = setInterval(async function() {
-      const od = JSON.parse(localStorage.getItem('au_order_status') || '{}');
-      if (!od.orderId) return;
-      try {
-        const res = await fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/status?id=' + od.orderId);
-        const data = await res.json();
-        if (data.status !== od.status) {
-          od.status = data.status;
-          localStorage.setItem('au_order_status', JSON.stringify(od));
-          updateOrderStatusUI(data.status);
-        }
-      } catch(e) {}
-    }, 5000);
-  }
 }
 function closeCartModal() {
   document.getElementById('cartOverlay').classList.remove('open');
-  if (cartPollInterval) { clearInterval(cartPollInterval); cartPollInterval = null; }
 }
 
 function renderCart() {
   const el = document.getElementById('cartContent');
-  const orderData = localStorage.getItem('au_order_status');
-  if (orderData) {
-    try { var orderInfo = JSON.parse(orderData); } catch(e) { orderInfo = null; }
-    if (orderInfo && (orderInfo.status === 'sent' || orderInfo.status === 'confirmed' || orderInfo.status === 'delivered')) {
-      updateOrderStatusUI(orderInfo.status);
-      return;
-    }
-  }
+  localStorage.removeItem('au_order_status');
   const cart = getCart();
   if (!cart.length) {
     el.innerHTML = '<div class="cart-empty"><div class="ce-icon">🛒</div><p>Səbət boşdur</p></div>';
