@@ -1412,9 +1412,11 @@ function checkout() {
     openBirbankModal();
   } else {
     confirmOrder().then(function() {
-      localStorage.removeItem('au_cart');
-      updateCartCount();
-      renderCart();
+      setTimeout(function() {
+        localStorage.removeItem('au_cart');
+        updateCartCount();
+        renderCart();
+      }, 3000);
     });
   }
 }
@@ -1435,7 +1437,7 @@ document.addEventListener('DOMContentLoaded',init);
 /* Birbank Modal functions */
 function openBirbankModal(){document.getElementById('bbOverlay').classList.add('open');document.body.style.overflow='hidden'}
 function closeBirbankModal(){document.getElementById('bbOverlay').classList.remove('open');document.body.style.overflow=''}
-function submitBirbankPayment(e){e.preventDefault();const name=document.getElementById('bbName').value.trim();const phone=document.getElementById('bbPhone').value.trim();let valid=true;if(!name){document.getElementById('bbNameError').style.display='block';valid=false}else{document.getElementById('bbNameError').style.display='none'}if(!phone){document.getElementById('bbPhoneError').style.display='block';valid=false}else{document.getElementById('bbPhoneError').style.display='none'}if(!valid)return;const cart=JSON.parse(localStorage.getItem('au_cart')||'[]');let total=0;let items='';cart.forEach((it,i)=>{total+=it.rrp*it.qty;items+=(i>0?', ':'')+it.name+' ('+it.qty+' əd)'});const now=new Date();const vaxt=now.getDate().toString().padStart(2,'0')+'.'+(now.getMonth()+1).toString().padStart(2,'0')+'.'+now.getFullYear()+' '+now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');const msg='💳 YENİ KART ÖDƏNİŞİ\n👤 Ad: '+name+'\n📱 Tel: '+phone+'\n💰 Məbləğ: '+total+' ₼\n🛒 Məhsullar: '+items+'\n⏰ Vaxt: '+vaxt;fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg})}).catch(function(e){console.error('Telegram xətası:',e)});closeBirbankModal();window.open('https://app.birbank.az/qp?t=2&id=19F94C0A2EE5E3A2E0630100007FE546&amount='+total,'_blank');confirmOrder().then(function(){localStorage.removeItem('au_cart');updateCartCount();renderCart()})}
+function submitBirbankPayment(e){e.preventDefault();const name=document.getElementById('bbName').value.trim();const phone=document.getElementById('bbPhone').value.trim();let valid=true;if(!name){document.getElementById('bbNameError').style.display='block';valid=false}else{document.getElementById('bbNameError').style.display='none'}if(!phone){document.getElementById('bbPhoneError').style.display='block';valid=false}else{document.getElementById('bbPhoneError').style.display='none'}if(!valid)return;const cart=JSON.parse(localStorage.getItem('au_cart')||'[]');let total=0;let items='';cart.forEach((it,i)=>{total+=it.rrp*it.qty;items+=(i>0?', ':'')+it.name+' ('+it.qty+' əd)'});const now=new Date();const vaxt=now.getDate().toString().padStart(2,'0')+'.'+(now.getMonth()+1).toString().padStart(2,'0')+'.'+now.getFullYear()+' '+now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');const msg='💳 YENİ KART ÖDƏNİŞİ\n👤 Ad: '+name+'\n📱 Tel: '+phone+'\n💰 Məbləğ: '+total+' ₼\n🛒 Məhsullar: '+items+'\n⏰ Vaxt: '+vaxt;fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg})}).catch(function(e){console.error('Telegram xətası:',e)});closeBirbankModal();window.open('https://app.birbank.az/qp?t=2&id=19F94C0A2EE5E3A2E0630100007FE546&amount='+total,'_blank');confirmOrder().then(function(){setTimeout(function(){localStorage.removeItem('au_cart');updateCartCount();renderCart()},3000)})}
 </script>
 
 <!-- Birbank Payment Modal -->
