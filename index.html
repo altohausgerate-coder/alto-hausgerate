@@ -526,6 +526,27 @@ section{padding:80px 0}
 .payment-option .po-desc{font-size:11px;color:var(--gray-text);font-weight:400}
 .payment-option.active{border-color:var(--pink);background:var(--pink-light)}
 .payment-option.active .po-icon{background:var(--pink);color:#fff}
+/* Order History */
+.history-btn{position:relative;width:40px;height:40px;border:none;background:transparent;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--transition);color:var(--gray-text);font-size:18px}
+.history-btn:hover{background:var(--pink-light);color:var(--pink)}
+.oh-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:600;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.35s ease}
+.oh-overlay.open{opacity:1;pointer-events:auto}
+.oh-modal{background:#fff;border-radius:var(--radius-2xl);padding:32px;width:520px;max-width:92vw;position:relative;transform:scale(0.92) translateY(20px);transition:transform 0.4s var(--spring);max-height:80vh;overflow-y:auto;box-shadow:0 25px 60px rgba(0,0,0,0.15)}
+.oh-overlay.open .oh-modal{transform:scale(1) translateY(0)}
+.oh-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border:none;background:var(--gray-50);border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:var(--transition);color:var(--gray-text)}
+.oh-close:hover{background:var(--pink-light);color:var(--pink)}
+.oh-modal h2{font-size:20px;font-weight:700;margin-bottom:20px}
+.oh-empty{text-align:center;padding:40px 0;color:var(--gray-text);font-size:14px}
+.oh-card{border:1px solid var(--gray-100);border-radius:var(--radius-lg);padding:16px;margin-bottom:12px}
+.oh-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:13px;color:var(--gray-text)}
+.oh-card-header strong{color:var(--black);font-size:14px}
+.oh-card-items{font-size:13px;color:var(--black);margin-bottom:8px;line-height:1.6}
+.oh-card-items span{display:block}
+.oh-card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid var(--gray-50);font-size:14px;font-weight:600;color:var(--black)}
+.oh-badge{padding:2px 10px;border-radius:100px;font-size:11px;font-weight:600}
+.oh-badge.cash{background:#fef3c7;color:#92400e}
+.oh-badge.card{background:#fee2e2;color:#991b1b}
+@media(max-width:480px){.oh-modal{padding:24px 16px}}
 </style>
 </head>
 <body>
@@ -551,6 +572,7 @@ section{padding:80px 0}
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
       <span class="cart-count">0</span>
     </button>
+    <button class="history-btn" onclick="openOrderHistory()" aria-label="Sifarişlərim" title="Sifarişlərim">📋</button>
   </div>
 </header>
 
@@ -1396,6 +1418,12 @@ async function confirmOrder() {
     console.error('Telegram xətası:', e);
     localStorage.setItem('au_order_status', JSON.stringify({ status: 'sent', orderId: null }));
   }
+  const orderItems = cart.map(item => ({ name: item.name, qty: item.qty, price: item.rrp }));
+  const payMethod = paymentLabel === 'Kartla onlayn ödəniş' ? 'kart' : 'nağd';
+  const orderData = { id: Date.now(), date: new Date().toLocaleString('az-AZ'), items: orderItems, total: total, payMethod: payMethod };
+  const history = JSON.parse(localStorage.getItem('au_order_history') || '[]');
+  history.unshift(orderData);
+  localStorage.setItem('au_order_history', JSON.stringify(history));
 }
 function updateOrderStatusUI(status) {
   const el = document.getElementById('cartContent');
@@ -1412,10 +1440,10 @@ function checkout() {
     openBirbankModal();
   } else {
     confirmOrder().then(function() {
+      localStorage.removeItem('au_cart');
+      updateCartCount();
+      renderCart();
       setTimeout(function() {
-        localStorage.removeItem('au_cart');
-        updateCartCount();
-        renderCart();
         closeCartModal();
       }, 4000);
     });
@@ -1438,7 +1466,9 @@ document.addEventListener('DOMContentLoaded',init);
 /* Birbank Modal functions */
 function openBirbankModal(){document.getElementById('bbOverlay').classList.add('open');document.body.style.overflow='hidden'}
 function closeBirbankModal(){document.getElementById('bbOverlay').classList.remove('open');document.body.style.overflow=''}
-function submitBirbankPayment(e){e.preventDefault();const name=document.getElementById('bbName').value.trim();const phone=document.getElementById('bbPhone').value.trim();let valid=true;if(!name){document.getElementById('bbNameError').style.display='block';valid=false}else{document.getElementById('bbNameError').style.display='none'}if(!phone){document.getElementById('bbPhoneError').style.display='block';valid=false}else{document.getElementById('bbPhoneError').style.display='none'}if(!valid)return;const cart=JSON.parse(localStorage.getItem('au_cart')||'[]');let total=0;let items='';cart.forEach((it,i)=>{total+=it.rrp*it.qty;items+=(i>0?', ':'')+it.name+' ('+it.qty+' əd)'});const now=new Date();const vaxt=now.getDate().toString().padStart(2,'0')+'.'+(now.getMonth()+1).toString().padStart(2,'0')+'.'+now.getFullYear()+' '+now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');const msg='💳 YENİ KART ÖDƏNİŞİ\n👤 Ad: '+name+'\n📱 Tel: '+phone+'\n💰 Məbləğ: '+total+' ₼\n🛒 Məhsullar: '+items+'\n⏰ Vaxt: '+vaxt;fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg})}).catch(function(e){console.error('Telegram xətası:',e)});closeBirbankModal();window.open('https://app.birbank.az/qp?t=2&id=19F94C0A2EE5E3A2E0630100007FE546&amount='+total,'_blank');confirmOrder().then(function(){setTimeout(function(){localStorage.removeItem('au_cart');updateCartCount();renderCart();closeCartModal()},4000)})}
+function openOrderHistory(){const el=document.getElementById('ohContent');const history=JSON.parse(localStorage.getItem('au_order_history')||'[]');if(!history.length){el.innerHTML='<div class="oh-empty">Hələ sifariş yoxdur</div>'}else{let html='';history.forEach(function(o){const bc=o.payMethod==='kart'?'card':'cash';const bl=o.payMethod==='kart'?'Kartla onlayn':'Nağd';html+='<div class="oh-card"><div class="oh-card-header"><strong>#'+o.id+'</strong><span>'+o.date+'</span></div><div class="oh-card-items">';o.items.forEach(function(it){html+='<span>• '+it.name+' - '+it.qty+' əd - '+it.price+' AZN</span>'});html+='</div><div class="oh-card-footer"><span class="oh-badge '+bc+'">'+bl+'</span><span>Ümumi: '+o.total+' AZN</span></div></div>'});el.innerHTML=html}document.getElementById('ohOverlay').classList.add('open');document.body.style.overflow='hidden'}
+function closeOrderHistory(){document.getElementById('ohOverlay').classList.remove('open');document.body.style.overflow=''}
+function submitBirbankPayment(e){e.preventDefault();const name=document.getElementById('bbName').value.trim();const phone=document.getElementById('bbPhone').value.trim();let valid=true;if(!name){document.getElementById('bbNameError').style.display='block';valid=false}else{document.getElementById('bbNameError').style.display='none'}if(!phone){document.getElementById('bbPhoneError').style.display='block';valid=false}else{document.getElementById('bbPhoneError').style.display='none'}if(!valid)return;const cart=JSON.parse(localStorage.getItem('au_cart')||'[]');let total=0;let items='';cart.forEach((it,i)=>{total+=it.rrp*it.qty;items+=(i>0?', ':'')+it.name+' ('+it.qty+' əd)'});const now=new Date();const vaxt=now.getDate().toString().padStart(2,'0')+'.'+(now.getMonth()+1).toString().padStart(2,'0')+'.'+now.getFullYear()+' '+now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');const msg='💳 YENİ KART ÖDƏNİŞİ\n👤 Ad: '+name+'\n📱 Tel: '+phone+'\n💰 Məbləğ: '+total+' ₼\n🛒 Məhsullar: '+items+'\n⏰ Vaxt: '+vaxt;fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg})}).catch(function(e){console.error('Telegram xətası:',e)});closeBirbankModal();window.open('https://app.birbank.az/qp?t=2&id=19F94C0A2EE5E3A2E0630100007FE546&amount='+total,'_blank');confirmOrder().then(function(){localStorage.removeItem('au_cart');updateCartCount();renderCart();setTimeout(function(){closeCartModal()},4000)})}
 </script>
 
 <!-- Birbank Payment Modal -->
@@ -1474,6 +1504,15 @@ function submitBirbankPayment(e){e.preventDefault();const name=document.getEleme
     <div class="bb-cards">
       <span>Visa</span><span>Mastercard</span><span>Birbank</span>
     </div>
+  </div>
+</div>
+
+<!-- Order History Modal -->
+<div class="oh-overlay" id="ohOverlay" onclick="if(event.target===this)closeOrderHistory()">
+  <div class="oh-modal">
+    <button class="oh-close" onclick="closeOrderHistory()">✕</button>
+    <h2>📋 Sifarişlərim</h2>
+    <div class="oh-content" id="ohContent"></div>
   </div>
 </div>
 
