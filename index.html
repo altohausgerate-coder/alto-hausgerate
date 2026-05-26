@@ -413,19 +413,34 @@ section{padding:80px 0}
 .pm-add-btn.added{background:#22c55e;pointer-events:none}
 .pm-stock{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#22c55e}
 .pm-delivery-est{font-weight:400;color:var(--gray-text);font-size:12px}
-.pm-tabs{display:flex;border-bottom:1.5px solid var(--gray-100);gap:0}
-.pm-tab{padding:10px 16px;font-size:13px;font-weight:600;background:none;border:none;cursor:pointer;color:var(--gray-text);transition:var(--transition);font-family:var(--font);border-bottom:2px solid transparent;margin-bottom:-1.5px}
+.img-wrap.img-placeholder{background:linear-gradient(135deg,#f0f0f0,#e8e8e8);display:flex;align-items:center;justify-content:center}
+.img-wrap.img-placeholder::after{content:attr(data-label);font-size:12px;font-weight:600;color:#999;text-align:center;padding:8px;line-height:1.4}
+.img-placeholder{background:linear-gradient(135deg,#f0f0f0,#e8e8e8);display:flex;align-items:center;justify-content:center}
+.img-placeholder::after{content:attr(data-label);font-size:12px;font-weight:600;color:#999;text-align:center;padding:8px;line-height:1.4}
+.pm-tabs{display:flex;gap:4px;border-bottom:2px solid var(--gray-100);margin-bottom:16px}
+.pm-tab{background:none;border:none;padding:10px 16px;font-size:14px;font-weight:600;cursor:pointer;color:var(--gray-text);border-bottom:2px solid transparent;margin-bottom:-2px;transition:var(--transition);font-family:var(--font)}
 .pm-tab.active{color:var(--pink);border-bottom-color:var(--pink)}
-.pm-tab:hover{color:var(--pink)}
-.pm-panel{display:none}
-.pm-panel.active{display:block}
-.pm-reviews-empty{text-align:center;padding:24px 0;color:var(--gray-text)}
-.pm-reviews-empty .pm-re-icon{font-size:32px;margin-bottom:8px}
-.pm-reviews-empty p{font-size:15px;font-weight:600;color:var(--black);margin-bottom:4px}
-.pm-reviews-empty span{font-size:13px}
-.img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#f0f0f0;color:#bbb;font-size:14px;font-weight:600;border-radius:inherit}
-.img-placeholder.lg{font-size:20px;min-height:300px}
-.pm-thumb .img-placeholder{width:64px;height:64px;font-size:10px}
+.pm-tab-panel{}
+.pm-no-reviews{text-align:center;padding:32px 0;color:var(--gray-text)}
+.pm-review-form{margin-top:16px;padding-top:16px;border-top:1px solid var(--gray-100);display:flex;flex-direction:column;gap:10px}
+.pm-review-form h4{font-size:14px;font-weight:600}
+.pm-star-select{display:flex;gap:6px;font-size:24px;cursor:pointer}
+.pm-star{color:#ccc;transition:color 0.15s;user-select:none}
+.pm-star.active,.pm-star:hover{color:#f59e0b}
+.pm-review-input,.pm-review-textarea{width:100%;padding:10px 14px;border:1.5px solid var(--gray-100);border-radius:var(--radius-sm);font-size:14px;font-family:var(--font);outline:none;resize:none;transition:border-color 0.2s}
+.pm-review-input:focus,.pm-review-textarea:focus{border-color:var(--pink)}
+.pm-review-submit{background:var(--pink);color:#fff;border:none;padding:10px 20px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font);align-self:flex-start;transition:opacity 0.2s}
+.pm-review-submit:hover{opacity:0.85}
+.pm-review-item{padding:12px 0;border-bottom:1px solid var(--gray-50)}
+.pm-review-header{display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap}
+.pm-review-author{font-weight:600;font-size:13px}
+.pm-review-stars{color:#f59e0b;font-size:14px}
+.pm-review-date{color:#999;font-size:12px;margin-left:auto}
+.pm-review-text{font-size:13px;color:var(--gray-text);line-height:1.5}
+.pm-rating-summary{display:flex;align-items:center;gap:10px;padding:12px 0;margin-bottom:8px}
+.pm-avg-stars{color:#f59e0b;font-size:20px}
+.pm-avg-num{font-size:18px;font-weight:700}
+.pm-review-total{font-size:13px;color:#999}
 @media(max-width:768px){
   .prod-modal{grid-template-columns:1fr;gap:20px;padding:24px}
   .pm-title{font-size:17px}
@@ -669,31 +684,31 @@ const PROD=[
 {id:1,name:"BergHOFF NATURAL 1.7LT Çaynik Orange",brand:"BergHOFF",cat:"Çaydan",mrp:250,rrp:189.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7254381/5488d26aab9fec02821a-0.jpg",specs:{Kateqoriya:"Çaydan",Brend:"BergHOFF",Rəng:"Narıncı",Material:"Paslanmaz polad","Həcm":"1.7 L","Güc":"2200 W"}},
 {id:2,name:"BergHOFF NATURAL 1.7LT Çaynik Yellow",brand:"BergHOFF",cat:"Çaydan",mrp:250,rrp:189.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7213506/f156314a4dc386e00aca-0.jpg",specs:{Kateqoriya:"Çaydan",Brend:"BergHOFF",Rəng:"Sarı",Material:"Paslanmaz polad","Həcm":"1.7 L","Güc":"2200 W"}},
 {id:3,name:"BergHOFF NATURAL Toster 4-lü Orange",brand:"BergHOFF",cat:"Toster",mrp:330,rrp:249.99,img:"https://www.luckyart.com.tr/berghoff-gem-natural-turuncu-dort-dilim-ekmek-kizartma-makinesi-ekmek-kizartma-makineleri-berghoff-931184-16-K.jpg",specs:{Kateqoriya:"Toster",Brend:"BergHOFF",Rəng:"Narıncı","Güc":"1500 W","Dilim sayı":"4",Material:"Paslanmaz polad"}},
-{id:4,name:"BergHOFF NATURAL Toster 4-lü Yellow",brand:"BergHOFF",cat:"Toster",mrp:330,rrp:249.99,img:"https://www.luckyart.com.tr/berghoff-gem-natural-turuncu-dort-dilim-ekmek-kizartma-makinesi-ekmek-kizartma-makineleri-berghoff-931184-16-K.jpg",specs:{Kateqoriya:"Toster",Brend:"BergHOFF",Rəng:"Sarı","Güc":"1500 W","Dilim sayı":"4",Material:"Paslanmaz polad"}},
+{id:4,name:"BergHOFF NATURAL Toster 4-lü Yellow",brand:"BergHOFF",cat:"Toster",mrp:330,rrp:249.99,img:"https://www.berghoff.com/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/3/9/3950338.jpg",specs:{Kateqoriya:"Toster",Brend:"BergHOFF",Rəng:"Sarı","Güc":"1500 W","Dilim sayı":"4",Material:"Paslanmaz polad"}},
 {id:5,name:"BergHOFF RETRO 1.7LT Çaynik Cream",brand:"BergHOFF",cat:"Çaydan",mrp:219.99,rrp:169.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7233015/8199bd8c1230a6b0be7d-0.jpg",specs:{Kateqoriya:"Çaydan",Brend:"BergHOFF",Rəng:"Krem",Material:"Paslanmaz polad","Həcm":"1.7 L","Güc":"2200 W"}},
-{id:6,name:"BergHOFF RETRO 1.7LT Çaynik Green",brand:"BergHOFF",cat:"Çaydan",mrp:219.99,rrp:169.99,img:"https://www.luckyart.com.tr/berghoff-gem-natural-17-litre-sari-su-isiticisi-su-isiticilari-berghoff-932085-16-K.jpg",specs:{Kateqoriya:"Çaydan",Brend:"BergHOFF",Rəng:"Yaşıl",Material:"Paslanmaz polad","Həcm":"1.7 L","Güc":"2200 W"}},
-{id:7,name:"BergHOFF RETRO 1.7LT Çaynik Red",brand:"BergHOFF",cat:"Çaydan",mrp:219.99,rrp:169.99,img:"https://www.luckyart.com.tr/berghoff-gem-natural-17-litre-sari-su-isiticisi-su-isiticilari-berghoff-932085-16-K.jpg",specs:{Kateqoriya:"Çaydan",Brend:"BergHOFF",Rəng:"Qırmızı",Material:"Paslanmaz polad","Həcm":"1.7 L","Güc":"2200 W"}},
+{id:6,name:"BergHOFF RETRO 1.7LT Çaynik Green",brand:"BergHOFF",cat:"Çaydan",mrp:219.99,rrp:169.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7233016/verde-0.jpg",specs:{Kateqoriya:"Çaydan",Brend:"BergHOFF",Rəng:"Yaşıl",Material:"Paslanmaz polad","Həcm":"1.7 L","Güc":"2200 W"}},
+{id:7,name:"BergHOFF RETRO 1.7LT Çaynik Red",brand:"BergHOFF",cat:"Çaydan",mrp:219.99,rrp:169.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7215840/red-0.jpg",specs:{Kateqoriya:"Çaydan",Brend:"BergHOFF",Rəng:"Qırmızı",Material:"Paslanmaz polad","Həcm":"1.7 L","Güc":"2200 W"}},
 {id:8,name:"BergHOFF RETRO Blender 1500W Cream",brand:"BergHOFF",cat:"Blender",mrp:329.99,rrp:249.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7226455/ce3801963f6a748f948d-0.jpg",specs:{Kateqoriya:"Blender",Brend:"BergHOFF",Rəng:"Krem","Güc":"1500 W","Həcm":"1.5 L",Material:"Şüşə"}},
 {id:9,name:"BergHOFF RETRO Blender 1500W Green",brand:"BergHOFF",cat:"Blender",mrp:329.99,rrp:249.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-1500-w-mint-yesili-blender-blender-blender-seti-berghoff-938889-16-K.jpg",specs:{Kateqoriya:"Blender",Brend:"BergHOFF",Rəng:"Yaşıl","Güc":"1500 W","Həcm":"1.5 L",Material:"Şüşə"}},
-{id:10,name:"BergHOFF RETRO Blender Set 1200W Cream",brand:"BergHOFF",cat:"Blender",mrp:369.99,rrp:279.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7226455/ce3801963f6a748f948d-0.jpg",specs:{Kateqoriya:"Blender",Brend:"BergHOFF",Rəng:"Krem","Güc":"1200 W","Həcm":"1.5 L",Material:"Şüşə",Daxildir:"Mini doğrayıcı"}},
+{id:10,name:"BergHOFF RETRO Blender Set 1200W Cream",brand:"BergHOFF",cat:"Blender",mrp:369.99,rrp:279.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-krem-rengi-blender-seti-berghoff-938888-16-K.jpg",specs:{Kateqoriya:"Blender",Brend:"BergHOFF",Rəng:"Krem","Güc":"1200 W","Həcm":"1.5 L",Material:"Şüşə",Daxildir:"Mini doğrayıcı"}},
 {id:11,name:"BergHOFF RETRO Blender Set 1200W Green",brand:"BergHOFF",cat:"Blender",mrp:369.99,rrp:279.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-1500-w-mint-yesili-blender-blender-blender-seti-berghoff-938889-16-K.jpg",specs:{Kateqoriya:"Blender",Brend:"BergHOFF",Rəng:"Yaşıl","Güc":"1200 W","Həcm":"1.5 L",Material:"Şüşə",Daxildir:"Mini doğrayıcı"}},
 {id:12,name:"BergHOFF RETRO Dijital Toster&İzgara Cream",brand:"BergHOFF",cat:"Toster",mrp:459.99,rrp:349.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-vanilya-krem-rengi-dijital-izgara-ve-tost-makinesi-izgara-tost-makineleri-berghoff-939125-15-K.jpg",specs:{Kateqoriya:"Toster",Brend:"BergHOFF",Rəng:"Krem","Güc":"1800 W",Material:"Paslanmaz polad",Funksiya:"Tost + İzgara"}},
 {id:13,name:"BergHOFF RETRO Dijital Toster&İzgara Green",brand:"BergHOFF",cat:"Toster",mrp:459.99,rrp:349.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-mint-yesil-dijital-izgara-ve-tost-makinesi-izgara-tost-makineleri-berghoff-926152-15-B.jpg",specs:{Kateqoriya:"Toster",Brend:"BergHOFF",Rəng:"Yaşıl","Güc":"1800 W",Material:"Paslanmaz polad",Funksiya:"Tost + İzgara"}},
 {id:14,name:"BergHOFF RETRO Kofe Maşını 15 Stəkan Cream",brand:"BergHOFF",cat:"Kofe aparatı",mrp:199.99,rrp:159.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7216230/9d003a5ec8b101290d48-0.jpg",specs:{Kateqoriya:"Kofe aparatı",Brend:"BergHOFF",Rəng:"Krem","Güc":"800 W",Tutumu:"15 stəkan",Material:"Paslanmaz polad"}},
 {id:15,name:"BergHOFF RETRO Kofe Maşını 15 Stəkan Green",brand:"BergHOFF",cat:"Kofe aparatı",mrp:199.99,rrp:159.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7216218/d2d352d552b4b1d2cd70-0.jpg",specs:{Kateqoriya:"Kofe aparatı",Brend:"BergHOFF",Rəng:"Yaşıl","Güc":"800 W",Tutumu:"15 stəkan",Material:"Paslanmaz polad"}},
 {id:16,name:"BergHOFF RETRO Kombayn 5L Cream",brand:"BergHOFF",cat:"Kombayn",mrp:1179.99,rrp:899.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-dijital-gostergeli-5-lt-vanilya-krem-rengi-stand-mikser-stand-mikser-berghoff-931187-16-K.jpg"},
-{id:17,name:"BergHOFF RETRO Kombayn 7L Black",brand:"BergHOFF",cat:"Kombayn",mrp:2050,rrp:1669.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-dijital-gostergeli-5-lt-vanilya-krem-rengi-stand-mikser-stand-mikser-berghoff-931187-16-K.jpg"},
-{id:18,name:"BergHOFF RETRO Toster 2-li Red",brand:"BergHOFF",cat:"Toster",mrp:209.99,rrp:159.99,img:"https://www.luckyart.com.tr/berghoff-gem-natural-turuncu-dort-dilim-ekmek-kizartma-makinesi-ekmek-kizartma-makineleri-berghoff-931184-16-K.jpg"},
+{id:17,name:"BergHOFF RETRO Kombayn 7L Black",brand:"BergHOFF",cat:"Kombayn",mrp:2050,rrp:1669.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-7-lt-siyah-stand-mikser-berghoff-939126-16-K.jpg"},
+{id:18,name:"BergHOFF RETRO Toster 2-li Red",brand:"BergHOFF",cat:"Toster",mrp:209.99,rrp:159.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-kirmizi-iki-dilim-ekmek-kizartma-makinesi-berghoff-938856-16-K.jpg"},
 {id:19,name:"BergHOFF RETRO Toster 4-lü Cream",brand:"BergHOFF",cat:"Toster",mrp:300,rrp:239.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-krem-rengi-dort-dilim-ekmek-kizartma-makinesi-ekmek-kizartma-makineleri-berghoff-938857-16-O.jpg"},
-{id:20,name:"BergHOFF RETRO Toster 4-lü Red",brand:"BergHOFF",cat:"Toster",mrp:300,rrp:239.99,img:"https://www.luckyart.com.tr/berghoff-gem-natural-turuncu-dort-dilim-ekmek-kizartma-makinesi-ekmek-kizartma-makineleri-berghoff-931184-16-K.jpg"},
+{id:20,name:"BergHOFF RETRO Toster 4-lü Red",brand:"BergHOFF",cat:"Toster",mrp:300,rrp:239.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-kirmizi-dort-dilim-ekmek-kizartma-makinesi-berghoff-938858-16-K.jpg"},
 {id:21,name:"BergHOFF ROYAL 1.7LT Çaynik Black Yellow",brand:"BergHOFF",cat:"Çaydan",mrp:299.99,rrp:239.99,img:"https://www.luckyart.com.tr/berghoff-gem-royal-margery-17-litre-siyah-sari-desenli-su-isiticisi-su-isiticilari-berghoff-939173-16-O.jpg"},
-{id:22,name:"BergHOFF ROYAL 1.7LT Çaynik Yellow Black",brand:"BergHOFF",cat:"Çaydan",mrp:299.99,rrp:239.99,img:"https://www.luckyart.com.tr/berghoff-gem-natural-17-litre-sari-su-isiticisi-su-isiticilari-berghoff-932085-16-K.jpg"},
-{id:23,name:"BergHOFF ROYAL Toster 2-li Black Yellow",brand:"BergHOFF",cat:"Toster",mrp:289.99,rrp:229.99,img:"https://www.luckyart.com.tr/berghoff-gem-natural-turuncu-dort-dilim-ekmek-kizartma-makinesi-ekmek-kizartma-makineleri-berghoff-931184-16-K.jpg"},
+{id:22,name:"BergHOFF ROYAL 1.7LT Çaynik Yellow Black",brand:"BergHOFF",cat:"Çaydan",mrp:299.99,rrp:239.99,img:"https://www.luckyart.com.tr/berghoff-gem-royal-17-litre-sari-siyah-desenli-su-isiticisi-berghoff-939174-16-K.jpg"},
+{id:23,name:"BergHOFF ROYAL Toster 2-li Black Yellow",brand:"BergHOFF",cat:"Toster",mrp:289.99,rrp:229.99,img:"https://www.luckyart.com.tr/berghoff-gem-royal-iki-dilim-ekmek-kizartma-siyah-sari-berghoff-939175-16-K.jpg"},
 {id:24,name:"BergHOFF TITAN 1.7LT Çaynik Black Gold",brand:"BergHOFF",cat:"Çaydan",mrp:200,rrp:159.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7254373/60ade66b0228adcd6cff-0.jpg"},
 {id:25,name:"BergHOFF TITAN 1.7LT Çaynik Bright Smoke",brand:"BergHOFF",cat:"Çaydan",mrp:200,rrp:159.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7254401/6a026b0ffa6e8caa5e5f-0.jpg"},
 {id:26,name:"BergHOFF TITAN 1.7LT Çaynik White Gold",brand:"BergHOFF",cat:"Çaydan",mrp:200,rrp:159.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7254378/e9607ce8ae1a171ff046-0.jpg"},
-{id:27,name:"BergHOFF TITAN Toster&İzgara Black",brand:"BergHOFF",cat:"Toster",mrp:520,rrp:399.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-vanilya-krem-rengi-dijital-izgara-ve-tost-makinesi-izgara-tost-makineleri-berghoff-939125-15-K.jpg"},
-{id:28,name:"BergHOFF TITAN Toster&İzgara Silver",brand:"BergHOFF",cat:"Toster",mrp:520,rrp:399.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-vanilya-krem-rengi-dijital-izgara-ve-tost-makinesi-izgara-tost-makineleri-berghoff-939125-15-K.jpg"},
+{id:27,name:"BergHOFF TITAN Toster&İzgara Black",brand:"BergHOFF",cat:"Toster",mrp:520,rrp:399.99,img:"https://www.luckyart.com.tr/berghoff-gem-titan-siyah-izgara-ve-tost-makinesi-berghoff-939127-16-K.jpg"},
+{id:28,name:"BergHOFF TITAN Toster&İzgara Silver",brand:"BergHOFF",cat:"Toster",mrp:520,rrp:399.99,img:"https://www.luckyart.com.tr/berghoff-gem-titan-silver-izgara-ve-tost-makinesi-berghoff-939128-16-K.jpg"},
 {id:29,name:"IYO Ultrasonic Üz Təmizləyici & Lifter",brand:"IYO",cat:"Estetik cihazlar",mrp:409.99,rrp:409.99,img:"https://inyourorigin.com/storage/2025/03/iyo-ultrasonic-skin-scrubber-lifter-27.jpg",specs:{Kateqoriya:"Estetik cihazlar",Brend:"IYO","İstehsalçı ölkə":"Cənubi Koreya",Material:"ABS + Silikon","Funksiya":"Ultrasonik təmizlik + lifting","Güc":"5 V"}},
 {id:30,name:"IYO Göz Ətrafı Canlandırıcı Cihaz",brand:"IYO",cat:"Estetik cihazlar",mrp:199.99,rrp:199.99,img:"https://inyourorigin.com/storage/2025/02/revitalizing-eye-massager-iyo-6818-41-B.jpg",specs:{Kateqoriya:"Estetik cihazlar",Brend:"IYO","İstehsalçı ölkə":"Cənubi Koreya",Material:"ABS","Funksiya":"Göz ətrafı masaj + istilik","Güc":"3.7 V"}},
 {id:31,name:"IYO TRIO RF Radyo Frekans Cihazı",brand:"IYO",cat:"Estetik cihazlar",mrp:699.99,rrp:699.99,img:"https://inyourorigin.com/storage/2025/02/trio-rf_urun-gorseli_iyo_Calisma-Yuzeyi-1-scaled.jpg",specs:{Kateqoriya:"Estetik cihazlar",Brend:"IYO","İstehsalçı ölkə":"Cənubi Koreya",Material:"ABS + Metal","Funksiya":"RF (Radyo Frekans) + LED",Temizlik:"3 rejim"}},
@@ -715,8 +730,8 @@ const PROD=[
 {id:47,name:"Fakir Çay Aparatı CHAIZEN Rosie",brand:"Fakir",cat:"Çaydan",mrp:229.99,rrp:189.99,img:"https://productimages.hepsiburada.net/s/777/444-444/110001021512238.jpg"},
 {id:48,name:"Fakir Çay Aparatı TASTEA Black Violet",brand:"Fakir",cat:"Çaydan",mrp:159.99,rrp:129.99,img:"https://www.fakir.az/tastea-siyah-mor-cay-makinesi-caydan-fakir-1903-11-O.png"},
 {id:49,name:"Fakir Çay Aparatı TASTEA Black Red",brand:"Fakir",cat:"Çaydan",mrp:159.99,rrp:129.99,img:"https://www.fakir.az/tastea-siyah-kirmizi-cay-makinesi-caydan-fakir-1904-11-O.png"},
-{id:50,name:"Fakir Çaynik ADELL KETTLE Rouge",brand:"Fakir",cat:"Çaydan",mrp:118.99,rrp:106.99,img:"https://www.fakir.az/fakir-wk1000-caydan-qara-su-isidici-caydan-fakir-2092-11-O.jpg"},
-{id:51,name:"Fakir Çaynik PERCY KETTLE",brand:"Fakir",cat:"Çaydan",mrp:118.99,rrp:106.99,img:"https://www.fakir.az/fakir-wk1000-caydan-qara-su-isidici-caydan-fakir-2092-11-O.jpg"},
+{id:50,name:"Fakir Çaynik ADELL KETTLE Rouge",brand:"Fakir",cat:"Çaydan",mrp:118.99,rrp:106.99,img:"https://fakirglobal.com/adell-kettle-rouge-su-isiticisi-2095-48-K.jpg"},
+{id:51,name:"Fakir Çaynik PERCY KETTLE",brand:"Fakir",cat:"Çaydan",mrp:118.99,rrp:106.99,img:"https://fakirglobal.com/percy-kettle-su-isiticisi-2096-48-K.jpg"},
 {id:52,name:"Fakir Çaynik WK1000 Black",brand:"Fakir",cat:"Çaydan",mrp:68.99,rrp:53.99,img:"https://www.fakir.az/fakir-wk1000-caydan-qara-su-isidici-caydan-fakir-2092-11-O.jpg"},
 {id:53,name:"Fakir Kofe Aparatı KAAVE Dual Pro Rosie",brand:"Fakir",cat:"Kofe aparatı",mrp:749.99,rrp:399.99,img:"https://www.fakir.az/fakir-kaavedualpro-turk-kofe-mashini-antrasit-turk-qhvbisirn-fakir-936-11-O.png"},
 {id:54,name:"Fakir Kofe Aparatı KAAVE Turkish Silver",brand:"Fakir",cat:"Kofe aparatı",mrp:219.99,rrp:179.99,img:"https://fakirglobal.com/fakir-kaave-turkish-coffee-maker-silver-2079-37-K.jpg"},
@@ -792,10 +807,11 @@ function openProdModal(event,id){
   const mainImg=document.getElementById('pmMainImg').querySelector('img');
   mainImg.src=p.img;
   mainImg.alt=p.name;
-  mainImg.onerror=function(){this.outerHTML='<div class="img-placeholder lg">'+this.alt.split(' ').slice(0,2).join(' ')+'</div>'};
+  mainImg.onerror=function(){this.style.display='none';this.parentNode.classList.add('img-placeholder');this.parentNode.setAttribute('data-label',this.alt.split(' ').slice(0,3).join(' '))};
   const disc=Math.round((1-p.rrp/p.mrp)*100);
   const savings=p.mrp-p.rrp;
-  const thumbsHtml=`<div class="pm-thumb active" onclick="document.querySelectorAll('.pm-thumb').forEach(x=>x.classList.remove('active'));this.classList.add('active');var pm=document.getElementById('pmMainImg').querySelector('img');if(pm){pm.src=this.querySelector('img').src}else{document.getElementById('pmMainImg').innerHTML='<img src=\\\"'+this.querySelector('img').src+'\\\" alt=\\\"\\\" onerror=\\\"this.outerHTML=\\'<div class=\\\\\"img-placeholder lg\\\\\">"+p.name.split(' ').slice(0,2).join(' ')+"<\\\\/div>\\'\\\" />'}"><img src="${p.img}" alt="${p.name}" onerror="this.outerHTML='<div class=\'img-placeholder\'>"+p.brand+"</div>'" /></div>`;
+  const label=p.name.split(' ').slice(0,3).join(' ');
+  const thumbsHtml=`<div class="pm-thumb active" onclick="document.querySelectorAll('.pm-thumb').forEach(x=>x.classList.remove('active'));this.classList.add('active');var pm=document.getElementById('pmMainImg').querySelector('img');if(pm){pm.src=this.querySelector('img').src}else{document.getElementById('pmMainImg').innerHTML='<img src=\\\"'+this.querySelector('img').src+'\\\" alt=\\\"\\\" onerror=\\\"this.style.display=\\'none\\';this.parentNode.classList.add(\\'img-placeholder\\');this.parentNode.setAttribute(\\'data-label\\',\\'${label}\\')\\\" />'}"><img src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.parentNode.classList.add('img-placeholder');this.parentNode.setAttribute('data-label','${label}')" /></div>`;
   document.getElementById('pmThumbs').innerHTML=thumbsHtml;
   let infoHtml='';
   infoHtml+=`<span class="pm-brand">${p.brand}</span>`;
@@ -810,12 +826,12 @@ function openProdModal(event,id){
 
   // Tabbed section: Specs | Reviews
   infoHtml+=`<div class="pm-tabs">`;
-  infoHtml+=`<button class="pm-tab active" onclick="switchPmTab(this,'specs')">Texniki xüsusiyyətlər</button>`;
-  infoHtml+=`<button class="pm-tab" onclick="switchPmTab(this,'reviews')">Reytinq və rəylər (0)</button>`;
+  infoHtml+=`<button class="pm-tab active" onclick="pmSwitchTab('specs',this)">Texniki xüsusiyyətlər</button>`;
+  infoHtml+=`<button class="pm-tab" onclick="pmSwitchTab('reviews',this)">Reytinq və rəylər (<span class="pm-review-count-${id}">0</span>)</button>`;
   infoHtml+=`</div>`;
 
-  // Specs panel
-  infoHtml+=`<div class="pm-panel active" id="pmPanelSpecs">`;
+  // Specs tab panel
+  infoHtml+=`<div id="pmTabSpecs" class="pm-tab-panel active">`;
   infoHtml+=`<div class="pm-specs">`;
   if(p.specs){
     Object.keys(p.specs).forEach(k=>{infoHtml+=`<div class="pm-spec"><span>${k}</span><span>${p.specs[k]}</span></div>`});
@@ -823,9 +839,9 @@ function openProdModal(event,id){
   infoHtml+=`<div class="pm-spec"><span>Məhsul kodu</span><span>#${p.id}</span></div>`;
   infoHtml+=`</div></div>`;
 
-  // Reviews panel (empty state)
-  infoHtml+=`<div class="pm-panel" id="pmPanelReviews">`;
-  infoHtml+=`<div class="pm-reviews-empty"><div class="pm-re-icon">⭐</div><p>Hələ rəy yoxdur</p><span>Bu məhsul üçün ilk rəyi siz yazın!</span></div>`;
+  // Reviews tab panel
+  infoHtml+=`<div id="pmTabReviews" class="pm-tab-panel" style="display:none">`;
+  infoHtml+=buildReviewsHTML(id);
   infoHtml+=`</div>`;
 
   infoHtml+=`<div class="pm-divider"></div>`;
@@ -839,12 +855,52 @@ function openProdModal(event,id){
   window.pmCurrentProductId=id;
   window.pmWarrantyCost=0;
 }
-function switchPmTab(btn,panel){
-  document.querySelectorAll('.pm-tab').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.pm-panel').forEach(p=>p.classList.remove('active'));
-  document.getElementById('pmPanel'+panel.charAt(0).toUpperCase()+panel.slice(1)).classList.add('active');
+
+function buildReviewsHTML(id){
+  const reviews=JSON.parse(localStorage.getItem('reviews_'+id)||'[]');
+  let html='';
+  if(reviews.length>0){
+    const avg=(reviews.reduce((s,r)=>s+r.rating,0)/reviews.length).toFixed(1);
+    html+=`<div class="pm-rating-summary"><span class="pm-avg-stars">${'★'.repeat(Math.round(avg))}${'☆'.repeat(5-Math.round(avg))}</span><span class="pm-avg-num">${avg} / 5</span><span class="pm-review-total">(${reviews.length} rəy)</span></div>`;
+    reviews.slice().reverse().forEach(r=>{
+      html+=`<div class="pm-review-item"><div class="pm-review-header"><span class="pm-review-author">${r.author}</span><span class="pm-review-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</span><span class="pm-review-date">${r.date}</span></div><p class="pm-review-text">${r.text}</p></div>`;
+    });
+  }else{
+    html+=`<div class="pm-no-reviews"><div style="font-size:32px;margin-bottom:8px">⭐</div><p style="font-weight:600">Hələ rəy yoxdur</p><p style="color:#999;font-size:13px">Bu məhsul üçün ilk rəyi siz yazın!</p></div>`;
+  }
+  html+=`<div class="pm-review-form"><h4>Rəy yaz</h4><div class="pm-star-select" id="starSelect_${id}">${[1,2,3,4,5].map(n=>`<span class="pm-star" data-val="${n}" onclick="selectStar(${id},${n})">☆</span>`).join('')}</div><input id="reviewAuthor_${id}" type="text" placeholder="Adınız" class="pm-review-input" maxlength="40" /><textarea id="reviewText_${id}" placeholder="Rəyinizi yazın..." class="pm-review-textarea" rows="3" maxlength="300"></textarea><button class="pm-review-submit" onclick="submitReview(${id})">Göndər</button></div>`;
+  return html;
 }
+
+function pmSwitchTab(tab,btn){
+  document.querySelectorAll('.pm-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('pmTabSpecs').style.display=tab==='specs'?'':'none';
+  document.getElementById('pmTabReviews').style.display=tab==='reviews'?'':'none';
+}
+
+function selectStar(id,val){
+  window['starVal_'+id]=val;
+  document.querySelectorAll('#starSelect_'+id+' .pm-star').forEach((s,i)=>{
+    s.textContent=i<val?'★':'☆';
+    s.classList.toggle('active',i<val);
+  });
+}
+
+function submitReview(id){
+  const rating=window['starVal_'+id]||0;
+  const author=document.getElementById('reviewAuthor_'+id).value.trim();
+  const text=document.getElementById('reviewText_'+id).value.trim();
+  if(!rating){alert('Zəhmət olmasa ulduz seçin');return;}
+  if(!author){alert('Adınızı yazın');return;}
+  if(!text){alert('Rəy mətni yazın');return;}
+  const reviews=JSON.parse(localStorage.getItem('reviews_'+id)||'[]');
+  reviews.push({rating,author,text,date:new Date().toLocaleDateString('az-AZ')});
+  localStorage.setItem('reviews_'+id,JSON.stringify(reviews));
+  document.getElementById('pmTabReviews').innerHTML=buildReviewsHTML(id);
+  document.querySelectorAll('.pm-review-count-'+id).forEach(el=>el.textContent=reviews.length);
+}
+
 function closeProdModal(){
   document.getElementById('prodModalOverlay').classList.remove('open');
   document.body.style.overflow='';
@@ -955,7 +1011,7 @@ function render(){
   }else{
     grid.innerHTML=batch.map((p,i)=>{
       const disc=Math.round((1-p.rrp/p.mrp)*100);
-      return `<div class="prod-card" onclick="openProdModal(event,${p.id})" style="animation:cardAppear 0.5s var(--spring) both;animation-delay:${Math.min(i,11)*0.04}s"><div class="img-wrap">${disc>0?`<span class="discount-badge">-${disc}%</span>`:''}<span class="brand-pill">${p.brand}</span><img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.outerHTML='<div class=\'img-placeholder\'>'+this.alt.split(' ').slice(0,2).join(' ')+'</div>'" /></div><div class="body"><h3>${p.name}</h3><div class="prices">${p.mrp!==p.rrp?`<span class="mrp">${p.mrp.toFixed(2)} ₼</span>`:''}<span class="rrp">${p.rrp.toFixed(2)} ₼</span></div><button class="add-btn" onclick="event.stopPropagation();addCart(this,${p.id})"><span class="btn-icon">${tr('addCart')}</span></button></div></div>`
+      return `<div class="prod-card" onclick="openProdModal(event,${p.id})" style="animation:cardAppear 0.5s var(--spring) both;animation-delay:${Math.min(i,11)*0.04}s"><div class="img-wrap">${disc>0?`<span class="discount-badge">-${disc}%</span>`:''}<span class="brand-pill">${p.brand}</span><img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('img-placeholder');this.parentNode.setAttribute('data-label','${p.name.split(' ').slice(0,3).join(' ')}')" /></div><div class="body"><h3>${p.name}</h3><div class="prices">${p.mrp!==p.rrp?`<span class="mrp">${p.mrp.toFixed(2)} ₼</span>`:''}<span class="rrp">${p.rrp.toFixed(2)} ₼</span></div><button class="add-btn" onclick="event.stopPropagation();addCart(this,${p.id})"><span class="btn-icon">${tr('addCart')}</span></button></div></div>`
     }).join('');
   }
   grid.classList.remove('filtering');
