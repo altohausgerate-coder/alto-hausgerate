@@ -979,8 +979,8 @@ function renderCart() {
   const orderData = localStorage.getItem('au_order_status');
   if (orderData) {
     try { var orderInfo = JSON.parse(orderData); } catch(e) { orderInfo = null; }
-    if (orderInfo && orderInfo.status === 'sent') {
-      el.innerHTML = '<div class="cart-thanks"><div class="ct-icon">✅</div><p>Sifarişiniz qəbul edildi! Tezliklə sizinlə əlaqə saxlayacağıq.</p></div><div class="order-track" style="margin-top:0;border-top:none"><h4>Sifarişin gedişatı</h4><div class="track-steps"><div class="track-step active"><span class="ts-icon">✉️</span> Sifariş ofisə göndərildi</div><div class="track-step"><span class="ts-icon">✅</span> Sifariş təsdiqləndi</div><div class="track-step"><span class="ts-icon">📦</span> Sifariş çatdırıldı</div></div></div>';
+    if (orderInfo && (orderInfo.status === 'sent' || orderInfo.status === 'confirmed' || orderInfo.status === 'delivered')) {
+      updateOrderStatusUI(orderInfo.status);
       return;
     }
   }
@@ -1050,21 +1050,52 @@ async function confirmOrder() {
   const total = subtotal + deliveryCost;
   const message = '🛒 YENİ SİFARİŞ\n\n👤 Müştəri: ' + (user.name || '-') + '\n📞 Telefon: ' + (user.phone || '-') + '\n📧 E-mail: ' + (user.email || '-') + '\n\n🛍️ Sifariş:\n' + cartText + '\n🚚 Çatdırılma: ' + deliveryLabel + '\n💰 Məhsullar cəmi: ' + subtotal + ' AZN\n💰 Çatdırılma: ' + deliveryCost + ' AZN\n💰 Ümumi: ' + total + ' AZN';
   try {
-    await fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/', {
+    const response = await fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: message })
     });
+    const result = await response.json();
+    const orderId = result.orderId;
+    localStorage.setItem('au_order_status', JSON.stringify({ status: 'sent', orderId: orderId }));
   } catch(e) {
     console.error('Telegram xətası:', e);
+    localStorage.setItem('au_order_status', JSON.stringify({ status: 'sent', orderId: null }));
   }
 }
+function updateOrderStatusUI(status) {
+  const el = document.getElementById('cartContent');
+  var s1 = '', s2 = '', s3 = '';
+  if (status === 'sent') { s1 = ' active'; }
+  else if (status === 'confirmed') { s1 = ' active'; s2 = ' active'; }
+  else if (status === 'delivered') { s1 = ' active'; s2 = ' active'; s3 = ' active'; }
+  el.innerHTML = '<div class="cart-thanks"><div class="ct-icon">✅</div><p>Sifarişiniz qəbul edildi! Tezliklə sizinlə əlaqə saxlayacağıq.</p></div><div class="order-track" style="margin-top:0;border-top:none"><h4>Sifarişin gedişatı</h4><div class="track-steps"><div class="track-step' + s1 + '"><span class="ts-icon">✉️</span> Sifariş ofisə göndərildi</div><div class="track-step' + s2 + '"><span class="ts-icon">✅</span> Sifariş təsdiqləndi</div><div class="track-step' + s3 + '"><span class="ts-icon">📦</span> Sifariş çatdırıldı</div></div></div>';
+}
+
+var statusInterval = null;
+function startStatusPolling() {
+  if (statusInterval) clearInterval(statusInterval);
+  statusInterval = setInterval(async function() {
+    const orderData = JSON.parse(localStorage.getItem('au_order_status') || '{}');
+    if (orderData.orderId) {
+      try {
+        const res = await fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/status?id=' + orderData.orderId);
+        const data = await res.json();
+        orderData.status = data.status;
+        localStorage.setItem('au_order_status', JSON.stringify(orderData));
+        updateOrderStatusUI(data.status);
+      } catch(e) { console.error('Status yoxlama xətası:', e); }
+    }
+  }, 10000);
+}
+
 function checkout() {
-  confirmOrder();
-  localStorage.setItem('au_order_status', JSON.stringify({ status: 'sent', timestamp: Date.now() }));
-  localStorage.removeItem('au_cart');
-  updateCartCount();
-  renderCart();
+  confirmOrder().then(function() {
+    localStorage.removeItem('au_cart');
+    updateCartCount();
+    renderCart();
+    startStatusPolling();
+  });
 }
 
 function updateCartText(){
