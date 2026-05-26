@@ -52,14 +52,53 @@ section{padding:80px 0}
 .cart-btn{position:relative;width:40px;height:40px;border:none;background:transparent;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--transition);color:var(--gray-text)}
 .cart-btn:hover{background:var(--pink-light);color:var(--pink)}
 .cart-count{position:absolute;top:2px;right:2px;width:18px;height:18px;background:var(--pink);color:#fff;font-size:10px;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center}
-.hamburger{display:none;width:40px;height:40px;border:none;background:transparent;border-radius:50%;cursor:pointer;align-items:center;justify-content:center;transition:var(--transition);color:var(--gray-text)}
-.hamburger:hover{background:var(--pink-light);color:var(--pink)}
+.catalog-btn{display:flex;align-items:center;gap:8px;background:var(--pink);color:#fff;border:none;padding:8px 16px;border-radius:var(--radius-md);font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font);transition:var(--transition);white-space:nowrap;flex-shrink:0}
+.catalog-btn:hover{background:var(--pink-dark)}
+.catalog-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:180;opacity:0;pointer-events:none;transition:var(--transition)}
+.catalog-overlay.open{opacity:1;pointer-events:auto}
+.catalog-panel{position:fixed;top:72px;left:-320px;width:300px;height:calc(100vh - 72px);background:var(--white);z-index:190;box-shadow:4px 0 24px rgba(0,0,0,0.1);transition:left 0.35s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;display:flex;flex-direction:column}
+.catalog-panel.open{left:0}
+.catalog-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--gray-100);font-size:16px;font-weight:700;position:sticky;top:0;background:var(--white);z-index:1}
+.catalog-header button{width:32px;height:32px;border:none;background:var(--gray-50);border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
+.catalog-header button:hover{background:var(--pink-light);color:var(--pink)}
+.catalog-list{padding:8px 0;flex:1}
+.catalog-item{display:flex;align-items:center;gap:12px;padding:13px 20px;cursor:pointer;transition:var(--transition);border-bottom:1px solid var(--gray-50)}
+.catalog-item:hover{background:var(--pink-light);color:var(--pink)}
+.catalog-item:hover svg{stroke:var(--pink)}
+.catalog-item-icon{font-size:20px;width:28px;text-align:center;flex-shrink:0}
+.catalog-item-label{flex:1;font-size:14px;font-weight:500}
+.catalog-item svg{margin-left:auto;color:#ccc;flex-shrink:0}
 @media(max-width:768px){
   .header-nav{display:none}
-  .hamburger{display:flex}
-  .lang-btn{padding:4px 6px;font-size:12px}
+  .header{padding:0 12px;height:60px;gap:8px}
   .header-center{display:none}
-  .header-right{flex-shrink:0}
+  .header-logo-text{font-size:16px}
+  .logo-rhombus{width:30px;height:30px}
+  .logo-rhombus span{font-size:13px}
+  .lang-btn{padding:4px 5px;font-size:11px}
+  .user-btn{padding:6px 8px;font-size:12px;gap:4px}
+  .user-btn svg{width:14px;height:14px}
+  .cart-btn{width:34px;height:34px}
+  .catalog-btn{padding:6px 10px;font-size:13px}
+  .catalog-btn svg{display:none}
+  .catalog-panel{top:60px;height:calc(100vh - 60px)}
+  .hero{padding-top:60px}
+  .prod-modal{grid-template-columns:1fr;gap:16px;padding:16px;max-height:90vh;overflow-y:auto}
+  .pm-main-img{height:220px}
+  .pm-title{font-size:16px}
+  .cart-modal{width:calc(100vw - 24px);max-height:90vh;overflow-y:auto}
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .hero h1{font-size:32px}
+  .hero-visual{height:260px}
+}
+@media(max-width:480px){
+  .prod-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .prod-card .body h3{font-size:12px}
+  .add-btn{font-size:12px;padding:10px 8px}
+}
+@media(max-width:400px){
+  .lang-btn{display:none}
+  .header-logo-text .haus{display:none}
 }
 
 .mobile-nav{position:fixed;top:0;right:-100%;width:300px;height:100%;background:var(--white);z-index:200;padding:80px 28px 28px;box-shadow:-4px 0 30px rgba(0,0,0,0.1);transition:right 0.35s cubic-bezier(0.4,0,0.2,1);overflow-y:auto}
@@ -456,6 +495,7 @@ section{padding:80px 0}
   <div class="header-left">
     <div class="logo-rhombus"><span>A</span></div>
     <div class="header-logo-text"><span class="alto">Alto.</span> <span class="haus">Hausgerate</span></div>
+    <button class="catalog-btn" onclick="toggleCatalog()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Kataloq</button>
   </div>
   <div class="header-center">
     <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -470,9 +510,17 @@ section{padding:80px 0}
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
       <span class="cart-count">0</span>
     </button>
-    <button class="hamburger" aria-label="Menyu" onclick="openMobile()"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg></button>
   </div>
 </header>
+
+<div class="catalog-overlay" id="catalogOverlay" onclick="if(event.target===this)closeCatalog()"></div>
+<div class="catalog-panel" id="catalogPanel">
+  <div class="catalog-header">
+    <span>Kataloq</span>
+    <button onclick="closeCatalog()">✕</button>
+  </div>
+  <div class="catalog-list" id="catalogList"></div>
+</div>
 
 <div class="mobile-overlay" id="mobileOverlay" onclick="closeMobile()"></div>
 <div class="mobile-nav" id="mobileNav">
@@ -915,6 +963,15 @@ function pmAddToCart(btn,id){
   btn.classList.add('added');
 }
 
+function toggleCatalog(){
+  document.getElementById('catalogOverlay').classList.toggle('open');
+  document.getElementById('catalogPanel').classList.toggle('open');
+}
+function closeCatalog(){
+  document.getElementById('catalogOverlay').classList.remove('open');
+  document.getElementById('catalogPanel').classList.remove('open');
+}
+
 function init(){
   const savedUser = JSON.parse(localStorage.getItem('au_current') || 'null');
   if (savedUser) currentUser = savedUser;
@@ -924,6 +981,10 @@ function init(){
   // Categories grid
   const cg=document.getElementById('catGrid');
   cg.innerHTML=CATEGORIES_DISPLAY.map((c,i)=>`<div class="cat-card reveal reveal-d${i%9}" data-cat="${c.label}" onclick="clickCat('${c.label}',this)"><div class="cat-icon">${c.icon}</div><span>${c.label}</span></div>`).join('');
+
+  // Catalog panel
+  const cl=document.getElementById('catalogList');
+  cl.innerHTML=CATEGORIES_DISPLAY.map(c=>`<div class="catalog-item" onclick="closeCatalog();setCategory('${c.label}');document.getElementById('products').scrollIntoView({behavior:'smooth'})"><span class="catalog-item-icon">${c.icon}</span><span class="catalog-item-label">${c.label}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></div>`).join('')+`<div class="catalog-item" onclick="closeCatalog();setFilter('all');setCategory('');document.getElementById('products').scrollIntoView({behavior:'smooth'})"><span class="catalog-item-icon">🏠</span><span class="catalog-item-label">Bütün məhsullar</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></div>`;
 
   // Category filter select
   const sel=document.getElementById('catFilter');
