@@ -966,12 +966,31 @@ function addCart(btn, id) {
   doAddCart(id);
 }
 
+var cartPollInterval = null;
 function openCartModal() {
   renderCart();
   document.getElementById('cartOverlay').classList.add('open');
+  const orderData = JSON.parse(localStorage.getItem('au_order_status') || '{}');
+  if (orderData.orderId) {
+    if (cartPollInterval) clearInterval(cartPollInterval);
+    cartPollInterval = setInterval(async function() {
+      const od = JSON.parse(localStorage.getItem('au_order_status') || '{}');
+      if (!od.orderId) return;
+      try {
+        const res = await fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/status?id=' + od.orderId);
+        const data = await res.json();
+        if (data.status !== od.status) {
+          od.status = data.status;
+          localStorage.setItem('au_order_status', JSON.stringify(od));
+          updateOrderStatusUI(data.status);
+        }
+      } catch(e) {}
+    }, 5000);
+  }
 }
 function closeCartModal() {
   document.getElementById('cartOverlay').classList.remove('open');
+  if (cartPollInterval) { clearInterval(cartPollInterval); cartPollInterval = null; }
 }
 
 function renderCart() {
@@ -1072,29 +1091,11 @@ function updateOrderStatusUI(status) {
   el.innerHTML = '<div class="cart-thanks"><div class="ct-icon">✅</div><p>Sifarişiniz qəbul edildi! Tezliklə sizinlə əlaqə saxlayacağıq.</p></div><div class="order-track" style="margin-top:0;border-top:none"><h4>Sifarişin gedişatı</h4><div class="track-steps"><div class="track-step' + s1 + '"><span class="ts-icon">✉️</span> Sifariş ofisə göndərildi</div><div class="track-step' + s2 + '"><span class="ts-icon">✅</span> Sifariş təsdiqləndi</div><div class="track-step' + s3 + '"><span class="ts-icon">📦</span> Sifariş çatdırıldı</div></div></div>';
 }
 
-var statusInterval = null;
-function startStatusPolling() {
-  if (statusInterval) clearInterval(statusInterval);
-  statusInterval = setInterval(async function() {
-    const orderData = JSON.parse(localStorage.getItem('au_order_status') || '{}');
-    if (orderData.orderId) {
-      try {
-        const res = await fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/status?id=' + orderData.orderId);
-        const data = await res.json();
-        orderData.status = data.status;
-        localStorage.setItem('au_order_status', JSON.stringify(orderData));
-        updateOrderStatusUI(data.status);
-      } catch(e) { console.error('Status yoxlama xətası:', e); }
-    }
-  }, 10000);
-}
-
 function checkout() {
   confirmOrder().then(function() {
     localStorage.removeItem('au_cart');
     updateCartCount();
     renderCart();
-    startStatusPolling();
   });
 }
 
