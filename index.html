@@ -764,13 +764,17 @@ function applyLang(){
   document.getElementById('formName').placeholder=tr('products');
   document.getElementById('formEmail').placeholder='E-poçt';
   document.getElementById('formMsg').placeholder=tr('contactTitle');
+  document.querySelectorAll('.cat-card').forEach(card=>{
+    const cat=CATEGORIES_DISPLAY.find(c=>c.label===card.dataset.cat);
+    if(cat){const span=card.querySelector('span');if(span)span.textContent=tr(cat.key);}
+  });
   render();
 }
 function setLang(l){lang=l;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));applyLang();updateCartText()}
 
 const CATEGORIES_DISPLAY=[
-  {label:"Çaydan",icon:"🫖"},{label:"Blender",icon:"🔄"},{label:"Toster",icon:"🍞"},{label:"Kofe aparatı",icon:"☕"},{label:"Tozsoran",icon:"🌀"},{label:"Saç feni",icon:"💨"},
-  {label:"Tikiş maşını",icon:"🧵"},{label:"Airfryer",icon:"🍟"},{label:"Kombayn",icon:"🥣"},{label:"Buxarlı təmizləyici",icon:"🧹"},{label:"Estetik cihazlar",icon:"✨"},{label:"Mini soba",icon:"🔥"},{label:"Qaz plitəsi",icon:"🔥"},{label:"Ütü",icon:"👕"},{label:"Digər",icon:"📦"}
+  {label:"Çaydan",icon:"🫖",key:"catCaydan"},{label:"Blender",icon:"🔄",key:"catBlender"},{label:"Toster",icon:"🍞",key:"catToster"},{label:"Kofe aparatı",icon:"☕",key:"catKofe"},{label:"Tozsoran",icon:"🌀",key:"catTozsoran"},{label:"Saç feni",icon:"💨",key:"catSacFeni"},
+  {label:"Tikiş maşını",icon:"🧵",key:"catTikis"},{label:"Airfryer",icon:"🍟",key:"catAirfryer"},{label:"Kombayn",icon:"🥣",key:"catKombayn"},{label:"Buxarlı təmizləyici",icon:"🧹",key:"catBuxarli"},{label:"Estetik cihazlar",icon:"✨",key:"catEstetik"},{label:"Mini soba",icon:"🔥",key:"catMiniSoba"},{label:"Qaz plitəsi",icon:"🔥",key:"catQazPlite"},{label:"Ütü",icon:"👕",key:"catUtu"},{label:"Digər",icon:"📦",key:"catDiger"}
 ];
 
 const PROD=[
