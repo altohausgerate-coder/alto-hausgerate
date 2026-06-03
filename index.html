@@ -352,6 +352,7 @@ section{padding:80px 0}
 /* Auth modal */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:300;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:var(--transition)}
 .modal-overlay.open{opacity:1;pointer-events:auto}
+#birbankOverlay{z-index:400}
 .auth-modal{background:var(--white);border-radius:var(--radius-2xl);padding:36px;width:420px;max-width:90vw;position:relative;transform:scale(0.92) translateY(16px);transition:transform 0.35s var(--spring);max-height:90vh;overflow-y:auto}
 .modal-overlay.open .auth-modal{transform:scale(1) translateY(0)}
 .auth-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border:none;background:var(--gray-50);border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
