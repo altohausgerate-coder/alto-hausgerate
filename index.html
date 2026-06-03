@@ -1212,7 +1212,7 @@ function init(){
   sel.innerHTML=`<option value="">${tr('allCat')}</option>`+allCats.map(c=>`<option value="${c}">${c}</option>`).join('');
 
   // Brands marquee
-  const bm=['BergHOFF','Fakir Hausgerate','Singer','IYO','Hazel Azerbaijan','Gastro'];
+  const bm=['BergHOFF','Fakir Hausgerate','Singer','IYO','Gastro'];
   document.getElementById('marqueeTrack').innerHTML=bm.map(b=>`<div class="brand-card">${b}</div>`).join('')+bm.map(b=>`<div class="brand-card">${b}</div>`).join('');
 
   applyLang();
