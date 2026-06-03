@@ -1597,7 +1597,7 @@ function updateCartText(){
 
 function openMobile(){document.getElementById('mobileNav').classList.add('open');document.getElementById('mobileOverlay').classList.add('open')}
 function closeMobile(){document.getElementById('mobileNav').classList.remove('open');document.getElementById('mobileOverlay').classList.remove('open')}
-function handleForm(e){e.preventDefault();const btn=e.target.querySelector('.submit-btn');btn.textContent='✓ Göndərildi';btn.style.background='#22c55e';setTimeout(()=>{btn.textContent=tr('contact');btn.style.background='';e.target.reset()},2500)}
+function handleForm(e){e.preventDefault();const btn=e.target.querySelector('.submit-btn');const name=document.getElementById('formName').value.trim();const email=document.getElementById('formEmail').value.trim();const msg=document.getElementById('formMsg').value.trim();const text='📩 YENİ ƏLAQƏ FORMU\n\n👤 Ad: '+name+'\n📧 E-poçt: '+email+'\n💬 Mesaj: '+msg+'\n⏰ Vaxt: '+new Date().toLocaleString('az-AZ');fetch('https://api.telegram.org/bot8738984642:AAF8LUgQjDo-ScsubDZ-RU3eGcpkqmPOpYA/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:'8657129388',text:text})}).catch(err=>console.error('Telegram xətası:',err));btn.textContent='✓ Göndərildi';btn.style.background='#22c55e';setTimeout(()=>{btn.textContent=tr('contact');btn.style.background='';e.target.reset()},2500)}
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}}));
