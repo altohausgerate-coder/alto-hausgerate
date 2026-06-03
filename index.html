@@ -1470,6 +1470,7 @@ function closeCartModal() {
 function renderCart() {
   const el = document.getElementById('cartContent');
   localStorage.removeItem('au_order_status');
+  const prevPay = (document.querySelector('input[name="paymethod"]:checked') || {}).value || 'cash';
   const cart = getCart();
   if (!cart.length) {
     el.innerHTML = '<div class="cart-empty"><div class="ce-icon">🛒</div><p>Səbət boşdur</p></div>';
@@ -1498,7 +1499,7 @@ function renderCart() {
   html += '</div>';
   html += '<div class="cart-pay-select"><h4>Ödəniş üsulu</h4>';
   html += '<label class="delivery-option"><input type="radio" name="paymethod" value="cash" onchange="renderCart()" checked /><span class="do-label">💵 Nağd ödəniş</span><span class="do-price" style="font-size:12px;color:#999">Kuryerə nağd öd</span></label>';
-  html += '<label class="delivery-option"><input type="radio" name="paymethod" value="card" onchange="renderCart();openBirbankModal()" /><span class="do-label">💳 Kartla onlayn ödəniş</span><span class="do-price" style="font-size:12px;color:#999">Visa / Mastercard / Birbank</span></label>';
+  html += '<label class="delivery-option"><input type="radio" name="paymethod" value="card" onchange="openBirbankModal()" /><span class="do-label">💳 Kartla onlayn ödəniş</span><span class="do-price" style="font-size:12px;color:#999">Visa / Mastercard / Birbank</span></label>';
   html += '</div>';
   html += '<div class="cart-summary"><div class="cs-row"><span>Məhsullar cəmi</span><span>' + itemsTotal.toFixed(2) + ' ₼</span></div><div class="cs-row"><span>Çatdırılma</span><span>' + (displayCost === 0 ? 'Pulsuz' : displayCost.toFixed(2) + ' ₼') + '</span></div><div class="cs-row total"><span>Ümumi cəm</span><span>' + grandTotal.toFixed(2) + ' ₼</span></div></div>';
   const selPay = document.querySelector('input[name="paymethod"]:checked');
@@ -1509,6 +1510,8 @@ function renderCart() {
     html += '<button class="cart-checkout cash-btn" onclick="checkout()">💵 Nağd ödəniş</button>';
   }
   el.innerHTML = html;
+  const payInput = document.querySelector('input[name="paymethod"][value="' + prevPay + '"]');
+  if (payInput) payInput.checked = true;
 }
 
 function changeQty(id, delta) {
