@@ -145,13 +145,33 @@ section{padding:80px 0}
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:heroSlideUp 0.7s var(--spring) 0.45s both}
 @keyframes heroFadeIn{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}
 @keyframes heroSlideUp{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
-.hero-visual{position:relative;height:420px;display:flex;align-items:center;justify-content:center}
-.hero-img-stack{position:relative;width:320px;height:320px}
-.hero-img-item{position:absolute;width:200px;height:200px;border-radius:var(--radius-2xl);overflow:hidden;box-shadow:var(--shadow-lg);border:3px solid var(--white)}
-.hero-img-item img{width:100%;height:100%;object-fit:cover}
-.hero-img-item:nth-child(1){top:0;left:0;z-index:3;animation:floatItem 6s ease-in-out infinite}
-.hero-img-item:nth-child(2){bottom:0;right:0;z-index:2;animation:floatItem 7s ease-in-out infinite 0.5s}
-.hero-img-item:nth-child(3){top:50%;left:50%;transform:translate(-50%,-50%);width:140px;height:140px;z-index:1;animation:floatItem 5s ease-in-out infinite 1.2s}
+.hero-visual{position:relative;height:460px;display:flex;align-items:center;justify-content:center}
+.hero-tw-line{font-size:1.5rem;font-weight:700;color:var(--pink);margin:4px 0 20px;min-height:2rem;line-height:1.3}
+.tw-cursor{display:inline-block;animation:twBlink 0.8s step-end infinite;font-weight:300;margin-left:1px}
+@keyframes twBlink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-stats{display:flex;align-items:center;margin-top:28px;background:var(--white);border:1.5px solid var(--gray-100);border-radius:16px;padding:14px 4px;width:fit-content;flex-wrap:wrap;gap:0}
+.hero-stat{display:flex;flex-direction:column;align-items:center;padding:0 20px;gap:3px}
+.hero-stat-num{font-size:22px;font-weight:800;color:var(--black);line-height:1;font-variant-numeric:tabular-nums}
+.hero-stat-label{font-size:11px;color:var(--gray-text);font-weight:500;white-space:nowrap}
+.hero-stat-sep{width:1px;height:36px;background:var(--gray-100);flex-shrink:0}
+.hero-showcase{position:relative;width:380px;height:420px}
+.hero-main-card{position:absolute;top:20px;left:50%;transform:translateX(-50%);width:220px;height:270px;background:var(--white);border-radius:var(--radius-2xl);overflow:hidden;box-shadow:0 20px 60px rgba(233,30,140,0.18),0 4px 20px rgba(0,0,0,0.08);border:3px solid var(--white);z-index:3;animation:floatItem 6s ease-in-out infinite}
+.hero-main-card img{width:100%;height:100%;object-fit:cover}
+.hero-main-badge{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:var(--pink);color:#fff;font-size:11px;font-weight:700;padding:5px 12px;border-radius:100px;white-space:nowrap;letter-spacing:0.3px}
+.hero-float-card{position:absolute;background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.12);border:2.5px solid var(--white);z-index:2}
+.hero-float-card img{width:100%;height:100%;object-fit:cover}
+.hero-float-card--1{bottom:40px;left:0;width:130px;height:130px;animation:floatItem 7s ease-in-out infinite 0.5s}
+.hero-float-card--2{bottom:20px;right:0;width:115px;height:115px;animation:floatItem 5s ease-in-out infinite 1.2s}
+.hero-pill{position:absolute;background:var(--white);border:1.5px solid var(--gray-100);border-radius:100px;padding:7px 13px;font-size:12px;font-weight:600;color:var(--black);box-shadow:0 4px 16px rgba(0,0,0,0.08);z-index:4;white-space:nowrap;display:flex;align-items:center;gap:5px}
+.hero-pill--1{top:8px;right:8px;animation:floatItem 8s ease-in-out infinite 0.3s}
+.hero-pill--2{top:160px;left:-10px;animation:floatItem 9s ease-in-out infinite 1.8s}
+.features{padding:0 0 8px}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.feature-card{background:var(--white);border:1.5px solid var(--gray-100);border-radius:var(--radius-xl);padding:28px 24px;transition:var(--transition);cursor:default}
+.feature-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(233,30,140,0.1);border-color:rgba(233,30,140,0.2)}
+.feature-icon{font-size:28px;margin-bottom:12px;line-height:1}
+.feature-card h3{font-size:15px;font-weight:700;margin-bottom:6px;color:var(--black)}
+.feature-card p{font-size:13px;color:var(--gray-text);line-height:1.65;margin:0}
 @keyframes floatItem{0%,100%{transform:translateY(0)}33%{transform:translateY(-16px)}66%{transform:translateY(-6px)}}
 @keyframes floatItem{
   0%,100%{transform:translateY(0)}
@@ -169,13 +189,18 @@ section{padding:80px 0}
   50%{transform:translateX(-50%) translateY(10px);opacity:1}
 }
 @media(max-width:992px){
-  .hero-grid{grid-template-columns:1fr;gap:40px;text-align:center}
-  .hero p{margin:0 auto 32px}
+  .hero-grid{grid-template-columns:1fr;gap:32px;text-align:center}
+  .hero p{margin:0 auto 24px}
   .hero-btns{justify-content:center}
-  .hero-visual{height:300px}
-  .hero-img-stack{width:240px;height:240px}
-  .hero-img-item{width:150px;height:150px}
+  .hero-stats{margin:20px auto 0}
+  .hero-visual{height:340px}
+  .hero-showcase{width:300px;height:320px}
+  .hero-main-card{width:170px;height:210px}
+  .hero-float-card--1{width:100px;height:100px;bottom:20px;left:10px}
+  .hero-float-card--2{width:90px;height:90px;bottom:10px;right:10px}
+  .hero-pill--2{left:0}
   .hero h1{font-size:36px}
+  .features-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   .hero h1{font-size:30px}
@@ -637,22 +662,64 @@ section{padding:80px 0}
     <div>
       <span class="hero-badge reveal visible" data-i18n="heroSub">Rəsmi Distribütor</span>
       <h1 class="reveal visible reveal-d1"><span data-i18n="heroTitle">Eviniz üçün ən yaxşı texnika</span></h1>
+      <div class="hero-tw-line"><span id="heroTypewriter"></span><span class="tw-cursor">|</span></div>
       <p class="reveal visible reveal-d2">BergHOFF · Fakir · Singer · IYO · Gastro brendlərinin rəsmi distribütoru</p>
       <div class="hero-btns reveal visible reveal-d3">
         <a href="#products" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--pink);color:#fff;font-size:15px;font-weight:600;border-radius:14px;border:2px solid transparent;transition:var(--transition);cursor:pointer" data-i18n="heroBtn">Məhsullara bax →</a>
         <a href="#brands" class="btn-outline" style="display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:transparent;color:var(--black);font-size:15px;font-weight:600;border-radius:14px;border:2px solid var(--gray-100);transition:var(--transition);cursor:pointer" data-i18n="brandsBtn">Brendlər</a>
       </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hero-stat-num" data-count="500">0</span><span style="font-size:18px;font-weight:800;color:var(--black)">+</span><span class="hero-stat-label">Məhsul</span></div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat"><span class="hero-stat-num" data-count="5">0</span><span class="hero-stat-label">Brend</span></div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat"><span style="font-size:13px">⭐</span><span class="hero-stat-num" data-count="4.9" data-decimal="1">0</span><span class="hero-stat-label">Reytinq</span></div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat"><span class="hero-stat-num" data-count="3">0</span><span style="font-size:14px;font-weight:700;color:var(--black)">+ il</span><span class="hero-stat-label">Təcrübə</span></div>
+      </div>
     </div>
     <div class="hero-visual reveal visible reveal-d2">
       <div class="hero-pink-blob"></div>
-      <div class="hero-img-stack">
-        <div class="hero-img-item"><img src="https://www.fakir.az/fakir-bestea-elektrikli-caydan-black-red-caydan-fakir-1856-11-O.jpg" alt="Product" loading="lazy" /></div>
-        <div class="hero-img-item"><img src="https://cdn.karaca.com/rcman/cw695h695q90gm/image/marketplace-mirakll/7230023/fb4b7fc21d2671fe4a2c-0.jpg" alt="Product" loading="lazy" /></div>
-        <div class="hero-img-item"><img src="https://cdn.karaca.com/rcman/cw695h695q90gm/image/marketplace-mirakll/7213604/8eecdb22f4036bcc03c0-0.jpg" alt="Product" loading="lazy" /></div>
+      <div class="hero-showcase">
+        <div class="hero-main-card">
+          <img src="https://www.fakir.az/fakir-bestea-elektrikli-caydan-black-red-caydan-fakir-1856-11-O.jpg" alt="Top məhsul" loading="lazy" />
+          <div class="hero-main-badge">🔥 Top Satılan</div>
+        </div>
+        <div class="hero-float-card hero-float-card--1">
+          <img src="https://cdn.karaca.com/rcman/cw695h695q90gm/image/marketplace-mirakll/7230023/fb4b7fc21d2671fe4a2c-0.jpg" alt="Məhsul" loading="lazy" />
+        </div>
+        <div class="hero-float-card hero-float-card--2">
+          <img src="https://cdn.karaca.com/rcman/cw695h695q90gm/image/marketplace-mirakll/7213604/8eecdb22f4036bcc03c0-0.jpg" alt="Məhsul" loading="lazy" />
+        </div>
+        <div class="hero-pill hero-pill--1">⭐ 4.9 / 5.0</div>
+        <div class="hero-pill hero-pill--2">🚀 24 saat çatdırılma</div>
       </div>
     </div>
   </div>
   <div class="hero-scroll"><span data-i18n="scrollDown">Aşağı sürüşdürün</span><span class="arrow">↓</span></div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">🚚</div>
+        <h3>Sürətli çatdırılma</h3>
+        <p>Bakı daxilindən 24 saat, rayonlara 3 iş günü ərzində çatdırılma</p>
+      </div>
+      <div class="feature-card reveal reveal-d1">
+        <div class="feature-icon">✅</div>
+        <h3>Rəsmi zəmanət</h3>
+        <p>Bütün məhsullar istehsalçının rəsmi zəmanəti ilə satılır</p>
+      </div>
+      <div class="feature-card reveal reveal-d2">
+        <div class="feature-icon">🔄</div>
+        <h3>Asan qaytarış</h3>
+        <p>14 gün ərzində səbəbsiz qaytarma və dəyişdirmə imkanı</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- PRODUCTS -->
@@ -1257,6 +1324,42 @@ function closeCatalog(){
   document.getElementById('catalogPanel').classList.remove('open');
 }
 
+function initTypewriter(){
+  const words=['elektrik cihazları','məişət texnikası','premium brendlər','hər ev üçün'];
+  let idx=0,ch=0,del=false;
+  const el=document.getElementById('heroTypewriter');
+  if(!el)return;
+  function tick(){
+    const w=words[idx];
+    if(!del&&ch<=w.length){el.textContent=w.slice(0,ch++);}
+    else if(del&&ch>=0){el.textContent=w.slice(0,ch--);}
+    if(ch>w.length){del=true;setTimeout(tick,1800);return;}
+    if(ch<0){del=false;idx=(idx+1)%words.length;ch=0;}
+    setTimeout(tick,del?45:85);
+  }
+  tick();
+}
+function initCounters(){
+  const els=document.querySelectorAll('.hero-stat-num[data-count]');
+  if(!els.length)return;
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      io.unobserve(e.target);
+      const target=parseFloat(e.target.dataset.count);
+      const dec=parseInt(e.target.dataset.decimal||'0');
+      const dur=1200,steps=50,step=dur/steps;
+      let i=0;
+      const t=setInterval(()=>{
+        i++;
+        const v=target*(i/steps);
+        e.target.textContent=dec?v.toFixed(dec):Math.round(v);
+        if(i>=steps){e.target.textContent=dec?target.toFixed(dec):target;clearInterval(t);}
+      },step);
+    });
+  },{threshold:0.5});
+  els.forEach(el=>io.observe(el));
+}
 function initReveal(){
   const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});
   document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
@@ -1289,6 +1392,8 @@ function init(){
   }catch(e){console.error('init error:',e)}
 
   initReveal();
+  initTypewriter();
+  initCounters();
 
   // Counters with ease-out spring
   document.querySelectorAll('[data-count]').forEach(el=>{
