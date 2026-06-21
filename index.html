@@ -56,7 +56,7 @@ section{padding:80px 0}
 .exp-tab:hover,.exp-tab.open{background:var(--pink-light);color:var(--pink)}
 .exp-tab.lang-active{color:var(--pink);background:var(--pink-light)}
 .exp-tab-label{max-width:0;opacity:0;overflow:hidden;padding-left:0;display:inline-block;transition:max-width 0.4s cubic-bezier(0.16,1,0.3,1),opacity 0.2s,padding-left 0.35s;vertical-align:middle}
-.exp-tab.open .exp-tab-label,.exp-tab.lang-active .exp-tab-label{max-width:80px;opacity:1;padding-left:5px}
+.exp-tab.open .exp-tab-label{max-width:80px;opacity:1;padding-left:5px}
 .exp-sep{width:1px;height:20px;background:var(--gray-100);margin:0 2px;flex-shrink:0;align-self:center}
 .cart-count{min-width:16px;height:16px;background:var(--pink);color:#fff;font-size:10px;font-weight:700;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;padding:0 4px;margin-left:2px;flex-shrink:0}
 .logout-inline{margin-left:6px;font-size:11px;color:var(--pink);cursor:pointer;opacity:0.8}
@@ -533,9 +533,9 @@ section{padding:80px 0}
   </div>
   <div class="header-right">
     <div class="exp-tabs" id="expTabsGroup">
-      <button class="exp-tab lang-exp lang-active" data-lang="AZ" onclick="setLangTab(this)"><span style="font-size:16px;line-height:1">🇦🇿</span><span class="exp-tab-label">AZ</span></button>
-      <button class="exp-tab lang-exp" data-lang="RU" onclick="setLangTab(this)"><span style="font-size:16px;line-height:1">🇷🇺</span><span class="exp-tab-label">RU</span></button>
-      <button class="exp-tab lang-exp" data-lang="EN" onclick="setLangTab(this)"><span style="font-size:16px;line-height:1">🇬🇧</span><span class="exp-tab-label">EN</span></button>
+      <button class="exp-tab lang-exp lang-active" data-lang="AZ" onclick="setLangTab(this)"><svg width="20" height="13" viewBox="0 0 20 13" style="border-radius:2px;display:block"><rect width="20" height="4.3" fill="#0092BC"/><rect y="4.3" width="20" height="4.3" fill="#E8112D"/><rect y="8.6" width="20" height="4.4" fill="#00AF66"/></svg><span class="exp-tab-label">AZ</span></button>
+      <button class="exp-tab lang-exp" data-lang="RU" onclick="setLangTab(this)"><svg width="20" height="13" viewBox="0 0 20 13" style="border-radius:2px;display:block"><rect width="20" height="4.3" fill="#fff" stroke="#e0e0e0" stroke-width="0.3"/><rect y="4.3" width="20" height="4.3" fill="#003DA5"/><rect y="8.6" width="20" height="4.4" fill="#D52B1E"/></svg><span class="exp-tab-label">RU</span></button>
+      <button class="exp-tab lang-exp" data-lang="EN" onclick="setLangTab(this)"><svg width="20" height="13" viewBox="0 0 20 13" style="border-radius:2px;display:block"><rect width="20" height="13" fill="#012169"/><path d="M0,0 L20,13 M20,0 L0,13" stroke="#fff" stroke-width="2.5"/><path d="M0,0 L20,13 M20,0 L0,13" stroke="#C8102E" stroke-width="1.5"/><rect x="8.5" width="3" height="13" fill="#fff"/><rect y="5" width="20" height="3" fill="#fff"/><rect x="9" width="2" height="13" fill="#C8102E"/><rect y="5.5" width="20" height="2" fill="#C8102E"/></svg><span class="exp-tab-label">EN</span></button>
       <div class="exp-sep"></div>
       <button class="exp-tab" id="userBtn" onclick="toggleExpTab(this);openAuthModal()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="exp-tab-label" id="userLabel">Giriş</span></button>
       <button class="exp-tab" onclick="toggleExpTab(this);openCartModal()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span class="cart-count">0</span><span class="exp-tab-label">Səbət</span></button>
@@ -772,9 +772,9 @@ function applyLang(){
   render();
 }
 function setLang(l){lang=l;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));applyLang();updateCartText()}
-function setLangTab(el){const l=el.dataset.lang;lang=l;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));document.querySelectorAll('.lang-exp').forEach(b=>{b.classList.toggle('lang-active',b===el);b.classList.toggle('open',b===el)});applyLang();updateCartText()}
+function setLangTab(el){const l=el.dataset.lang;lang=l;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));document.querySelectorAll('.lang-exp').forEach(b=>b.classList.remove('lang-active'));el.classList.add('lang-active');toggleExpTab(el);applyLang();updateCartText()}
 function toggleExpTab(el){const isOpen=el.classList.contains('open');document.querySelectorAll('#expTabsGroup .exp-tab').forEach(b=>b.classList.remove('open'));if(!isOpen)el.classList.add('open')}
-document.addEventListener('click',function(e){if(!e.target.closest('#expTabsGroup'))document.querySelectorAll('#expTabsGroup .exp-tab:not(.lang-active)').forEach(b=>b.classList.remove('open'))});
+document.addEventListener('click',function(e){if(!e.target.closest('#expTabsGroup'))document.querySelectorAll('#expTabsGroup .exp-tab').forEach(b=>b.classList.remove('open'))});
 function toggleTheme(){const isDark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',isDark?'light':'dark');const knob=document.getElementById('themeKnob');if(knob)knob.textContent=isDark?'🌙':'☀️';localStorage.setItem('theme',isDark?'light':'dark')}
 (function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);const knob=document.getElementById('themeKnob');if(knob)knob.textContent=t==='dark'?'☀️':'🌙'})();
 
