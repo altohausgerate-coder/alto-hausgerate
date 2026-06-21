@@ -176,18 +176,6 @@ section{padding:80px 0}
 }
 
 
-.categories{background:var(--gray-50)}
-.categories .section-header{text-align:center;margin-bottom:48px}
-.cat-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
-.cat-card{display:flex;flex-direction:column;align-items:center;gap:10px;padding:24px 12px;background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-lg);text-align:center;cursor:pointer;transition:all 0.35s var(--spring);user-select:none}
-.cat-card:hover{transform:translateY(-6px);border-color:var(--pink);background:var(--pink-light);box-shadow:var(--shadow-md)}
-.cat-card:active{transform:scale(0.96);transition-duration:0.1s}
-.cat-card .cat-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;font-size:24px;background:var(--pink-light);color:var(--pink);border-radius:var(--radius-md);transition:all 0.4s var(--spring)}
-.cat-card:hover .cat-icon{background:var(--pink);color:#fff;transform:rotate(10deg) scale(1.08)}
-.cat-card span{font-size:13px;font-weight:600}
-.cat-card.active{border-color:var(--pink);background:var(--pink-light)}
-@media(max-width:992px){.cat-grid{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:600px){.cat-grid{grid-template-columns:repeat(3,1fr);gap:10px}.cat-card{padding:16px 8px}.cat-card .cat-icon{width:40px;height:40px;font-size:20px}.cat-card span{font-size:11px}}
 
 
 .products{background:var(--white)}
@@ -658,14 +646,6 @@ section{padding:80px 0}
     </div>
   </div>
   <div class="hero-scroll"><span data-i18n="scrollDown">Aşağı sürüşdürün</span><span class="arrow">↓</span></div>
-</section>
-
-<!-- CATEGORIES -->
-<section class="categories" id="categories">
-  <div class="container">
-    <div class="section-header reveal"><span class="section-label" data-i18n="categories">Kateqoriyalar</span><h2 class="section-title" data-i18n="categoriesTitle">Məhsul kateqoriyaları</h2><p class="section-sub" style="margin:0 auto;" data-i18n="categoriesSub">Ehtiyacınıza uyğun kateqoriyanı seçin</p></div>
-    <div class="cat-grid" id="catGrid"></div>
-  </div>
 </section>
 
 <!-- PRODUCTS -->
