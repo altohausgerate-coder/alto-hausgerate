@@ -408,6 +408,10 @@ section{padding:80px 0}
 /* User button */
 [data-theme="dark"] .exp-tabs{background:#1e1e2e;border-color:#3a3a5c}
 [data-theme="dark"] .exp-sep{background:#3a3a5c}
+[data-theme="dark"] .exp-tab{color:#a0a0b8}
+[data-theme="dark"] .exp-tab:hover,[data-theme="dark"] .exp-tab.open{background:#2a2a4a;color:var(--pink)}
+[data-theme="dark"] .exp-tab.lang-active{background:#2a2a4a;color:var(--pink)}
+[data-theme="dark"] .cart-count{background:var(--pink)}
 .logout-btn{font-size:12px;color:#e74c3c;background:none;border:none;cursor:pointer;padding:2px 8px;border-radius:100px;font-family:var(--font);transition:var(--transition)}
 .logout-btn:hover{background:#fee}
 
@@ -529,9 +533,9 @@ section{padding:80px 0}
   </div>
   <div class="header-right">
     <div class="exp-tabs" id="expTabsGroup">
-      <button class="exp-tab lang-exp lang-active" data-lang="AZ" onclick="setLangTab(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="exp-tab-label">AZ</span></button>
-      <button class="exp-tab lang-exp" data-lang="RU" onclick="setLangTab(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="exp-tab-label">RU</span></button>
-      <button class="exp-tab lang-exp" data-lang="EN" onclick="setLangTab(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="exp-tab-label">EN</span></button>
+      <button class="exp-tab lang-exp lang-active" data-lang="AZ" onclick="setLangTab(this)"><span style="font-size:16px;line-height:1">🇦🇿</span><span class="exp-tab-label">AZ</span></button>
+      <button class="exp-tab lang-exp" data-lang="RU" onclick="setLangTab(this)"><span style="font-size:16px;line-height:1">🇷🇺</span><span class="exp-tab-label">RU</span></button>
+      <button class="exp-tab lang-exp" data-lang="EN" onclick="setLangTab(this)"><span style="font-size:16px;line-height:1">🇬🇧</span><span class="exp-tab-label">EN</span></button>
       <div class="exp-sep"></div>
       <button class="exp-tab" id="userBtn" onclick="toggleExpTab(this);openAuthModal()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="exp-tab-label" id="userLabel">Giriş</span></button>
       <button class="exp-tab" onclick="toggleExpTab(this);openCartModal()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span class="cart-count">0</span><span class="exp-tab-label">Səbət</span></button>
