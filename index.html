@@ -142,7 +142,15 @@ section{padding:80px 0}
 .hero h1{font-size:54px;font-weight:700;line-height:1.08;margin-bottom:16px;animation:heroSlideUp 0.7s var(--spring) 0.15s both}
 .hero h1 span{color:var(--pink)}
 .hero p{font-size:17px;color:var(--gray-text);margin-bottom:32px;max-width:480px;line-height:1.7;animation:heroSlideUp 0.7s var(--spring) 0.3s both}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:heroSlideUp 0.7s var(--spring) 0.45s both}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;animation:heroSlideUp 0.7s var(--spring) 0.45s both}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:15px 30px;background:var(--pink);color:#fff;font-size:15px;font-weight:600;border-radius:100px;border:none;text-decoration:none;cursor:pointer;letter-spacing:0.1px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);box-shadow:0 4px 20px rgba(233,30,140,0.35),0 1px 4px rgba(233,30,140,0.2)}
+.btn-primary:hover{background:linear-gradient(135deg,#d4197f,#f43f8e);transform:translateY(-2px) scale(1.03);box-shadow:0 8px 32px rgba(233,30,140,0.45),0 2px 8px rgba(233,30,140,0.25)}
+.btn-primary:active{transform:translateY(0) scale(0.98);box-shadow:0 2px 10px rgba(233,30,140,0.3)}
+.btn-arrow{display:inline-block;transition:transform 0.25s cubic-bezier(0.16,1,0.3,1)}
+.btn-primary:hover .btn-arrow{transform:translateX(5px)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:15px 30px;background:var(--white);color:var(--black);font-size:15px;font-weight:600;border-radius:100px;border:1.5px solid var(--gray-100);text-decoration:none;cursor:pointer;letter-spacing:0.1px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.btn-outline:hover{background:var(--pink-light);border-color:rgba(233,30,140,0.25);color:var(--pink);transform:translateY(-2px);box-shadow:0 6px 20px rgba(233,30,140,0.12)}
+.btn-outline:active{transform:translateY(0)}
 @keyframes heroFadeIn{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}
 @keyframes heroSlideUp{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
 .hero-visual{position:relative;height:460px;display:flex;align-items:center;justify-content:center}
@@ -665,8 +673,8 @@ section{padding:80px 0}
       <div class="hero-tw-line"><span id="heroTypewriter"></span><span class="tw-cursor">|</span></div>
       <p class="reveal visible reveal-d2">BergHOFF · Fakir · Singer · IYO · Gastro brendlərinin rəsmi distribütoru</p>
       <div class="hero-btns reveal visible reveal-d3">
-        <a href="#products" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--pink);color:#fff;font-size:15px;font-weight:600;border-radius:14px;border:2px solid transparent;transition:var(--transition);cursor:pointer" data-i18n="heroBtn">Məhsullara bax →</a>
-        <a href="#brands" class="btn-outline" style="display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:transparent;color:var(--black);font-size:15px;font-weight:600;border-radius:14px;border:2px solid var(--gray-100);transition:var(--transition);cursor:pointer" data-i18n="brandsBtn">Brendlər</a>
+        <a href="#products" class="btn-primary" data-i18n="heroBtn">Məhsullara bax <span class="btn-arrow">→</span></a>
+        <a href="#brands" class="btn-outline" data-i18n="brandsBtn">Brendlər</a>
       </div>
       <div class="hero-stats">
         <div class="hero-stat"><span class="hero-stat-num" data-count="500">0</span><span style="font-size:18px;font-weight:800;color:var(--black)">+</span><span class="hero-stat-label">Məhsul</span></div>
