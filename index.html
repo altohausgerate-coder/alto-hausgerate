@@ -231,15 +231,17 @@ section{padding:80px 0}
 .filter-select:focus{border-color:var(--pink)}
 .price-range{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-text)}
 .price-range input[type=range]{width:120px;accent-color:var(--pink)}
-.search-toggle-wrap{display:flex;align-items:center;justify-content:center;margin:0 auto 28px;gap:10px}
-.search-toggle-btn{width:44px;height:44px;border:1.5px solid var(--gray-100);border-radius:50%;background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray-text);transition:all 0.3s var(--spring);flex-shrink:0}
-.search-toggle-btn:hover,.search-toggle-btn.active{background:var(--pink-light);border-color:var(--pink);color:var(--pink)}
-.search-expand{display:flex;align-items:center;gap:8px;overflow:hidden;max-width:0;opacity:0;transition:max-width 0.45s cubic-bezier(0.16,1,0.3,1),opacity 0.3s}
-.search-expand.open{max-width:520px;opacity:1}
-.products-search{width:340px;max-width:70vw;padding:11px 18px;border:1.5px solid var(--gray-100);border-radius:100px;font-size:14px;font-family:var(--font);outline:none;transition:border-color 0.2s;background:var(--white)}
-.products-search:focus{border-color:var(--pink)}
-.search-close-btn{width:30px;height:30px;border:none;background:var(--gray-50);border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:var(--gray-text);transition:var(--transition);flex-shrink:0}
-.search-close-btn:hover{background:var(--pink-light);color:var(--pink)}
+.products-header-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;gap:16px}
+.search-pill{display:inline-flex;align-items:center;gap:0;height:42px;width:42px;padding:0 12px;border:1.5px solid var(--gray-100);border-radius:100px;background:var(--white);cursor:pointer;transition:width 0.45s cubic-bezier(0.16,1,0.3,1),border-color 0.25s,background 0.25s;overflow:hidden;flex-shrink:0}
+.search-pill:hover{border-color:var(--pink);background:var(--pink-light)}
+.search-pill.open{width:280px;cursor:default;border-color:var(--pink)}
+.search-pill-icon{flex-shrink:0;color:var(--gray-text);transition:color 0.2s}
+.search-pill:hover .search-pill-icon,.search-pill.open .search-pill-icon{color:var(--pink)}
+.search-pill-input{width:0;opacity:0;border:none;background:transparent;font-size:14px;font-family:var(--font);outline:none;color:var(--black);transition:width 0.4s cubic-bezier(0.16,1,0.3,1),opacity 0.25s,padding 0.4s;padding:0;pointer-events:none}
+.search-pill.open .search-pill-input{width:180px;opacity:1;padding:0 8px;pointer-events:auto}
+.search-pill-close{display:none;width:22px;height:22px;border:none;background:var(--gray-100);border-radius:50%;cursor:pointer;font-size:11px;align-items:center;justify-content:center;color:var(--gray-text);flex-shrink:0;transition:var(--transition)}
+.search-pill.open .search-pill-close{display:flex}
+.search-pill-close:hover{background:var(--pink-light);color:var(--pink)}
 .products-search:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(233,30,140,0.1)}
 .products-search::placeholder{color:#aaa}
 .results-count{text-align:center;font-size:14px;color:var(--gray-text);margin-bottom:20px}
@@ -708,14 +710,12 @@ section{padding:80px 0}
 <!-- PRODUCTS -->
 <section class="products" id="products">
   <div class="container">
-    <div class="section-header reveal"><span class="section-label" data-i18n="products">Məhsullar</span><h2 class="section-title" data-i18n="productsTitle">Seçilmiş Məhsullar</h2><p class="section-sub" style="margin:0 auto;" data-i18n="productsSub">Geniş çeşid, ən sərfəli qiymətlər</p></div>
-    <div class="search-toggle-wrap reveal">
-      <button class="search-toggle-btn" id="searchToggleBtn" onclick="toggleSearch()" aria-label="Axtar">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </button>
-      <div class="search-expand" id="searchExpand">
-        <input class="products-search" id="productsSearch" type="text" placeholder="Məhsul axtar..." oninput="onSearchInput(this.value)" autocomplete="off" />
-        <button class="search-close-btn" onclick="closeSearch()">✕</button>
+    <div class="products-header-row reveal">
+      <div class="section-header" style="margin-bottom:0;text-align:left"><span class="section-label" data-i18n="products">Məhsullar</span><h2 class="section-title" data-i18n="productsTitle">Seçilmiş Məhsullar</h2></div>
+      <div class="search-pill" id="searchPill" onclick="openSearchPill()">
+        <svg class="search-pill-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input class="search-pill-input" id="productsSearch" type="text" placeholder="Məhsul axtar..." oninput="onSearchInput(this.value)" autocomplete="off" onclick="event.stopPropagation()" />
+        <button class="search-pill-close" id="searchPillClose" onclick="event.stopPropagation();closeSearch()" tabindex="-1">✕</button>
       </div>
     </div>
     <select class="filter-select" id="catFilter" style="display:none" onchange="setCategory(this.value)"><option value="">Bütün kateqoriyalar</option></select>
@@ -1510,20 +1510,22 @@ function setPrice(val){
   render();
 }
 
-function toggleSearch(){
-  const exp=document.getElementById('searchExpand');
-  const btn=document.getElementById('searchToggleBtn');
-  const inp=document.getElementById('productsSearch');
-  const isOpen=exp.classList.contains('open');
-  if(isOpen){closeSearch();}else{exp.classList.add('open');btn.classList.add('active');setTimeout(()=>inp&&inp.focus(),50);}
+function openSearchPill(){
+  const pill=document.getElementById('searchPill');
+  if(pill.classList.contains('open'))return;
+  pill.classList.add('open');
+  setTimeout(()=>{const inp=document.getElementById('productsSearch');if(inp)inp.focus();},80);
 }
 function closeSearch(){
-  const exp=document.getElementById('searchExpand');
-  const btn=document.getElementById('searchToggleBtn');
+  const pill=document.getElementById('searchPill');
+  pill.classList.remove('open');
   const inp=document.getElementById('productsSearch');
-  exp.classList.remove('open');btn.classList.remove('active');
   if(inp){inp.value='';onSearchInput('');}
 }
+document.addEventListener('click',function(e){
+  const pill=document.getElementById('searchPill');
+  if(pill&&pill.classList.contains('open')&&!pill.contains(e.target))closeSearch();
+});
 function onSearchInput(val){
   curSearch = val.trim().toLowerCase();
   shown = 0;
