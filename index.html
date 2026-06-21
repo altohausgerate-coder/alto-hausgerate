@@ -1253,9 +1253,7 @@ function init(){
   updateUserUI();
   updateCartCount();
   prodData=PROD;
-  // Categories grid
-  const cg=document.getElementById('catGrid');
-  cg.innerHTML=CATEGORIES_DISPLAY.map((c,i)=>`<div class="cat-card reveal reveal-d${i%9}" data-cat="${c.label}" onclick="clickCat('${c.label}',this)"><div class="cat-icon">${c.icon}</div><span>${c.label}</span></div>`).join('');
+  // Categories grid (section removed, catGrid no longer in DOM)
 
   // Catalog panel
   const cl=document.getElementById('catalogList');
