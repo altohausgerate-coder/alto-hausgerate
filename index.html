@@ -1247,33 +1247,38 @@ function closeCatalog(){
   document.getElementById('catalogPanel').classList.remove('open');
 }
 
-function init(){
-  const savedUser = JSON.parse(localStorage.getItem('au_current') || 'null');
-  if (savedUser) currentUser = savedUser;
-  updateUserUI();
-  updateCartCount();
-  prodData=PROD;
-  // Categories grid (section removed, catGrid no longer in DOM)
-
-  // Catalog panel
-  const cl=document.getElementById('catalogList');
-  cl.innerHTML=CATEGORIES_DISPLAY.map(c=>`<div class="catalog-item" onclick="closeCatalog();setCategory('${c.label}');document.getElementById('products').scrollIntoView({behavior:'smooth'})"><span class="catalog-item-icon">${c.icon}</span><span class="catalog-item-label">${c.label}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></div>`).join('')+`<div class="catalog-item" onclick="closeCatalog();setFilter('all');setCategory('');document.getElementById('products').scrollIntoView({behavior:'smooth'})"><span class="catalog-item-icon">🏠</span><span class="catalog-item-label">Bütün məhsullar</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></div>`;
-
-  // Category filter select
-  const sel=document.getElementById('catFilter');
-  sel.innerHTML=`<option value="">${tr('allCat')}</option>`+allCats.map(c=>`<option value="${c}">${c}</option>`).join('');
-
-  // Brands marquee
-  const bm=['BergHOFF','Fakir Hausgerate','Singer','IYO','Gastro'];
-  document.getElementById('marqueeTrack').innerHTML=bm.map(b=>`<div class="brand-card">${b}</div>`).join('')+bm.map(b=>`<div class="brand-card">${b}</div>`).join('');
-
-  applyLang();
-  render();
-
-  // Scroll reveal
+function initReveal(){
   const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});
   document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
-  setTimeout(()=>{document.querySelectorAll('.reveal:not(.visible)').forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight)el.classList.add('visible')})},150);
+  setTimeout(()=>{document.querySelectorAll('.reveal:not(.visible)').forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight)el.classList.add('visible')})},100);
+}
+
+function init(){
+  try{
+    const savedUser = JSON.parse(localStorage.getItem('au_current') || 'null');
+    if (savedUser) currentUser = savedUser;
+    updateUserUI();
+    updateCartCount();
+    prodData=PROD;
+
+    // Catalog panel
+    const cl=document.getElementById('catalogList');
+    if(cl)cl.innerHTML=CATEGORIES_DISPLAY.map(c=>`<div class="catalog-item" onclick="closeCatalog();setCategory('${c.label}');document.getElementById('products').scrollIntoView({behavior:'smooth'})"><span class="catalog-item-icon">${c.icon}</span><span class="catalog-item-label">${c.label}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></div>`).join('')+`<div class="catalog-item" onclick="closeCatalog();setFilter('all');setCategory('');document.getElementById('products').scrollIntoView({behavior:'smooth'})"><span class="catalog-item-icon">🏠</span><span class="catalog-item-label">Bütün məhsullar</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></div>`;
+
+    // Category filter select
+    const sel=document.getElementById('catFilter');
+    if(sel)sel.innerHTML=`<option value="">${tr('allCat')}</option>`+allCats.map(c=>`<option value="${c}">${c}</option>`).join('');
+
+    // Brands marquee
+    const bm=['BergHOFF','Fakir Hausgerate','Singer','IYO','Gastro'];
+    const mt=document.getElementById('marqueeTrack');
+    if(mt)mt.innerHTML=bm.map(b=>`<div class="brand-card">${b}</div>`).join('')+bm.map(b=>`<div class="brand-card">${b}</div>`).join('');
+
+    applyLang();
+    render();
+  }catch(e){console.error('init error:',e)}
+
+  initReveal();
 
   // Counters with ease-out spring
   document.querySelectorAll('[data-count]').forEach(el=>{
