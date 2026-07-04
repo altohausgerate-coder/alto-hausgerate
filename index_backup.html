@@ -1,0 +1,1617 @@
+﻿<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alto. Hausgerate — Məişət texnikası mağazası</title>
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="favicon.png" />
+<meta name="description" content="BergHOFF, Fakir, Singer, IYO brendlərinin rəsmi distribütoru" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/11.15.0/framer-motion.js" integrity="sha512-5pdRD3hJ7e8jJ4dGnuW2BLHqB0/yQXPQ+Fb6jjr7ZqTDAqB8EWK9n2ZalZ5SA5Cwm5SgngKjQAD7v8aY1SdOWg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--pink:#E91E8C;--pink-light:#FDF0F7;--pink-dark:#C2177A;--white:#FFFFFF;--gray-50:#F8F8F8;--gray-100:#F0F0F0;--gray-text:#666666;--black:#111111;--shadow-sm:0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 16px rgba(0,0,0,0.08);--shadow-lg:0 12px 40px rgba(0,0,0,0.1);--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:20px;--radius-2xl:24px;--font:'DM Sans',sans-serif;--transition:0.3s cubic-bezier(0.4,0,0.2,1);--spring:cubic-bezier(0.16,1,0.3,1)}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--black);background:var(--white);line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+ul{list-style:none}
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+section{padding:80px 0}
+.section-label{display:inline-block;padding:6px 18px;background:var(--pink-light);color:var(--pink);font-size:13px;font-weight:600;border-radius:100px;margin-bottom:12px;letter-spacing:0.3px}
+.section-title{font-size:34px;font-weight:700;margin-bottom:8px;line-height:1.2}
+.section-sub{color:var(--gray-text);font-size:16px;max-width:560px}
+.section-header.reveal.visible .section-label{animation:labelPop 0.5s var(--spring) both}
+.section-header.reveal.visible .section-title{animation:titleReveal 0.6s var(--spring) 0.1s both}
+.section-header.reveal.visible .section-sub{animation:titleReveal 0.6s var(--spring) 0.2s both}
+@keyframes labelPop{0%{opacity:0;transform:scale(0.8)}100%{opacity:1;transform:scale(1)}}
+@keyframes titleReveal{0%{opacity:0;transform:translateY(16px)}100%{opacity:1;transform:translateY(0)}}
+@media(max-width:768px){section{padding:56px 0}.section-title{font-size:26px}}
+
+
+.scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--pink),var(--pink-dark));z-index:999;transition:width 50ms linear;border-radius:0 2px 2px 0}
+.header{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:background 0.4s var(--spring),backdrop-filter 0.4s var(--spring),box-shadow 0.4s var(--spring),border-color 0.4s var(--spring)}
+.header.scrolled{background:rgba(255,255,255,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom-color:var(--gray-100);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.header-left{display:flex;align-items:center;gap:12px}
+.logo-rhombus{width:36px;height:36px;background:var(--pink);border-radius:8px;transform:rotate(45deg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-rhombus span{transform:rotate(-45deg);color:#fff;font-weight:700;font-size:16px}
+.header-logo-text{font-size:20px;font-weight:700}
+.header-logo-text .alto{color:var(--black)}
+.header-logo-text .haus{color:var(--black)}
+.header-center{flex:1;max-width:520px;margin:0 24px;position:relative}
+.header-search{width:100%;padding:10px 16px 10px 44px;border:1.5px solid var(--gray-100);border-radius:100px;font-size:14px;font-family:var(--font);outline:none;transition:all 0.35s var(--spring);background:var(--gray-50)}
+.header-search:focus{width:120%;border-color:var(--pink);box-shadow:0 0 0 3px rgba(233,30,140,0.1);background:var(--white)}
+.header-search::placeholder{transition:opacity 0.2s}
+.header-search:focus::placeholder{opacity:0.5}
+.search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--gray-text);pointer-events:none}
+.header-right{display:flex;align-items:center;gap:6px}
+.lang-btn{background:none;border:none;font-size:13px;font-weight:600;color:var(--gray-text);cursor:pointer;padding:6px 8px;border-radius:var(--radius-sm);transition:var(--transition);font-family:var(--font)}
+.lang-btn:hover{color:var(--pink)}
+.lang-btn.active{color:var(--pink);background:var(--pink-light)}
+.cart-btn{position:relative;width:40px;height:40px;border:none;background:transparent;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--transition);color:var(--gray-text)}
+.cart-btn:hover{background:var(--pink-light);color:var(--pink)}
+.cart-count{position:absolute;top:2px;right:2px;width:18px;height:18px;background:var(--pink);color:#fff;font-size:10px;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.catalog-btn{display:flex;align-items:center;gap:8px;background:var(--pink);color:#fff;border:none;padding:8px 16px;border-radius:var(--radius-md);font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font);transition:var(--transition);white-space:nowrap;flex-shrink:0}
+.catalog-btn:hover{background:var(--pink-dark)}
+.catalog-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:180;opacity:0;pointer-events:none;transition:var(--transition)}
+.catalog-overlay.open{opacity:1;pointer-events:auto}
+.catalog-panel{position:fixed;top:72px;left:-320px;width:300px;height:calc(100vh - 72px);background:var(--white);z-index:190;box-shadow:4px 0 24px rgba(0,0,0,0.1);transition:left 0.35s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;display:flex;flex-direction:column}
+.catalog-panel.open{left:0}
+.catalog-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--gray-100);font-size:16px;font-weight:700;position:sticky;top:0;background:var(--white);z-index:1}
+.catalog-header button{width:32px;height:32px;border:none;background:var(--gray-50);border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
+.catalog-header button:hover{background:var(--pink-light);color:var(--pink)}
+.catalog-list{padding:8px 0;flex:1}
+.catalog-item{display:flex;align-items:center;gap:12px;padding:13px 20px;cursor:pointer;transition:var(--transition);border-bottom:1px solid var(--gray-50)}
+.catalog-item:hover{background:var(--pink-light);color:var(--pink)}
+.catalog-item:hover svg{stroke:var(--pink)}
+.catalog-item-icon{font-size:20px;width:28px;text-align:center;flex-shrink:0}
+.catalog-item-label{flex:1;font-size:14px;font-weight:500}
+.catalog-item svg{margin-left:auto;color:#ccc;flex-shrink:0}
+@media(max-width:768px){
+  .header-nav{display:none}
+  .header{padding:0 12px;height:60px;gap:8px}
+  .header-center{display:none}
+  .header-logo-text{font-size:16px}
+  .logo-rhombus{width:30px;height:30px}
+  .logo-rhombus span{font-size:13px}
+  .lang-btn{padding:4px 5px;font-size:11px}
+  .user-btn{padding:6px 8px;font-size:12px;gap:4px}
+  .user-btn svg{width:14px;height:14px}
+  .cart-btn{width:34px;height:34px}
+  .catalog-btn{padding:6px 10px;font-size:13px}
+  .catalog-btn svg{display:none}
+  .catalog-panel{top:60px;height:calc(100vh - 60px)}
+  .hero{padding-top:60px}
+  .prod-modal{grid-template-columns:1fr;gap:16px;padding:16px;max-height:90vh;overflow-y:auto}
+  .pm-main-img{height:220px}
+  .pm-title{font-size:16px}
+  .cart-modal{width:calc(100vw - 24px);max-height:90vh;overflow-y:auto}
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .hero h1{font-size:32px}
+  .hero-visual{height:260px}
+}
+@media(max-width:480px){
+  .prod-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .prod-card .body h3{font-size:12px}
+  .add-btn{font-size:12px;padding:10px 8px}
+}
+@media(max-width:400px){
+  .lang-btn{display:none}
+  .header-logo-text .haus{display:none}
+}
+
+.mobile-nav{position:fixed;top:0;right:-100%;width:300px;height:100%;background:var(--white);z-index:200;padding:80px 28px 28px;box-shadow:-4px 0 30px rgba(0,0,0,0.1);transition:right 0.35s cubic-bezier(0.4,0,0.2,1);overflow-y:auto}
+.mobile-nav.open{right:0}
+.mobile-nav .mobile-search{display:block;width:100%;padding:12px 16px 12px 40px;border:1.5px solid var(--gray-100);border-radius:100px;font-size:14px;font-family:var(--font);outline:none;margin-bottom:24px;background:var(--gray-50)}
+.mobile-nav .mobile-search:focus{border-color:var(--pink)}
+.mobile-nav .ms-icon{position:relative;display:block}
+.mobile-nav .ms-icon .search-icon{top:18px;left:14px}
+.mobile-nav a{display:block;font-size:16px;font-weight:500;padding:14px 0;color:var(--gray-text);border-bottom:1px solid var(--gray-100);transition:var(--transition)}
+.mobile-nav a:hover{color:var(--pink)}
+.mobile-nav .mobile-lang{display:flex;gap:8px;margin-top:24px;padding-top:16px;border-top:1px solid var(--gray-100)}
+.mobile-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:150;opacity:0;pointer-events:none;transition:var(--transition)}
+.mobile-overlay.open{opacity:1;pointer-events:auto}
+.mobile-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border:none;background:var(--gray-50);border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
+.mobile-close:hover{background:var(--pink-light);color:var(--pink)}
+
+
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:72px}
+.hero-blob{position:absolute;border-radius:50%;pointer-events:none}
+.hero-blob--1{width:500px;height:500px;background:radial-gradient(circle,rgba(233,30,140,0.08),transparent);top:-120px;right:-80px;animation:blobFloat 14s ease-in-out infinite}
+.hero-blob--2{width:350px;height:350px;background:radial-gradient(circle,rgba(233,30,140,0.06),transparent);bottom:60px;left:-60px;animation:blobFloat 11s ease-in-out infinite reverse}
+.hero-blob--3{width:220px;height:220px;border:2px solid rgba(233,30,140,0.08);top:30%;right:25%;animation:blobFloat 9s ease-in-out infinite 1s}
+.hero-blob--4{width:140px;height:140px;background:rgba(233,30,140,0.03);bottom:30%;right:15%;animation:blobFloat 13s ease-in-out infinite 2s}
+@keyframes blobFloat{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(25px,-35px) scale(1.05)}
+  66%{transform:translate(-18px,22px) scale(0.95)}
+}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2;width:100%}
+.hero-badge{display:inline-block;padding:6px 18px;background:var(--pink-light);color:var(--pink);font-size:13px;font-weight:600;border-radius:100px;margin-bottom:20px;animation:heroFadeIn 0.6s var(--spring) both}
+.hero h1{font-size:54px;font-weight:700;line-height:1.08;margin-bottom:16px;animation:heroSlideUp 0.7s var(--spring) 0.15s both}
+.hero h1 span{color:var(--pink)}
+.hero p{font-size:17px;color:var(--gray-text);margin-bottom:32px;max-width:480px;line-height:1.7;animation:heroSlideUp 0.7s var(--spring) 0.3s both}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:heroSlideUp 0.7s var(--spring) 0.45s both}
+@keyframes heroFadeIn{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes heroSlideUp{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
+.hero-visual{position:relative;height:420px;display:flex;align-items:center;justify-content:center}
+.hero-img-stack{position:relative;width:320px;height:320px}
+.hero-img-item{position:absolute;width:200px;height:200px;border-radius:var(--radius-2xl);overflow:hidden;box-shadow:var(--shadow-lg);border:3px solid var(--white)}
+.hero-img-item img{width:100%;height:100%;object-fit:cover}
+.hero-img-item:nth-child(1){top:0;left:0;z-index:3;animation:floatItem 6s ease-in-out infinite}
+.hero-img-item:nth-child(2){bottom:0;right:0;z-index:2;animation:floatItem 7s ease-in-out infinite 0.5s}
+.hero-img-item:nth-child(3){top:50%;left:50%;transform:translate(-50%,-50%);width:140px;height:140px;z-index:1;animation:floatItem 5s ease-in-out infinite 1.2s}
+@keyframes floatItem{0%,100%{transform:translateY(0)}33%{transform:translateY(-16px)}66%{transform:translateY(-6px)}}
+@keyframes floatItem{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-14px)}
+}
+.hero-pink-blob{position:absolute;width:280px;height:280px;background:radial-gradient(circle,rgba(233,30,140,0.15),transparent);border-radius:50%;z-index:0;animation:blobPulse 8s ease-in-out infinite}
+@keyframes blobPulse{
+  0%,100%{transform:scale(1);opacity:0.5}
+  50%{transform:scale(1.3);opacity:1}
+}
+.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--gray-text);font-size:12px;animation:scrollBounce 2.5s ease-in-out infinite;z-index:2}
+.hero-scroll .arrow{font-size:18px}
+@keyframes scrollBounce{
+  0%,100%{transform:translateX(-50%) translateY(0);opacity:0.6}
+  50%{transform:translateX(-50%) translateY(10px);opacity:1}
+}
+@media(max-width:992px){
+  .hero-grid{grid-template-columns:1fr;gap:40px;text-align:center}
+  .hero p{margin:0 auto 32px}
+  .hero-btns{justify-content:center}
+  .hero-visual{height:300px}
+  .hero-img-stack{width:240px;height:240px}
+  .hero-img-item{width:150px;height:150px}
+  .hero h1{font-size:36px}
+}
+@media(max-width:768px){
+  .hero h1{font-size:30px}
+  .hero-blob--1{width:250px;height:250px;top:-60px;right:-40px}
+  .hero-blob--2{width:180px;height:180px}
+}
+
+
+.categories{background:var(--gray-50)}
+.categories .section-header{text-align:center;margin-bottom:48px}
+.cat-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.cat-card{display:flex;flex-direction:column;align-items:center;gap:10px;padding:24px 12px;background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-lg);text-align:center;cursor:pointer;transition:all 0.35s var(--spring);user-select:none}
+.cat-card:hover{transform:translateY(-6px);border-color:var(--pink);background:var(--pink-light);box-shadow:var(--shadow-md)}
+.cat-card:active{transform:scale(0.96);transition-duration:0.1s}
+.cat-card .cat-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;font-size:24px;background:var(--pink-light);color:var(--pink);border-radius:var(--radius-md);transition:all 0.4s var(--spring)}
+.cat-card:hover .cat-icon{background:var(--pink);color:#fff;transform:rotate(10deg) scale(1.08)}
+.cat-card span{font-size:13px;font-weight:600}
+.cat-card.active{border-color:var(--pink);background:var(--pink-light)}
+@media(max-width:992px){.cat-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:600px){.cat-grid{grid-template-columns:repeat(3,1fr);gap:10px}.cat-card{padding:16px 8px}.cat-card .cat-icon{width:40px;height:40px;font-size:20px}.cat-card span{font-size:11px}}
+
+
+.products{background:var(--white)}
+.products .section-header{text-align:center;margin-bottom:40px}
+.filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;justify-content:center;align-items:center}
+.filter-bar{position:relative}
+.filter-pill{padding:8px 20px;border:1.5px solid var(--gray-100);border-radius:100px;font-size:13px;font-weight:500;font-family:var(--font);background:var(--white);color:var(--gray-text);cursor:pointer;transition:all 0.3s var(--spring);position:relative;overflow:hidden}
+.filter-pill::before{content:'';position:absolute;inset:0;border-radius:100px;background:var(--pink);transform:scale(0);transition:transform 0.35s var(--spring);z-index:0}
+.filter-pill:hover{border-color:var(--pink);color:var(--pink)}
+.filter-pill.active{background:var(--pink);color:#fff;border-color:var(--pink);transform:scale(1.04);box-shadow:0 4px 14px rgba(233,30,140,0.25)}
+.filter-select{padding:8px 16px;border:1.5px solid var(--gray-100);border-radius:100px;font-size:13px;font-weight:500;font-family:var(--font);background:var(--white);color:var(--gray-text);cursor:pointer;outline:none;transition:var(--transition);-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
+.filter-select:focus{border-color:var(--pink)}
+.price-range{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-text)}
+.price-range input[type=range]{width:120px;accent-color:var(--pink)}
+.products-search-wrap{max-width:600px;margin:0 auto 24px}
+.products-search{width:100%;padding:14px 20px;border:2px solid var(--gray-100);border-radius:100px;font-size:15px;font-family:var(--font);outline:none;transition:all 0.3s var(--spring);background:var(--white)}
+.products-search:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(233,30,140,0.1)}
+.products-search::placeholder{color:#aaa}
+.results-count{text-align:center;font-size:14px;color:var(--gray-text);margin-bottom:20px}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;transition:opacity 0.3s}
+.prod-grid.filtering{opacity:0.4}
+.prod-card{background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-xl);overflow:hidden;transition:all 0.45s var(--spring)}
+.prod-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 50px rgba(0,0,0,0.1);border-color:rgba(233,30,140,0.2)}
+.prod-card .img-wrap{aspect-ratio:1;background:var(--gray-50);display:flex;align-items:center;justify-content:center;overflow:hidden;padding:12px;position:relative}
+.prod-card .img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
+.prod-card:hover .img-wrap img{transform:scale(1.06)}
+.prod-card .discount-badge{position:absolute;top:12px;left:12px;padding:4px 10px;background:var(--pink);color:#fff;font-size:11px;font-weight:700;border-radius:100px;z-index:2}
+.prod-card .brand-pill{position:absolute;top:12px;right:12px;padding:4px 10px;background:rgba(255,255,255,0.9);backdrop-filter:blur(4px);color:var(--pink);font-size:10px;font-weight:600;border-radius:100px;z-index:2;letter-spacing:0.3px}
+.prod-card .body{padding:16px}
+.prod-card h3{font-size:14px;font-weight:600;margin-bottom:10px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.prod-card .prices{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.prod-card .mrp{font-size:13px;color:#bbb;text-decoration:line-through}
+.prod-card .rrp{font-size:17px;font-weight:700;color:var(--pink)}
+.prod-card .add-btn{width:100%;padding:11px;background:var(--pink);color:#fff;border:none;border-radius:10px;font-size:13px;font-weight:600;font-family:var(--font);cursor:pointer;transition:all 0.25s var(--spring);position:relative;overflow:hidden}
+.prod-card .add-btn:hover{opacity:0.9;transform:translateY(-1px);box-shadow:0 4px 12px rgba(233,30,140,0.3)}
+.prod-card .add-btn:active{transform:scale(0.96)}
+.prod-card .add-btn.added{background:#22c55e;transform:scale(1);pointer-events:none}
+.prod-card .add-btn .btn-icon{display:inline-block;transition:transform 0.3s var(--spring)}
+.prod-card .add-btn:hover .btn-icon{transform:translateX(3px)}
+
+.cart-fly{position:fixed;width:24px;height:24px;background:var(--pink);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;z-index:999;pointer-events:none;animation:cartFly 0.8s cubic-bezier(0.16,1,0.3,1) forwards}
+.cart-fly svg{width:14px;height:14px}
+@keyframes cartFly{
+  0%{opacity:1;transform:translate(0,0) scale(0.5)}
+  40%{transform:translate(40px,-120px) scale(1.2)}
+  70%{opacity:1;transform:translate(80px,-80px) scale(0.8)}
+  100%{opacity:0;transform:translate(120px,0) scale(0.3)}
+}
+
+.prod-grid .prod-card{animation:cardAppear 0.5s var(--spring) both}
+@keyframes cardAppear{0%{opacity:0;transform:translateY(24px) scale(0.96)}100%{opacity:1;transform:translateY(0) scale(1)}}
+.prod-grid .prod-card:nth-child(1){animation-delay:0s}
+.prod-grid .prod-card:nth-child(2){animation-delay:0.04s}
+.prod-grid .prod-card:nth-child(3){animation-delay:0.08s}
+.prod-grid .prod-card:nth-child(4){animation-delay:0.12s}
+.prod-grid .prod-card:nth-child(5){animation-delay:0.16s}
+.prod-grid .prod-card:nth-child(6){animation-delay:0.20s}
+.prod-grid .prod-card:nth-child(7){animation-delay:0.24s}
+.prod-grid .prod-card:nth-child(8){animation-delay:0.28s}
+.prod-grid .prod-card:nth-child(9){animation-delay:0.32s}
+.prod-grid .prod-card:nth-child(10){animation-delay:0.36s}
+.prod-grid .prod-card:nth-child(11){animation-delay:0.40s}
+.prod-grid .prod-card:nth-child(12){animation-delay:0.44s}
+.show-more-wrap{text-align:center;margin-top:32px}
+.show-more-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 36px;background:var(--pink-light);color:var(--pink);border:1.5px solid var(--pink);border-radius:100px;font-size:14px;font-weight:600;font-family:var(--font);cursor:pointer;transition:var(--transition)}
+.show-more-btn:hover{background:var(--pink);color:#fff}
+.empty-state{text-align:center;padding:60px 20px;color:var(--gray-text)}
+.empty-state .empty-icon{font-size:48px;margin-bottom:16px;opacity:0.4}
+.empty-state p{font-size:16px}
+@media(max-width:992px){.prod-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.prod-grid{grid-template-columns:repeat(2,1fr);gap:12px}.filter-bar{overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start;padding-bottom:8px}.filter-pill{white-space:nowrap;font-size:12px;padding:6px 14px}.prod-card .body{padding:12px}.prod-card h3{font-size:12px}.prod-card .rrp{font-size:15px}}
+
+
+.brands{overflow:hidden;padding:60px 0}
+.brands .section-header{text-align:center;margin-bottom:40px}
+.marquee-wrap{overflow:hidden}
+.marquee-track{display:flex;gap:24px;width:max-content;animation:marquee 35s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marquee{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+.brand-card{flex-shrink:0;width:190px;height:84px;display:flex;align-items:center;justify-content:center;background:var(--white);border:1.5px solid var(--gray-100);border-radius:var(--radius-lg);font-weight:700;font-size:14px;color:var(--gray-text);transition:all 0.35s var(--spring);cursor:default}
+.marquee-track:hover .brand-card{opacity:0.7}
+.marquee-track .brand-card:hover{opacity:1;transform:scale(1.08);border-color:var(--pink);color:var(--pink);box-shadow:0 8px 24px rgba(233,30,140,0.15)}
+
+
+.about{background:var(--gray-50)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-right{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat-card{padding:28px 20px;background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-lg);text-align:center;transition:var(--transition)}
+.stat-card:hover{box-shadow:var(--shadow-md);border-color:var(--pink)}
+.stat-card .num{font-size:38px;font-weight:700;color:var(--pink);line-height:1.2}
+.stat-card .label{font-size:13px;color:var(--gray-text);margin-top:4px}
+.about-text h2{font-size:32px;margin-bottom:16px;line-height:1.2}
+.about-text p{color:var(--gray-text);line-height:1.7;margin-bottom:12px;font-size:15px}
+@media(max-width:768px){
+  .about-grid{grid-template-columns:1fr;gap:32px}
+  .about-right{grid-template-columns:1fr 1fr}
+  .about-text h2{font-size:26px}
+}
+
+
+.contact{background:var(--white)}
+.contact .section-header{text-align:center;margin-bottom:48px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.contact-info{display:flex;flex-direction:column;gap:20px}
+.contact-item{display:flex;align-items:flex-start;gap:14px;padding:16px;background:var(--gray-50);border-radius:var(--radius-lg);transition:var(--transition)}
+.contact-item:hover{box-shadow:var(--shadow-sm)}
+.contact-item .ci-icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--pink-light);color:var(--pink);border-radius:var(--radius-md);font-size:18px;flex-shrink:0}
+.contact-item h4{font-size:14px;font-weight:600;margin-bottom:2px}
+.contact-item p,.contact-item a{color:var(--gray-text);font-size:14px;transition:var(--transition)}
+.contact-item a:hover{color:var(--pink)}
+.contact-form{background:var(--gray-50);padding:36px;border-radius:var(--radius-2xl);border:1px solid var(--gray-100)}
+.contact-form input,.contact-form textarea{width:100%;padding:14px 16px;border:1.5px solid var(--gray-100);border-radius:var(--radius-md);font-size:14px;font-family:var(--font);transition:var(--transition);outline:none;background:var(--white)}
+.contact-form .input-wrap{position:relative;margin-bottom:16px}
+.contact-form .input-wrap::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--pink);border-radius:2px;transition:all 0.35s var(--spring);transform:translateX(-50%)}
+.contact-form .input-wrap:focus-within::after{width:100%}
+.contact-form input,.contact-form textarea{width:100%;padding:14px 16px;border:1.5px solid var(--gray-100);border-radius:var(--radius-md);font-size:14px;font-family:var(--font);transition:all 0.3s var(--spring);outline:none;background:var(--white)}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(233,30,140,0.08)}
+.contact-form .fg{margin-bottom:16px}
+.contact-form textarea{height:120px;resize:vertical}
+.contact-form .submit-btn{width:100%;padding:15px;background:var(--pink);color:#fff;border:none;border-radius:var(--radius-md);font-size:15px;font-weight:600;font-family:var(--font);cursor:pointer;transition:var(--transition)}
+.contact-form .submit-btn:hover{opacity:0.9;transform:translateY(-1px)}
+@media(max-width:768px){
+  .contact-grid{grid-template-columns:1fr;gap:32px}
+  .contact-form{padding:24px}
+}
+
+
+.footer{background:var(--black);color:#fff;padding:60px 0 28px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand .fl{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.footer-brand .fl .logo-rhombus{width:32px;height:32px}
+.footer-brand .fl .logo-rhombus span{font-size:14px}
+.footer-brand .fl span{font-size:18px;font-weight:700}
+.footer-brand p{color:#999;font-size:14px;line-height:1.7;max-width:300px}
+.footer h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#999;margin-bottom:16px}
+.footer ul li{margin-bottom:10px}
+.footer ul a{color:#ccc;font-size:14px;transition:var(--transition)}
+.footer ul a:hover{color:var(--pink)}
+.footer-bottom{border-top:1px solid #222;padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#666}
+@media(max-width:768px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .footer-grid>:first-child{grid-column:1/-1}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+}
+
+
+.reveal{opacity:0;transform:translateY(36px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:0.06s}
+.reveal-d2{transition-delay:0.12s}
+.reveal-d3{transition-delay:0.18s}
+.reveal-d4{transition-delay:0.24s}
+.reveal-d5{transition-delay:0.30s}
+.reveal-d6{transition-delay:0.36s}
+.reveal-d7{transition-delay:0.42s}
+.reveal-d8{transition-delay:0.48s}
+.reveal-d9{transition-delay:0.54s}
+
+/* Auth modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:300;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:var(--transition)}
+.modal-overlay.open{opacity:1;pointer-events:auto}
+.auth-modal{background:var(--white);border-radius:var(--radius-2xl);padding:36px;width:420px;max-width:90vw;position:relative;transform:scale(0.92) translateY(16px);transition:transform 0.35s var(--spring);max-height:90vh;overflow-y:auto}
+.modal-overlay.open .auth-modal{transform:scale(1) translateY(0)}
+.auth-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border:none;background:var(--gray-50);border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
+.auth-close:hover{background:var(--pink-light);color:var(--pink)}
+.auth-tabs{display:flex;gap:0;margin-bottom:24px;border-bottom:2px solid var(--gray-100)}
+.auth-tab{flex:1;padding:12px;text-align:center;font-size:14px;font-weight:600;border:none;background:none;cursor:pointer;color:var(--gray-text);transition:var(--transition);font-family:var(--font);border-bottom:2px solid transparent;margin-bottom:-2px}
+.auth-tab.active{color:var(--pink);border-bottom-color:var(--pink)}
+.auth-form{display:none;flex-direction:column;gap:14px}
+.auth-form.active{display:flex}
+.auth-form input{width:100%;padding:14px 16px;border:1.5px solid var(--gray-100);border-radius:var(--radius-md);font-size:14px;font-family:var(--font);outline:none;transition:all 0.3s var(--spring);background:var(--white)}
+.auth-form input:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(233,30,140,0.08)}
+.auth-submit{width:100%;padding:14px;background:var(--pink);color:#fff;border:none;border-radius:var(--radius-md);font-size:15px;font-weight:600;font-family:var(--font);cursor:pointer;transition:var(--transition)}
+.auth-submit:hover{opacity:0.9;transform:translateY(-1px)}
+.auth-error{color:#e74c3c;font-size:13px;text-align:center;display:none}
+
+/* Cart modal */
+.cart-modal{background:var(--white);border-radius:var(--radius-2xl);padding:32px;width:520px;max-width:90vw;position:relative;transform:scale(0.92) translateY(16px);transition:transform 0.35s var(--spring);max-height:90vh;overflow-y:auto}
+.modal-overlay.open .cart-modal{transform:scale(1) translateY(0)}
+.cart-modal h2{font-size:22px;font-weight:700;margin-bottom:20px}
+.cart-items{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.cart-item{display:flex;gap:12px;align-items:center;padding:12px;background:var(--gray-50);border-radius:var(--radius-md);border:1px solid var(--gray-100)}
+.cart-item img{width:56px;height:56px;object-fit:cover;border-radius:var(--radius-sm);background:var(--white)}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-info h4{font-size:13px;font-weight:600;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cart-item-info .ci-price{font-size:15px;font-weight:700;color:var(--pink)}
+.cart-item-qty{display:flex;align-items:center;gap:6px}
+.cart-item-qty button{width:28px;height:28px;border:1px solid var(--gray-100);background:var(--white);border-radius:50%;cursor:pointer;font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:center;transition:var(--transition);color:var(--gray-text)}
+.cart-item-qty button:hover{background:var(--pink-light);color:var(--pink);border-color:var(--pink)}
+.cart-item-qty span{font-size:14px;font-weight:600;width:24px;text-align:center}
+.cart-item-del{width:32px;height:32px;border:none;background:transparent;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:var(--transition);color:#ccc;flex-shrink:0}
+.cart-item-del:hover{background:#fee;color:#e74c3c}
+.cart-delivery{margin-bottom:20px;padding:16px;background:var(--gray-50);border-radius:var(--radius-md);border:1px solid var(--gray-100)}
+.cart-delivery h4{font-size:14px;font-weight:600;margin-bottom:10px}
+.delivery-option{display:flex;align-items:center;gap:8px;padding:8px 0;cursor:pointer;font-size:14px;color:var(--gray-text)}
+.delivery-option input[type=radio]{accent-color:var(--pink)}
+.delivery-option .do-label{flex:1}
+.delivery-option .do-price{font-weight:600;color:var(--black)}
+.cart-summary{border-top:1px solid var(--gray-100);padding-top:16px;margin-bottom:20px}
+.cs-row{display:flex;justify-content:space-between;font-size:14px;padding:4px 0;color:var(--gray-text)}
+.cs-row.total{font-size:18px;font-weight:700;color:var(--black);border-top:1px solid var(--gray-100);padding-top:12px;margin-top:8px}
+.cart-checkout{width:100%;padding:15px;background:var(--pink);color:#fff;border:none;border-radius:var(--radius-md);font-size:15px;font-weight:600;font-family:var(--font);cursor:pointer;transition:var(--transition)}
+.cart-checkout:hover{opacity:0.9;transform:translateY(-1px);box-shadow:0 4px 14px rgba(233,30,140,0.25)}
+.cart-empty{text-align:center;padding:40px 20px;color:var(--gray-text)}
+.cart-empty .ce-icon{font-size:40px;margin-bottom:12px;opacity:0.4}
+.cart-thanks{text-align:center;padding:32px 20px}
+.cart-thanks .ct-icon{font-size:48px;margin-bottom:12px}
+.cart-thanks p{font-size:16px;color:var(--gray-text);line-height:1.6}
+.do-strike{text-decoration:line-through;color:#bbb;margin-right:6px}
+.do-free{color:#22c55e;font-weight:600}
+.order-track{border-top:1px solid var(--gray-100);padding-top:16px;margin-top:16px}
+.order-track h4{font-size:14px;font-weight:600;margin-bottom:12px;color:var(--black)}
+.track-steps{display:flex;flex-direction:column;gap:8px}
+.track-step{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-text);padding:6px 10px;border-radius:var(--radius-sm);background:var(--gray-50)}
+.track-step.active{color:#22c55e;font-weight:600;background:#f0fdf4}
+.track-step .ts-icon{font-size:16px}
+
+/* User button */
+.user-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:none;background:transparent;border-radius:100px;cursor:pointer;font-size:13px;font-weight:600;font-family:var(--font);color:var(--gray-text);transition:var(--transition)}
+.user-btn:hover{background:var(--pink-light);color:var(--pink)}
+.user-btn .user-name{max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logout-btn{font-size:12px;color:#e74c3c;background:none;border:none;cursor:pointer;padding:2px 8px;border-radius:100px;font-family:var(--font);transition:var(--transition)}
+.logout-btn:hover{background:#fee}
+
+/* Product Detail Modal */
+.prod-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.prod-modal-overlay.open{opacity:1;pointer-events:auto}
+.prod-modal{background:var(--white);border-radius:var(--radius-2xl);width:880px;max-width:94vw;max-height:90vh;overflow-y:auto;position:relative;transform:scale(0.92) translateY(20px);transition:transform 0.35s var(--spring);display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:36px}
+.prod-modal-overlay.open .prod-modal{transform:scale(1) translateY(0)}
+.prod-modal-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border:none;background:var(--gray-50);border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:var(--transition);z-index:10}
+.prod-modal-close:hover{background:var(--pink-light);color:var(--pink)}
+.pm-gallery{display:flex;flex-direction:column;gap:12px}
+.pm-main-img{width:100%;aspect-ratio:1;background:var(--gray-50);border-radius:var(--radius-lg);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.pm-main-img img{width:100%;height:100%;object-fit:contain}
+.pm-thumbs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.pm-thumb{width:64px;height:64px;border-radius:var(--radius-sm);overflow:hidden;cursor:pointer;border:2px solid transparent;transition:var(--transition);flex-shrink:0;background:var(--gray-50)}
+.pm-thumb.active{border-color:var(--pink)}
+.pm-thumb img{width:100%;height:100%;object-fit:cover}
+.pm-info{display:flex;flex-direction:column;gap:16px}
+.pm-brand{display:inline-block;padding:4px 12px;background:var(--pink-light);color:var(--pink);font-size:12px;font-weight:600;border-radius:100px;width:fit-content}
+.pm-title{font-size:20px;font-weight:700;line-height:1.3}
+.pm-prices{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.pm-rrp{font-size:28px;font-weight:700;color:var(--pink)}
+.pm-mrp{font-size:18px;color:#bbb;text-decoration:line-through}
+.pm-discount{padding:4px 10px;background:#fee;color:#e74c3c;font-size:12px;font-weight:700;border-radius:100px}
+.pm-savings{font-size:14px;color:#22c55e;font-weight:600}
+.pm-divider{height:1px;background:var(--gray-100)}
+.pm-specs{display:flex;flex-direction:column;gap:8px}
+.pm-specs h4{font-size:14px;font-weight:600}
+.pm-spec{display:flex;justify-content:space-between;font-size:13px;color:var(--gray-text);padding:6px 0;border-bottom:1px solid var(--gray-50)}
+.pm-warranty{display:flex;flex-direction:column;gap:8px}
+.pm-warranty h4{font-size:14px;font-weight:600}
+.pm-warranty-options{display:flex;gap:8px;flex-wrap:wrap}
+.pm-warranty-btn{padding:8px 16px;border:1.5px solid var(--gray-100);border-radius:8px;font-size:12px;font-weight:500;cursor:pointer;background:var(--white);transition:var(--transition);font-family:var(--font)}
+.pm-warranty-btn.active{border-color:var(--pink);background:var(--pink-light);color:var(--pink)}
+.pm-warranty-btn:hover{border-color:var(--pink)}
+.pm-delivery{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-text);padding:12px;background:var(--gray-50);border-radius:var(--radius-md)}
+.pm-delivery svg{flex-shrink:0;color:#22c55e}
+.pm-add-btn{width:100%;padding:16px;background:var(--pink);color:#fff;border:none;border-radius:var(--radius-md);font-size:15px;font-weight:600;cursor:pointer;transition:var(--transition);font-family:var(--font);display:flex;align-items:center;justify-content:center;gap:8px}
+.pm-add-btn:hover{opacity:0.9;transform:translateY(-1px);box-shadow:0 4px 14px rgba(233,30,140,0.25)}
+.pm-add-btn.added{background:#22c55e;pointer-events:none}
+.pm-stock{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#22c55e}
+.pm-delivery-est{font-weight:400;color:var(--gray-text);font-size:12px}
+.img-wrap.img-placeholder{background:linear-gradient(135deg,#f0f0f0,#e8e8e8);display:flex;align-items:center;justify-content:center}
+.img-wrap.img-placeholder::after{content:attr(data-label);font-size:12px;font-weight:600;color:#999;text-align:center;padding:8px;line-height:1.4}
+.img-placeholder{background:linear-gradient(135deg,#f0f0f0,#e8e8e8);display:flex;align-items:center;justify-content:center}
+.img-placeholder::after{content:attr(data-label);font-size:12px;font-weight:600;color:#999;text-align:center;padding:8px;line-height:1.4}
+.pm-tabs{display:flex;gap:4px;border-bottom:2px solid var(--gray-100);margin-bottom:16px}
+.pm-tab{background:none;border:none;padding:10px 16px;font-size:14px;font-weight:600;cursor:pointer;color:var(--gray-text);border-bottom:2px solid transparent;margin-bottom:-2px;transition:var(--transition);font-family:var(--font)}
+.pm-tab.active{color:var(--pink);border-bottom-color:var(--pink)}
+.pm-tab-panel{}
+.pm-no-reviews{text-align:center;padding:32px 0;color:var(--gray-text)}
+.pm-review-form{margin-top:16px;padding-top:16px;border-top:1px solid var(--gray-100);display:flex;flex-direction:column;gap:10px}
+.pm-review-form h4{font-size:14px;font-weight:600}
+.pm-star-select{display:flex;gap:6px;font-size:24px;cursor:pointer}
+.pm-star{color:#ccc;transition:color 0.15s;user-select:none}
+.pm-star.active,.pm-star:hover{color:#f59e0b}
+.pm-review-input,.pm-review-textarea{width:100%;padding:10px 14px;border:1.5px solid var(--gray-100);border-radius:var(--radius-sm);font-size:14px;font-family:var(--font);outline:none;resize:none;transition:border-color 0.2s}
+.pm-review-input:focus,.pm-review-textarea:focus{border-color:var(--pink)}
+.pm-review-submit{background:var(--pink);color:#fff;border:none;padding:10px 20px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font);align-self:flex-start;transition:opacity 0.2s}
+.pm-review-submit:hover{opacity:0.85}
+.pm-review-item{padding:12px 0;border-bottom:1px solid var(--gray-50)}
+.pm-review-header{display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap}
+.pm-review-author{font-weight:600;font-size:13px}
+.pm-review-stars{color:#f59e0b;font-size:14px}
+.pm-review-date{color:#999;font-size:12px;margin-left:auto}
+.pm-review-text{font-size:13px;color:var(--gray-text);line-height:1.5}
+.pm-rating-summary{display:flex;align-items:center;gap:10px;padding:12px 0;margin-bottom:8px}
+.pm-avg-stars{color:#f59e0b;font-size:20px}
+.pm-avg-num{font-size:18px;font-weight:700}
+.pm-review-total{font-size:13px;color:#999}
+@media(max-width:768px){
+  .prod-modal{grid-template-columns:1fr;gap:20px;padding:24px}
+  .pm-title{font-size:17px}
+  .pm-rrp{font-size:22px}
+}
+/* Payment Methods */
+.cart-checkout{width:100%;padding:16px;border:none;border-radius:var(--radius-md);font-size:16px;font-weight:700;cursor:pointer;font-family:var(--font);margin-top:12px;transition:opacity 0.2s;color:#fff}
+.cash-btn{background:var(--pink)!important}
+.cash-btn:hover{opacity:0.88}
+.card-btn{background:#3b82f6!important}
+.card-btn:hover{opacity:0.88}
+.cart-pay-select{border-top:1px solid var(--gray-100);padding-top:16px;margin-bottom:8px}
+.cart-pay-select h4{font-size:14px;font-weight:600;margin-bottom:10px}
+/* Order History */
+.orders-btn{width:40px;height:40px;border:none;background:transparent;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--transition);color:var(--gray-text)}
+.orders-btn:hover{background:var(--pink-light);color:var(--pink)}
+.order-history-card{border:1.5px solid var(--gray-100);border-radius:var(--radius-md);padding:16px;margin-bottom:12px}
+.ohc-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.ohc-date{font-size:13px;color:var(--gray-text)}
+.ohc-total{font-size:16px;font-weight:700;color:var(--pink)}
+.ohc-items{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.ohc-item{display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:6px 0;border-bottom:1px solid var(--gray-50)}
+.ohc-name{flex:1;font-weight:500}
+.ohc-qty{color:var(--gray-text);white-space:nowrap;margin-left:8px}
+.ohc-footer{font-size:12px;color:var(--gray-text)}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<header class="header" id="header">
+  <div class="header-left">
+    <div class="logo-rhombus"><span>A</span></div>
+    <div class="header-logo-text"><span class="alto">Alto.</span> <span class="haus">Hausgerate</span></div>
+    <button class="catalog-btn" onclick="toggleCatalog()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Kataloq</button>
+  </div>
+  <div class="header-center">
+    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input class="header-search" id="headerSearch" type="text" placeholder="Məhsul axtar..." oninput="onSearchInput(this.value)" />
+  </div>
+  <div class="header-right">
+    <button class="lang-btn active" data-lang="AZ" onclick="setLang('AZ')">AZ</button>
+    <button class="lang-btn" data-lang="RU" onclick="setLang('RU')">RU</button>
+    <button class="lang-btn" data-lang="EN" onclick="setLang('EN')">EN</button>
+    <button class="user-btn" id="userBtn" onclick="openAuthModal()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span id="userLabel">Giriş</span></button>
+    <button class="cart-btn" onclick="openCartModal()" aria-label="Səbət">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+      <span class="cart-count">0</span>
+    </button>
+    <button class="orders-btn" onclick="openOrdersModal()" title="Sifarişlərim">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="catalog-overlay" id="catalogOverlay" onclick="if(event.target===this)closeCatalog()"></div>
+<div class="catalog-panel" id="catalogPanel">
+  <div class="catalog-header">
+    <span>Kataloq</span>
+    <button onclick="closeCatalog()">✕</button>
+  </div>
+  <div class="catalog-list" id="catalogList"></div>
+</div>
+
+<div class="mobile-overlay" id="mobileOverlay" onclick="closeMobile()"></div>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" onclick="closeMobile()">✕</button>
+  <div class="ms-icon"><svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input class="mobile-search" id="mobileSearch" placeholder="Məhsul axtar..." oninput="onSearchInput(this.value)" /></div>
+  <a href="#hero" onclick="closeMobile()" data-i18n="home">Ana Səhifə</a>
+  <a href="#products" onclick="closeMobile()" data-i18n="products">Məhsullar</a>
+  <a href="#brands" onclick="closeMobile()" data-i18n="brands">Brendlər</a>
+  <a href="#about" onclick="closeMobile()" data-i18n="about">Haqqımızda</a>
+  <a href="#contact" onclick="closeMobile()" data-i18n="contact">Əlaqə</a>
+  <div class="mobile-lang">
+    <button class="lang-btn active" data-lang="AZ" onclick="setLang('AZ')">AZ</button>
+    <button class="lang-btn" data-lang="RU" onclick="setLang('RU')">RU</button>
+    <button class="lang-btn" data-lang="EN" onclick="setLang('EN')">EN</button>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-overlay" id="authOverlay" onclick="if(event.target===this)closeAuthModal()">
+  <div class="auth-modal">
+    <button class="auth-close" onclick="closeAuthModal()">✕</button>
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-tab="login" onclick="switchAuthTab('login')">Giriş</button>
+      <button class="auth-tab" data-tab="register" onclick="switchAuthTab('register')">Qeydiyyat</button>
+    </div>
+    <form class="auth-form active" id="loginForm" onsubmit="handleLogin(event)">
+      <input type="email" id="loginEmail" placeholder="E-poçt" required />
+      <input type="password" id="loginPass" placeholder="Şifrə" required />
+      <div class="auth-error" id="loginError"></div>
+      <button type="submit" class="auth-submit">Giriş</button>
+    </form>
+    <form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
+      <input type="text" id="regName" placeholder="Ad Soyad" required />
+      <input type="tel" id="regPhone" placeholder="+994 XX XXX XX XX" required />
+      <input type="email" id="regEmail" placeholder="E-poçt" required />
+      <input type="password" id="regPassword" placeholder="Şifrə" required minlength="4" />
+      <input type="password" id="regConfirm" placeholder="Şifrəni təsdiqlə" required minlength="4" />
+      <div class="auth-error" id="regError"></div>
+      <button type="submit" class="auth-submit">Qeydiyyat</button>
+    </form>
+  </div>
+</div>
+
+<!-- BIRBANK MODAL -->
+<div class="modal-overlay" id="birbankOverlay" onclick="if(event.target===this)closeBirbankModal()">
+  <div class="auth-modal" id="birbankModal" style="max-width:380px">
+    <button class="auth-close" onclick="closeBirbankModal()">✕</button>
+    <div style="text-align:center;margin-bottom:20px">
+      <div style="font-size:40px;margin-bottom:8px">💳</div>
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:4px">Birbank ilə ödəniş</h3>
+      <p style="color:#999;font-size:13px">Məlumatlarınızı daxil edin</p>
+    </div>
+    <div style="background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:12px;padding:14px;margin-bottom:20px;text-align:center">
+      <p style="font-size:13px;color:#15803d;margin-bottom:4px">Ödəniş məbləği</p>
+      <p style="font-size:28px;font-weight:800;color:#15803d" id="birbankAmount">0.00 ₼</p>
+    </div>
+    <input type="text" id="birbankName" placeholder="Ad Soyad" class="pm-review-input" style="margin-bottom:10px;display:block;width:100%;box-sizing:border-box" maxlength="60" />
+    <input type="tel" id="birbankPhone" placeholder="+994 XX XXX XX XX" class="pm-review-input" style="margin-bottom:16px;display:block;width:100%;box-sizing:border-box" maxlength="20" />
+    <button class="cart-checkout" style="width:100%" onclick="redirectToBirbank()">Birbank-a keç və ödə</button>
+    <p style="text-align:center;font-size:11px;color:#bbb;margin-top:10px">Birbank tətbiqi açılacaq. Məbləği dəyişmək mümkün deyil.</p>
+  </div>
+</div>
+
+<!-- CART MODAL -->
+<div class="modal-overlay" id="cartOverlay" onclick="if(event.target===this)closeCartModal()">
+  <div class="cart-modal" id="cartModal">
+    <button class="auth-close" onclick="closeCartModal()">✕</button>
+    <h2>Səbət</h2>
+    <div id="cartContent"></div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-blob hero-blob--1"></div>
+  <div class="hero-blob hero-blob--2"></div>
+  <div class="hero-blob hero-blob--3"></div>
+  <div class="hero-blob hero-blob--4"></div>
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-badge reveal visible" data-i18n="heroSub">Rəsmi Distribütor</span>
+      <h1 class="reveal visible reveal-d1"><span data-i18n="heroTitle">Eviniz üçün ən yaxşı texnika</span></h1>
+      <p class="reveal visible reveal-d2">BergHOFF · Fakir · Singer · IYO · Gastro brendlərinin rəsmi distribütoru</p>
+      <div class="hero-btns reveal visible reveal-d3">
+        <a href="#products" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--pink);color:#fff;font-size:15px;font-weight:600;border-radius:14px;border:2px solid transparent;transition:var(--transition);cursor:pointer">Məhsullara bax →</a>
+        <a href="#brands" class="btn-outline" style="display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:transparent;color:var(--black);font-size:15px;font-weight:600;border-radius:14px;border:2px solid var(--gray-100);transition:var(--transition);cursor:pointer">Brendlər</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal visible reveal-d2">
+      <div class="hero-pink-blob"></div>
+      <div class="hero-img-stack">
+        <div class="hero-img-item"><img src="https://www.fakir.az/fakir-bestea-elektrikli-caydan-black-red-caydan-fakir-1856-11-O.jpg" alt="Product" loading="lazy" /></div>
+        <div class="hero-img-item"><img src="https://www.luckyart.com.tr/berghoff-gem-retro-1500-w-mint-yesili-blender-blender-blender-seti-berghoff-938889-16-K.jpg" alt="Product" loading="lazy" /></div>
+        <div class="hero-img-item"><img src="https://www.luckyart.com.tr/berghoff-gem-retro-dijital-gostergeli-5-lt-vanilya-krem-rengi-stand-mikser-stand-mikser-berghoff-931187-16-K.jpg" alt="Product" loading="lazy" /></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Aşağı sürüşdürün</span><span class="arrow">↓</span></div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories" id="categories">
+  <div class="container">
+    <div class="section-header reveal"><span class="section-label" data-i18n="categories">Kateqoriyalar</span><h2 class="section-title" data-i18n="categoriesTitle">Məhsul kateqoriyaları</h2><p class="section-sub" style="margin:0 auto;" data-i18n="categoriesSub">Ehtiyacınıza uyğun kateqoriyanı seçin</p></div>
+    <div class="cat-grid" id="catGrid"></div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-header reveal"><span class="section-label" data-i18n="products">Məhsullar</span><h2 class="section-title" data-i18n="productsTitle">Seçilmiş Məhsullar</h2><p class="section-sub" style="margin:0 auto;" data-i18n="productsSub">Geniş çeşid, ən sərfəli qiymətlər</p></div>
+    <div class="products-search-wrap reveal"><input class="products-search" type="text" placeholder="Məhsul axtar..." oninput="onSearchInput(this.value)" /></div>
+    <div class="filter-bar reveal" id="filterBar">
+      <button class="filter-pill active" data-filter="all" onclick="setFilter('all')">Hamısı</button>
+      <button class="filter-pill" data-filter="BergHOFF" onclick="setFilter('BergHOFF')">BergHOFF</button>
+      <button class="filter-pill" data-filter="Fakir" onclick="setFilter('Fakir')">Fakir</button>
+      <button class="filter-pill" data-filter="IYO" onclick="setFilter('IYO')">IYO</button>
+      <button class="filter-pill" data-filter="Singer" onclick="setFilter('Singer')">Singer</button>
+      <button class="filter-pill" data-filter="Gastro" onclick="setFilter('Gastro')">Gastro</button>
+      <select class="filter-select" id="catFilter" onchange="setCategory(this.value)"><option value="">Bütün kateqoriyalar</option></select>
+      <div class="price-range"><span>0₼</span><input type="range" id="priceRange" min="0" max="2100" value="2100" oninput="setPrice(this.value)" /><span id="priceLabel">2100₼</span></div>
+    </div>
+    <div class="results-count" id="resultsCount"></div>
+    <div class="prod-grid" id="prodGrid"></div>
+    <div class="show-more-wrap" id="showMoreWrap"><button class="show-more-btn" id="showMoreBtn" onclick="showMore()">Daha çox göstər ↓</button></div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands" id="brands">
+  <div class="container"><div class="section-header reveal"><span class="section-label" data-i18n="brands">Brendlər</span><h2 class="section-title" data-i18n="brandsTitle">Partnyorlarımız</h2><p class="section-sub" style="margin:0 auto;" data-i18n="brandsSub">Dünyanın aparıcı məişət texnikası istehsalçıları</p></div></div>
+  <div class="marquee-wrap"><div class="marquee-track" id="marqueeTrack"></div></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal"><span class="section-label" data-i18n="about">Haqqımızda</span><h2 data-i18n="aboutTitle">Alto. Hausgerate haqqında</h2><p data-i18n="aboutP1">Azərbaycanın aparıcı məişət texnikası distribütoru olaraq biz keyfiyyətli brendləri sizə çatdırırıq. BergHOFF, Fakir, Singer, IYO, Hazel və Gastro brendlərinin rəsmi nümayəndəsiyik.</p><p data-i18n="aboutP2">Missiyamız — hər bir evə müasir texnologiyanı gətirmək, həyat keyfiyyətini yüksəltmək və müştərilərimizə ən sərfəli qiymətləri təmin etməkdir.</p></div>
+      <div class="about-right" data-reveal-grid>
+        <div class="stat-card reveal"><div class="num" data-count="500">0</div><div class="label" data-i18n="stat1">Məhsul</div></div>
+        <div class="stat-card reveal reveal-d1"><div class="num" data-count="6">0</div><div class="label" data-i18n="stat2">Brend</div></div>
+        <div class="stat-card reveal reveal-d2"><div class="num" data-count="10">0</div><div class="label" data-i18n="stat3">İl Təcrübə</div></div>
+        <div class="stat-card reveal reveal-d3"><div class="num" data-count="1000">0</div><div class="label" data-i18n="stat4">Məmnun Müştəri</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-header reveal"><span class="section-label" data-i18n="contact">Əlaqə</span><h2 class="section-title" data-i18n="contactTitle">Bizimlə əlaqə</h2><p class="section-sub" style="margin:0 auto;" data-i18n="contactSub">Sualınız var? Bizə yazın, ən qısa zamanda cavablandıraq.</p></div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-item"><div class="ci-icon">📍</div><div><h4 data-i18n="address">Ünvan</h4><p>Bakı, Azərbaycan</p></div></div>
+        <div class="contact-item"><div class="ci-icon">📞</div><div><h4 data-i18n="phone">Telefon</h4><a href="tel:+994517290386">+994 51 729 03 86</a></div></div>
+        <div class="contact-item"><div class="ci-icon">✉️</div><div><h4>E-poçt</h4><a href="mailto:altohausgereta@gmail.com">altohausgereta@gmail.com</a></div></div>
+        <div class="contact-item"><div class="ci-icon">🕐</div><div><h4 data-i18n="hours">İş saatları</h4><p data-i18n="hoursVal">Bazar ertəsi — Şənbə: 09:00 — 19:00</p></div></div>
+        <div class="contact-item"><div class="ci-icon">📸</div><div><h4>Instagram</h4><a href="https://www.instagram.com/altohausgereta.az" target="_blank" rel="noopener">@altohausgereta.az</a></div></div>
+      </div>
+      <form class="contact-form reveal reveal-d1" onsubmit="handleForm(event)">
+        <div class="input-wrap"><input type="text" id="formName" placeholder="Adınız" required /></div>
+        <div class="input-wrap"><input type="email" id="formEmail" placeholder="E-poçt" required /></div>
+        <div class="input-wrap"><textarea id="formMsg" placeholder="Mesajınız..." required></textarea></div>
+        <button type="submit" class="submit-btn" id="formBtn">Göndər</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="fl"><div class="logo-rhombus"><span>A</span></div><span>Alto. Hausgerate</span></div>
+        <p data-i18n="footerTag">Keyfiyyətin ünvanı. Məişət texnikasında etibar etdiyiniz brend.</p>
+      </div>
+      <div><h4 data-i18n="pages">Səhifələr</h4><ul><li><a href="#hero" data-i18n="home">Ana Səhifə</a></li><li><a href="#products" data-i18n="products">Məhsullar</a></li><li><a href="#brands" data-i18n="brands">Brendlər</a></li><li><a href="#about" data-i18n="about">Haqqımızda</a></li><li><a href="#contact" data-i18n="contact">Əlaqə</a></li></ul></div>
+      <div><h4 data-i18n="partners">Partnyorlar</h4><ul><li><a href="#">BergHOFF</a></li><li><a href="#">Fakir</a></li><li><a href="#">Singer</a></li><li><a href="#">IYO</a></li><li><a href="#">Gastro</a></li></ul></div>
+      <div><h4 data-i18n="contact">Əlaqə</h4><ul><li><a href="tel:+994517290386">+994 51 729 03 86</a></li><li><a href="mailto:altohausgereta@gmail.com">altohausgereta@gmail.com</a></li><li><a href="https://www.instagram.com/altohausgereta.az" target="_blank" rel="noopener">@altohausgereta.az</a></li><li><a href="#">Bakı, Azərbaycan</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Alto. Hausgerate. Bütün hüquqlar qorunur.</span><span data-i18n="footerBottom">Professional məişət texnikası mağazası</span></div>
+  </div>
+</footer>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div class="prod-modal-overlay" id="prodModalOverlay" onclick="if(event.target===this)closeProdModal()">
+  <div class="prod-modal" id="prodModal">
+    <button class="prod-modal-close" onclick="closeProdModal()">✕</button>
+    <div class="pm-gallery" id="pmGallery">
+      <div class="pm-main-img" id="pmMainImg"><img src="" alt="" /></div>
+      <div class="pm-thumbs" id="pmThumbs"></div>
+    </div>
+    <div class="pm-info" id="pmInfo"></div>
+  </div>
+</div>
+
+<script>
+const T={AZ:{search:"Məhsul axtar...",categories:"Kateqoriyalar",categoriesTitle:"Məhsul kateqoriyaları",categoriesSub:"Ehtiyacınıza uyğun kateqoriyanı seçin",products:"Məhsullar",productsTitle:"Seçilmiş Məhsullar",productsSub:"Geniş çeşid, ən sərfəli qiymətlər",addCart:"Səbətə əlavə et",brands:"Brendlər",brandsTitle:"Partnyorlarımız",brandsSub:"Dünyanın aparıcı məişət texnikası istehsalçıları",about:"Haqqımızda",aboutTitle:"Alto. Hausgerate haqqında",aboutP1:"Azərbaycanın aparıcı məişət texnikası distribütoru olaraq biz keyfiyyətli brendləri sizə çatdırırıq. BergHOFF, Fakir, Singer, IYO, Hazel və Gastro brendlərinin rəsmi nümayəndəsiyik.",aboutP2:"Missiyamız — hər bir evə müasir texnologiyanı gətirmək, həyat keyfiyyətini yüksəltmək və müştərilərimizə ən sərfəli qiymətləri təmin etməkdir.",contact:"Əlaqə",contactTitle:"Bizimlə əlaqə",contactSub:"Sualınız var? Bizə yazın, ən qısa zamanda cavablandıraq.",home:"Ana Səhifə",heroTitle:"Eviniz üçün ən yaxşı texnika",heroSub:"Rəsmi Distribütor",showMore:"Daha çox göstər",results:"nəticə tapıldı",address:"Ünvan",phone:"Telefon",hours:"İş saatları",hoursVal:"Bazar ertəsi — Şənbə: 09:00 — 19:00",footerTag:"Keyfiyyətin ünvanı. Məişət texnikasında etibar etdiyiniz brend.",footerBottom:"Professional məişət texnikası mağazası",pages:"Səhifələr",partners:"Partnyorlar",stat1:"Məhsul",stat2:"Brend",stat3:"İl Təcrübə",stat4:"Məmnun Müştəri",all:"Hamısı",allCat:"Bütün kateqoriyalar",emptySearch:"Axtarış nəticəsi tapılmadı",emptyMsg:"Heç bir məhsul tapılmadı"},
+RU:{search:"Поиск товаров...",categories:"Категории",categoriesTitle:"Категории товаров",categoriesSub:"Выберите подходящую категорию",products:"Товары",productsTitle:"Избранные товары",productsSub:"Широкий ассортимент по лучшим ценам",addCart:"В корзину",brands:"Бренды",brandsTitle:"Наши партнеры",brandsSub:"Ведущие мировые производители бытовой техники",about:"О нас",aboutTitle:"О Alto. Hausgerate",aboutP1:"Будучи ведущим дистрибьютором бытовой техники в Азербайджане, мы предлагаем вам качественные бренды. Мы официальные представители BergHOFF, Fakir, Singer, IYO, Hazel и Gastro.",aboutP2:"Наша миссия — принести современные технологии в каждый дом, повысить качество жизни и предложить нашим клиентам самые выгодные цены.",contact:"Контакты",contactTitle:"Свяжитесь с нами",contactSub:"Есть вопросы? Напишите нам, мы ответим в кратчайшие сроки.",home:"Главная",heroTitle:"Лучшая техника для вашего дома",heroSub:"Официальный дистрибьютор",showMore:"Показать ещё",results:"результатов найдено",address:"Адрес",phone:"Телефон",hours:"Часы работы",hoursVal:"Пн — Сб: 09:00 — 19:00",footerTag:"Адрес качества. Бренд, которому доверяют в бытовой технике.",footerBottom:"Профессиональный магазин бытовой техники",pages:"Страницы",partners:"Партнеры",stat1:"Товаров",stat2:"Брендов",stat3:"Лет опыта",stat4:"Довольных клиентов",all:"Все",allCat:"Все категории",emptySearch:"Результатов не найдено",emptyMsg:"Товары не найдены"},
+EN:{search:"Search products...",categories:"Categories",categoriesTitle:"Product Categories",categoriesSub:"Choose the right category for you",products:"Products",productsTitle:"Featured Products",productsSub:"Wide range, best prices",addCart:"Add to Cart",brands:"Brands",brandsTitle:"Our Partners",brandsSub:"Leading household appliance manufacturers worldwide",about:"About",aboutTitle:"About Alto. Hausgerate",aboutP1:"As the leading household appliance distributor in Azerbaijan, we deliver quality brands to you. We are the official representatives of BergHOFF, Fakir, Singer, IYO, Hazel and Gastro.",aboutP2:"Our mission is to bring modern technology to every home, improve quality of life, and provide our customers with the most affordable prices.",contact:"Contact",contactTitle:"Contact Us",contactSub:"Have questions? Write to us and we'll respond as soon as possible.",home:"Home",heroTitle:"Best appliances for your home",heroSub:"Official Distributor",showMore:"Show more",results:"results found",address:"Address",phone:"Phone",hours:"Working Hours",hoursVal:"Mon — Sat: 09:00 — 19:00",footerTag:"Address of quality. The brand you trust in home appliances.",footerBottom:"Professional home appliance store",pages:"Pages",partners:"Partners",stat1:"Products",stat2:"Brands",stat3:"Years Experience",stat4:"Happy Customers",all:"All",allCat:"All Categories",emptySearch:"No search results found",emptyMsg:"No products found"}};
+
+let lang='AZ',curFilter='all',curCat='',curPrice=2100,curSearch='',pageSize=12,shown=0,prodData=[];
+
+function tr(k){return T[lang]&&T[lang][k]?T[lang][k]:k}
+function applyLang(){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.dataset.i18n;const t=tr(k);
+    if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){el.placeholder=t}else el.textContent=t;
+  });
+  document.getElementById('headerSearch').placeholder=tr('search');
+  if(document.getElementById('mobileSearch'))document.getElementById('mobileSearch').placeholder=tr('search');
+  document.getElementById('formName').placeholder=tr('products');
+  document.getElementById('formEmail').placeholder='E-poçt';
+  document.getElementById('formMsg').placeholder=tr('contactTitle');
+  render();
+}
+function setLang(l){lang=l;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));applyLang();updateCartText()}
+
+const CATEGORIES_DISPLAY=[
+  {label:"Çaydan",icon:"🫖"},{label:"Blender",icon:"🔄"},{label:"Toster",icon:"🍞"},{label:"Kofe aparatı",icon:"☕"},{label:"Tozsoran",icon:"🌀"},{label:"Saç feni",icon:"💨"},
+  {label:"Tikiş maşını",icon:"🧵"},{label:"Airfryer",icon:"🍟"},{label:"Kombayn",icon:"🥣"},{label:"Buxarlı təmizləyici",icon:"🧹"},{label:"Estetik cihazlar",icon:"✨"},{label:"Mini soba",icon:"🔥"},{label:"Qaz plitəsi",icon:"🔥"},{label:"Ütü",icon:"👕"},{label:"Digər",icon:"📦"}
+];
+
+const PROD=[
+{id:1,name:"BergHOFF NATURAL 1.7LT Çaynik Orange",brand:"BergHOFF",cat:"Çaydan",mrp:250,rrp:189.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7254381/5488d26aab9fec02821a-0.jpg",specs:{Kateqoriya:"Çaydan",Brend:"BergHOFF",Rəng:"Narıncı",Material:"Paslanmaz polad","Həcm":"1.7 L","Güc":"2200 W"}},
+{id:2,name:"BergHOFF NATURAL 1.7LT Çaynik Yellow",brand:"BergHOFF",cat:"Çaydan",mrp:250,rrp:189.99,img:"https://www.luckyart.com.tr/berghoff-gem-natural-sari-17-lt-su-isiticisi-su-isiticilari-berghoff-931183-16-K.jpg",specs:{Kateqoriya:"Çaydan",Brend:"BergHOFF",Rəng:"Sarı",Material:"Paslanmaz polad","Həcm":"1.7 L","Güc":"2200 W"}},
+{id:3,name:"BergHOFF NATURAL Toster 4-lü Orange",brand:"BergHOFF",cat:"Toster",mrp:330,rrp:249.99,img:"https://www.luckyart.com.tr/berghoff-gem-natural-turuncu-dort-dilim-ekmek-kizartma-makinesi-ekmek-kizartma-makineleri-berghoff-931184-16-K.jpg",specs:{Kateqoriya:"Toster",Brend:"BergHOFF",Rəng:"Narıncı","Güc":"1500 W","Dilim sayı":"4",Material:"Paslanmaz polad"}},
+{id:4,name:"BergHOFF NATURAL Toster 4-lü Yellow",brand:"BergHOFF",cat:"Toster",mrp:330,rrp:249.99,img:"https://www.luckyart.com.tr/berghoff-gem-natural-sari-dort-dilim-ekmek-kizartma-makinesi-berghoff-931185-16-K.jpg",specs:{Kateqoriya:"Toster",Brend:"BergHOFF",Rəng:"Sarı","Güc":"1500 W","Dilim sayı":"4",Material:"Paslanmaz polad"}},
+{id:5,name:"BergHOFF RETRO 1.7LT Çaynik Cream",brand:"BergHOFF",cat:"Çaydan",mrp:219.99,rrp:169.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7233015/8199bd8c1230a6b0be7d-0.jpg",specs:{Kateqoriya:"Çaydan",Brend:"BergHOFF",Rəng:"Krem",Material:"Paslanmaz polad","Həcm":"1.7 L","Güc":"2200 W"}},
+{id:6,name:"BergHOFF RETRO 1.7LT Çaynik Green",brand:"BergHOFF",cat:"Çaydan",mrp:219.99,rrp:169.99,img:"https://m.media-amazon.com/images/I/516r6MXjRuL._AC_SL1500_.jpg",specs:{Kateqoriya:"Çaydan",Brend:"BergHOFF",Rəng:"Yaşıl",Material:"Paslanmaz polad","Həcm":"1.7 L","Güc":"2200 W"}},
+{id:7,name:"BergHOFF RETRO 1.7LT Çaynik Red",brand:"BergHOFF",cat:"Çaydan",mrp:219.99,rrp:169.99,img:"https://m.media-amazon.com/images/I/61zgs4qHf9L._AC_SL1500_.jpg",specs:{Kateqoriya:"Çaydan",Brend:"BergHOFF",Rəng:"Qırmızı",Material:"Paslanmaz polad","Həcm":"1.7 L","Güc":"2200 W"}},
+{id:8,name:"BergHOFF RETRO Blender 1500W Cream",brand:"BergHOFF",cat:"Blender",mrp:329.99,rrp:249.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7226455/ce3801963f6a748f948d-0.jpg",specs:{Kateqoriya:"Blender",Brend:"BergHOFF",Rəng:"Krem","Güc":"1500 W","Həcm":"1.5 L",Material:"Şüşə"}},
+{id:9,name:"BergHOFF RETRO Blender 1500W Green",brand:"BergHOFF",cat:"Blender",mrp:329.99,rrp:249.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-1500-w-mint-yesili-blender-blender-blender-seti-berghoff-938889-16-K.jpg",specs:{Kateqoriya:"Blender",Brend:"BergHOFF",Rəng:"Yaşıl","Güc":"1500 W","Həcm":"1.5 L",Material:"Şüşə"}},
+{id:10,name:"BergHOFF RETRO Blender Set 1200W Cream",brand:"BergHOFF",cat:"Blender",mrp:369.99,rrp:279.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-1200-w-krem-rengi-el-blender-seti-blender-blender-seti-berghoff-940298-16-K.jpg",specs:{Kateqoriya:"Blender",Brend:"BergHOFF",Rəng:"Krem","Güc":"1200 W","Həcm":"1.5 L",Material:"Şüşə",Daxildir:"Mini doğrayıcı"}},
+{id:11,name:"BergHOFF RETRO Blender Set 1200W Green",brand:"BergHOFF",cat:"Blender",mrp:369.99,rrp:279.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-1500-w-mint-yesili-blender-blender-blender-seti-berghoff-938889-16-K.jpg",specs:{Kateqoriya:"Blender",Brend:"BergHOFF",Rəng:"Yaşıl","Güc":"1200 W","Həcm":"1.5 L",Material:"Şüşə",Daxildir:"Mini doğrayıcı"}},
+{id:12,name:"BergHOFF RETRO Dijital Toster&İzgara Cream",brand:"BergHOFF",cat:"Toster",mrp:459.99,rrp:349.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-vanilya-krem-rengi-dijital-izgara-ve-tost-makinesi-izgara-tost-makineleri-berghoff-939125-15-K.jpg",specs:{Kateqoriya:"Toster",Brend:"BergHOFF",Rəng:"Krem","Güc":"1800 W",Material:"Paslanmaz polad",Funksiya:"Tost + İzgara"}},
+{id:13,name:"BergHOFF RETRO Dijital Toster&İzgara Green",brand:"BergHOFF",cat:"Toster",mrp:459.99,rrp:349.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-mint-yesil-dijital-izgara-ve-tost-makinesi-izgara-tost-makineleri-berghoff-943634-15-K.jpg",specs:{Kateqoriya:"Toster",Brend:"BergHOFF",Rəng:"Yaşıl","Güc":"1800 W",Material:"Paslanmaz polad",Funksiya:"Tost + İzgara"}},
+{id:14,name:"BergHOFF RETRO Kofe Maşını 15 Stəkan Cream",brand:"BergHOFF",cat:"Kofe aparatı",mrp:199.99,rrp:159.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7216230/9d003a5ec8b101290d48-0.jpg",specs:{Kateqoriya:"Kofe aparatı",Brend:"BergHOFF",Rəng:"Krem","Güc":"800 W",Tutumu:"15 stəkan",Material:"Paslanmaz polad"}},
+{id:15,name:"BergHOFF RETRO Kofe Maşını 15 Stəkan Green",brand:"BergHOFF",cat:"Kofe aparatı",mrp:199.99,rrp:159.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7216218/d2d352d552b4b1d2cd70-0.jpg",specs:{Kateqoriya:"Kofe aparatı",Brend:"BergHOFF",Rəng:"Yaşıl","Güc":"800 W",Tutumu:"15 stəkan",Material:"Paslanmaz polad"}},
+{id:16,name:"BergHOFF RETRO Kombayn 5L Cream",brand:"BergHOFF",cat:"Kombayn",mrp:1179.99,rrp:899.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-dijital-gostergeli-5-lt-vanilya-krem-rengi-stand-mikser-stand-mikser-berghoff-931187-16-K.jpg"},
+{id:17,name:"BergHOFF RETRO Kombayn 7L Black",brand:"BergHOFF",cat:"Kombayn",mrp:2050,rrp:1669.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-7-l-siyah-artisan-yuksek-performans-stand-mikser-stand-mikser-berghoff-932687-16-K.jpg"},
+{id:18,name:"BergHOFF RETRO Toster 2-li Red",brand:"BergHOFF",cat:"Toster",mrp:209.99,rrp:159.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-kirmizi-iki-dilim-ekmek-kizartma-makinesi-berghoff-938856-16-K.jpg"},
+{id:19,name:"BergHOFF RETRO Toster 4-lü Cream",brand:"BergHOFF",cat:"Toster",mrp:300,rrp:239.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-krem-rengi-dort-dilim-ekmek-kizartma-makinesi-ekmek-kizartma-makineleri-berghoff-938857-16-O.jpg"},
+{id:20,name:"BergHOFF RETRO Toster 4-lü Red",brand:"BergHOFF",cat:"Toster",mrp:300,rrp:239.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-kirmizi-dort-dilim-ekmek-kizartma-makinesi-berghoff-938858-16-K.jpg"},
+{id:21,name:"BergHOFF ROYAL 1.7LT Çaynik Black Yellow",brand:"BergHOFF",cat:"Çaydan",mrp:299.99,rrp:239.99,img:"https://www.luckyart.com.tr/berghoff-gem-royal-margery-17-litre-siyah-sari-desenli-su-isiticisi-su-isiticilari-berghoff-939173-16-K.jpg"},
+{id:22,name:"BergHOFF ROYAL 1.7LT Çaynik Yellow Black",brand:"BergHOFF",cat:"Çaydan",mrp:299.99,rrp:239.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7213528/b656a79a4a1e5f0e2769-0.jpg"},
+{id:23,name:"BergHOFF ROYAL Toster 2-li Black Yellow",brand:"BergHOFF",cat:"Toster",mrp:289.99,rrp:229.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7216192/857f444e85f4194fc725-0.jpg"},
+{id:24,name:"BergHOFF TITAN 1.7LT Çaynik Black Gold",brand:"BergHOFF",cat:"Çaydan",mrp:200,rrp:159.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7254373/60ade66b0228adcd6cff-0.jpg"},
+{id:25,name:"BergHOFF TITAN 1.7LT Çaynik Bright Smoke",brand:"BergHOFF",cat:"Çaydan",mrp:200,rrp:159.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7254401/6a026b0ffa6e8caa5e5f-0.jpg"},
+{id:26,name:"BergHOFF TITAN 1.7LT Çaynik White Gold",brand:"BergHOFF",cat:"Çaydan",mrp:200,rrp:159.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7254378/e9607ce8ae1a171ff046-0.jpg"},
+{id:27,name:"BergHOFF TITAN Toster&İzgara Black",brand:"BergHOFF",cat:"Toster",mrp:520,rrp:399.99,img:"https://m.media-amazon.com/images/I/51CAvhdom1L._AC_SL1500_.jpg"},
+{id:28,name:"BergHOFF TITAN Toster&İzgara Silver",brand:"BergHOFF",cat:"Toster",mrp:520,rrp:399.99,img:"https://www.luckyart.com.tr/berghoff-gem-titan-silver-izgara-ve-tost-makinesi-berghoff-939128-16-K.jpg"},
+{id:29,name:"IYO Ultrasonic Üz Təmizləyici & Lifter",brand:"IYO",cat:"Estetik cihazlar",mrp:409.99,rrp:409.99,img:"https://www.inyourorigin.me/cdn/shop/files/ultrasonic-skin-scrubber-and-lifter.png?v=1754240807",specs:{Kateqoriya:"Estetik cihazlar",Brend:"IYO","İstehsalçı ölkə":"Cənubi Koreya",Material:"ABS + Silikon","Funksiya":"Ultrasonik təmizlik + lifting","Güc":"5 V"}},
+{id:30,name:"IYO Göz Ətrafı Canlandırıcı Cihaz",brand:"IYO",cat:"Estetik cihazlar",mrp:199.99,rrp:199.99,img:"https://www.inyourorigin.me/cdn/shop/files/eye-lip-massager.png?v=1754240807",specs:{Kateqoriya:"Estetik cihazlar",Brend:"IYO","İstehsalçı ölkə":"Cənubi Koreya",Material:"ABS","Funksiya":"Göz ətrafı masaj + istilik","Güc":"3.7 V"}},
+{id:31,name:"IYO TRIO RF Radyo Frekans Cihazı",brand:"IYO",cat:"Estetik cihazlar",mrp:699.99,rrp:699.99,img:"https://www.inyourorigin.me/cdn/shop/files/trio-facial-care.png?v=1754240807",specs:{Kateqoriya:"Estetik cihazlar",Brend:"IYO","İstehsalçı ölkə":"Cənubi Koreya",Material:"ABS + Metal","Funksiya":"RF (Radyo Frekans) + LED",Temizlik:"3 rejim"}},
+{id:32,name:"IYO LED Işıq Terapiyalı Üz Maskası",brand:"IYO",cat:"Estetik cihazlar",mrp:799.99,rrp:799.99,img:"https://www.inyourorigin.me/cdn/shop/files/led-light-face-mask.png?v=1754240808",specs:{Kateqoriya:"Estetik cihazlar",Brend:"IYO","İstehsalçı ölkə":"Cənubi Koreya",Material:"Silikon","Funksiya":"LED işıq terapiyası (qırmızı/mavi)",Güc:"5 V"}},
+{id:33,name:"Fakir Blender ATOMIC CHOPPER Rouge",brand:"Fakir",cat:"Blender",mrp:149.99,rrp:119.99,img:"https://fakirglobal.com/fakir-atomic-food-chopper-rouge-chopper-fakir-2195-29-O.jpg"},
+{id:34,name:"Fakir Blender CHOPPY CHOPPER",brand:"Fakir",cat:"Blender",mrp:109.99,rrp:99.99,img:"https://www.fakir.az/fakir-choppy-dograyici-dograyici-fakir-2320-11-O.png"},
+{id:35,name:"Fakir Blender MR.CHEF SET Rosie",brand:"Fakir",cat:"Blender",mrp:199.99,rrp:179.99,img:"https://www.fakir.az/fakir-mr-chef-quadro-blender-desti-rosie-l-blenderi-fakir-910-11-O.png"},
+{id:36,name:"Fakir Blender MR.CHEF SET Rouge",brand:"Fakir",cat:"Blender",mrp:199.99,rrp:179.99,img:"https://www.fakir.az/fakir-mr-chef-quadro-blender-desti-rouge-l-blenderi-fakir-889-11-O.png"},
+{id:37,name:"Fakir Blender MR.CHEF SET Silver Stone",brand:"Fakir",cat:"Blender",mrp:199.99,rrp:179.99,img:"https://www.fakir.az/fakir-mr-chef-quadro-blender-desti-silverstone-l-blenderi-fakir-2138-11-O.jpg"},
+{id:38,name:"Fakir Blender MR.CHEF SET White",brand:"Fakir",cat:"Blender",mrp:199.99,rrp:179.99,img:"https://www.fakir.az/fakir-mr-chef-quadro-blender-desti-ag-l-blenderi-fakir-2256-12-O.png"},
+{id:39,name:"Fakir Blender PRO INTERMIX",brand:"Fakir",cat:"Blender",mrp:259.99,rrp:219.99,img:"https://www.fakir.az/pro-intermix-blender-set-el-blenderi-fakir-1075-11-O.png"},
+{id:40,name:"Fakir Blender SPEED LUCCA Black Silver",brand:"Fakir",cat:"Blender",mrp:179.99,rrp:149.99,img:"https://www.fakir.az/speed-lucca-blender-dsti-qara-v-gumus-fakir-l-blenderi-fakir-1573-11-O.png"},
+{id:41,name:"Fakir Blender SPEED QUADRO Black Silver",brand:"Fakir",cat:"Blender",mrp:269.99,rrp:219.99,img:"https://www.fakir.az/speed-quadro-blender-seti-black-el-blenderi-fakir-1580-11-O.png"},
+{id:42,name:"Fakir Blender STORCHOP Copper",brand:"Fakir",cat:"Blender",mrp:119.99,rrp:99.99,img:"https://fakirglobal.com/storchop-dograyici-copper-301-58-K.jpg"},
+{id:43,name:"Fakir Kokteil MIXYPRO TABLE BLENDER",brand:"Fakir",cat:"Blender",mrp:139.99,rrp:109.99,img:"https://fakirglobal.com/mixypro-blender-smoothie-blender-451-50-K.png"},
+{id:44,name:"Fakir Kokteil MIXYPRO PLUS BLENDER",brand:"Fakir",cat:"Blender",mrp:179.99,rrp:149.99,img:"https://fakirglobal.com/mixypro-plus-smoothie-blender-anthracite-2322-50-K.png"},
+{id:45,name:"Fakir Çay Aparatı BESTEA Glass Red Black",brand:"Fakir",cat:"Çaydan",mrp:219.99,rrp:189.99,img:"https://www.fakir.az/fakir-bestea-elektrikli-caydan-black-red-caydan-fakir-1856-11-O.jpg"},
+{id:46,name:"Fakir Çay Aparatı BESTEA Glass White Grey",brand:"Fakir",cat:"Çaydan",mrp:219.99,rrp:189.99,img:"https://fakirglobal.com/bestea-tea-machine-white-gray-2837-48-K.jpg"},
+{id:47,name:"Fakir Çay Aparatı CHAIZEN Rosie",brand:"Fakir",cat:"Çaydan",mrp:229.99,rrp:189.99,img:"https://productimages.hepsiburada.net/s/777/444-444/110001021512238.jpg"},
+{id:48,name:"Fakir Çay Aparatı TASTEA Black Violet",brand:"Fakir",cat:"Çaydan",mrp:159.99,rrp:129.99,img:"https://fakir.witcdn.net/tastea-cay-makinesi-siyah-violet-fakir-8677-37-B.jpg"},
+{id:49,name:"Fakir Çay Aparatı TASTEA Black Red",brand:"Fakir",cat:"Çaydan",mrp:159.99,rrp:129.99,img:"https://fakir.witcdn.net/tastea-cay-makinesi-kirmizi-siyah-fakir-8800-37-B.jpg"},
+{id:50,name:"Fakir Çaynik ADELL KETTLE Rouge",brand:"Fakir",cat:"Çaydan",mrp:118.99,rrp:106.99,img:"https://fakirglobal.com/adell-steel-kettle-rosie-2126-23-K.jpg"},
+{id:51,name:"Fakir Çaynik PERCY KETTLE",brand:"Fakir",cat:"Çaydan",mrp:118.99,rrp:106.99,img:"https://fakirglobal.com/percy-su-isiticisi-percy-1295-73-K.png"},
+{id:52,name:"Fakir Çaynik WK1000 Black",brand:"Fakir",cat:"Çaydan",mrp:68.99,rrp:53.99,img:"https://www.fakir.az/fakir-wk1000-caydan-qara-su-isidici-caydan-fakir-2092-11-O.jpg"},
+{id:53,name:"Fakir Kofe Aparatı KAAVE Dual Pro Rosie",brand:"Fakir",cat:"Kofe aparatı",mrp:749.99,rrp:399.99,img:"https://www.fakir.az/fakir-kaavedualpro-turk-kofe-mashini-antrasit-turk-qhvbisirn-fakir-936-11-O.png"},
+{id:54,name:"Fakir Kofe Aparatı KAAVE Turkish Silver",brand:"Fakir",cat:"Kofe aparatı",mrp:219.99,rrp:179.99,img:"https://fakirglobal.com/fakir-kaave-turkish-coffee-maker-silver-turkish-coffee-maker-fakir-114-22-O.jpg"},
+{id:55,name:"Fakir Kofe Aparatı KAAVE MONO Rosie",brand:"Fakir",cat:"Kofe aparatı",mrp:159.99,rrp:129.99,img:"https://www.fakir.az/kaave-mono-turk-kahvesi-makinesi-rosie-turk-qhvbisirn-fakir-977-11-O.jpg"},
+{id:56,name:"Fakir Kofe Aparatı BABILA",brand:"Fakir",cat:"Kofe aparatı",mrp:549.99,rrp:429.99,img:"https://fakirglobal.com/baba-manuel-espresso-machine-2222-32-K.jpg"},
+{id:57,name:"Fakir Kofe Üyüdən AROMATIK",brand:"Fakir",cat:"Kofe aparatı",mrp:89.99,rrp:69.99,img:"https://fakirglobal.com/aromatic-coffee-spice-prinder-1824-73-K.jpg"},
+{id:58,name:"Fakir Tozsoran DARKY'S Rouge",brand:"Fakir",cat:"Tozsoran",mrp:169.99,rrp:149.99,img:"https://fakirglobal.com/darkys-two-in-one-vertical-cable-dry-vacuum-broom-rouge-2139-26-K.jpg"},
+{id:59,name:"Fakir Tozsoran INOVATOR X PLUS 7286",brand:"Fakir",cat:"Tozsoran",mrp:699.99,rrp:529.99,img:"https://www.fakir.az/inovator-x-plus-7286-dikey-sarjli-kablosuz-supurge-anrasit-blue-sarjli-dikey-supurge-fakir-1477-11-O.png"},
+{id:60,name:"Fakir Tozsoran Robot RS 770",brand:"Fakir",cat:"Tozsoran",mrp:1499.99,rrp:1129.99,img:"https://fakirglobal.com/robert-rs-770-akilli-robot-supurge-706-50-K.png"},
+{id:61,name:"Fakir Tozsoran Robot RS 780 Plus",brand:"Fakir",cat:"Tozsoran",mrp:1599.99,rrp:1199.99,img:"https://fakirglobal.com/robert-rs-780-plus-cop-istasyonlu-akilli-robot-supurge-821-54-K.png"},
+{id:62,name:"Fakir Tozsoran FREELANDER BL 6056",brand:"Fakir",cat:"Tozsoran",mrp:379.99,rrp:319.99,img:"https://fakir.witcdn.net/fakir-freelander-bl-6056-supurge-slvrstn-fakir-0-7832-38-B.jpg"},
+{id:63,name:"Fakir Tozsoran WD 7 Pure Clean",brand:"Fakir",cat:"Tozsoran",mrp:1099.99,rrp:999.99,img:"https://fakir.witcdn.net/fakir-wd-7-pure-clean-2-in-1-islak-kuru-dikey-sarjli-supurge-fakir-8746-59-O.jpg"},
+{id:64,name:"Fakir Saç Feni AIRFORM HAIR STYLER",brand:"Fakir",cat:"Saç feni",mrp:549.99,rrp:439.99,img:"https://fakir.witcdn.net/fakir-airform-sac-sekillendirici-set-fakir-8848-59-O.jpg"},
+{id:65,name:"Fakir Saç Feni ION BOOSTER",brand:"Fakir",cat:"Saç feni",mrp:449.99,rrp:359.99,img:"https://fakir.witcdn.net/ion-booster-sac-kurutma-makinesi-fakir-8857-60-O.jpg"},
+{id:66,name:"Fakir Saç Feni MASTER D",brand:"Fakir",cat:"Saç feni",mrp:219.99,rrp:179.99,img:"https://fakir.witcdn.net/master-d-sac-kurutma-makinesi-fakir-8865-60-O.jpg"},
+{id:67,name:"Fakir Saç Feni SUPER D+",brand:"Fakir",cat:"Saç feni",mrp:369.99,rrp:299.99,img:"https://fakir.witcdn.net/super-d-sac-kurutma-makinesi-fakir-8876-42-O.jpg"},
+{id:68,name:"Fakir Saç Ütüsü ION FUSION",brand:"Fakir",cat:"Saç feni",mrp:129.99,rrp:119.99,img:"https://fakir.witcdn.net/ion-fusion-sac-masasi-fakir-8861-42-O.jpg"},
+{id:69,name:"Fakir Saç Ütüsü SAPPHIRE LUXE STEAM",brand:"Fakir",cat:"Saç feni",mrp:239.99,rrp:199.99,img:"https://fakir.witcdn.net/sapphire-luxe-wag-masasi-fakir-8871-42-O.jpg"},
+{id:70,name:"Fakir Saç Buran ION FUSION 3 IN 1",brand:"Fakir",cat:"Saç feni",mrp:159.99,rrp:139.99,img:"https://fakir.witcdn.net/ion-fusion-beach-waves-wag-masasi-fakir-8859-42-O.jpg"},
+{id:71,name:"Fakir Airfryer UNO CHEFRY",brand:"Fakir",cat:"Airfryer",mrp:399.99,rrp:299.99,img:"https://www.fakir.az/uno-chefry-sicak-hava-fritozu-fritoz-fakir-1522-11-O.png"},
+{id:72,name:"Fakir Airfryer PREMIUM CHEFRY",brand:"Fakir",cat:"Airfryer",mrp:549.99,rrp:439.99,img:"https://www.fakir.az/premium-chefry-sicak-hava-fritozu-fritoz-fakir-1526-11-O.png"},
+{id:73,name:"Fakir Kombayn CULINA ROBOT MIXER Rouge",brand:"Fakir",cat:"Kombayn",mrp:409.99,rrp:369.99,img:"https://fakirglobal.com/culina-chef-kitchen-trying-rouge-1711-28-K.png"},
+{id:74,name:"Fakir Kombayn CULINA ROBOT MIXER Violet",brand:"Fakir",cat:"Kombayn",mrp:409.99,rrp:369.99,img:"https://fakirglobal.com/culina-chef-kitchen-trynet-violet-1712-28-K.png"},
+{id:75,name:"Fakir Kombayn FLOURISH STAND MIXER Grey",brand:"Fakir",cat:"Kombayn",mrp:349.99,rrp:269.99,img:"https://www.fakir.az/flourish-mutfak-sefi-grey-mtbx-sefi-fakir-2141-11-O.jpg"},
+{id:76,name:"Fakir Kombayn MAGICHEF STAND MIXER",brand:"Fakir",cat:"Kombayn",mrp:279.99,rrp:209.99,img:"https://fakirglobal.com/magichef-kitchen-chef-2960-60-K.png"},
+{id:77,name:"Fakir Tost Makinası ALBA Rosie",brand:"Fakir",cat:"Toster",mrp:99.99,rrp:79.99,img:"https://fakirglobal.com/alba-bread-frying-machine-rosie-1860-44-K.png"},
+{id:78,name:"Fakir Tost Makinası N JOY Rosie",brand:"Fakir",cat:"Toster",mrp:259.99,rrp:209.99,img:"https://fakirglobal.com/n-joy-tost-makinesi-rosie-221-42-K.jpg"},
+{id:79,name:"Fakir Tost Makinası GRILL EXPERT Elite",brand:"Fakir",cat:"Toster",mrp:379.99,rrp:309.99,img:"https://fakirglobal.com/grill-expert-elite-grill-toaster-2925-55-K.png"},
+{id:80,name:"Fakir Tost Makinası GRILL EXPERT Pro",brand:"Fakir",cat:"Toster",mrp:399.99,rrp:329.99,img:"https://fakirglobal.com/grill-expert-pro-izgara-tost-makinesi-2926-55-K.png"},
+{id:81,name:"Fakir Tost Makinası CRISPY Matte Black",brand:"Fakir",cat:"Toster",mrp:199.99,rrp:159.99,img:"https://www.fakir.az/crispy-tost-makinesi-matte-black-tost-makinesi-fakir-1956-11-O.png"},
+{id:82,name:"Fakir Ütü Skyfall",brand:"Fakir",cat:"Ütü",mrp:149.99,rrp:119.99,img:"https://www.fakir.az/fakir-skyfall-buxarli-utu-buxarli-utu-fakir-2072-11-O.jpg"},
+{id:83,name:"Fakir Ütü SKYWALK Red",brand:"Fakir",cat:"Ütü",mrp:109.99,rrp:89.99,img:"https://www.fakir.az/fakir-skywalk-buxarli-utu-buxarli-utu-fakir-2067-11-O.jpg"},
+{id:84,name:"Fakir Ət Çəkən STEEL PROOF 1800",brand:"Fakir",cat:"Digər",mrp:399.99,rrp:369.99,img:"https://fakirglobal.com/steel-proof-1800-kiyma-makinesi-300-58-K.png"},
+{id:85,name:"Fakir Ət Çəkən TORQUE 1800",brand:"Fakir",cat:"Digər",mrp:379.99,rrp:319.99,img:"https://fakirglobal.com/torque-1800-et-kiyma-makinesi-686-51-K.png"},
+{id:86,name:"Fakir Şirə Çəkən JUICE MAX",brand:"Fakir",cat:"Digər",mrp:329.99,rrp:259.99,img:"https://fakirglobal.com/juice-max-kati-meyve-presi-509-93-K.png"},
+{id:87,name:"Fakir Buxarlı Temizleyici ALINA",brand:"Fakir",cat:"Buxarlı təmizləyici",mrp:199.99,rrp:169.99,img:"https://fakirglobal.com/alina-clean-cok-fonksiyonlu-buharli-temizleyici-1240-51-K.png"},
+{id:88,name:"Fakir Buxarlı Temizleyici MAX STEAM",brand:"Fakir",cat:"Buxarlı təmizləyici",mrp:399.99,rrp:329.99,img:"https://www.fakir.az/fakir-buxarli-temizleyici-max-steam-cleaner-buxarli-tmizlyici-fakir-2261-12-O.jpg"},
+{id:89,name:"Fakir Buxarlı Temizleyici DUO STEAM 2in1",brand:"Fakir",cat:"Buxarlı təmizləyici",mrp:379.99,rrp:299.99,img:"https://www.fakir.az/fakir-duo-steam-2in1-mop-buxarli-tmizlyici-fakir-2207-12-O.jpg"},
+{id:90,name:"Fakir Buz Aparatı SITARE",brand:"Fakir",cat:"Digər",mrp:399.99,rrp:299.99,img:"https://fakirglobal.com/sitare-ice-make-machine-2966-59-K.png"},
+{id:91,name:"Fakir Dispenser HYDROP White",brand:"Fakir",cat:"Digər",mrp:429.99,rrp:349.99,img:"https://elektro.az/storage/main_images/2146_fakir_hydrop_main.webp"},
+{id:92,name:"Singer Tikiş Maşını M1155",brand:"Singer",cat:"Tikiş maşını",mrp:419.99,rrp:339.99,img:"https://www.singer.com.tr/assets/img/uploads/product/M1155Black_01.jpg"},
+{id:93,name:"Singer Tikiş Maşını M1605",brand:"Singer",cat:"Tikiş maşını",mrp:409.99,rrp:349.99,img:"http://europe.singer.com/cdn/shop/files/tp0uli1r7dbzrovucu4t_60cd7ccc-9dec-4df8-9575-7ec86d9c6162.jpg?v=1743602233"},
+{id:94,name:"Singer Tikiş Maşını M2405",brand:"Singer",cat:"Tikiş maşını",mrp:409.99,rrp:349.99,img:"http://europe.singer.com/cdn/shop/files/lixtcff73j9ggnqflb7q.jpg?v=1743602292"},
+{id:95,name:"Singer Tikiş Maşını M2605",brand:"Singer",cat:"Tikiş maşını",mrp:509.99,rrp:449.99,img:"http://europe.singer.com/cdn/shop/files/aid2qyl9fw0oicksrpfn.jpg?v=1743602218"},
+{id:96,name:"Singer Tikiş Maşını M3305",brand:"Singer",cat:"Tikiş maşını",mrp:569.99,rrp:499.99,img:"https://www.singer.com.tr/assets/img/uploads/product/439_20200204164618.jpg"},
+{id:97,name:"Singer Tikiş Maşını 1408",brand:"Singer",cat:"Tikiş maşını",mrp:384.99,rrp:331.99,img:"http://singersa.com/cdn/shop/files/1408-Promise-singer-sewing-machines.jpg?v=1694049916"},
+{id:98,name:"Singer Tikiş Maşını 1409",brand:"Singer",cat:"Tikiş maşını",mrp:459.99,rrp:399.99,img:"http://singersewingoutlet.co.uk/cdn/shop/files/Singer1409_b264d860-07f7-4b5e-9c81-c0d88bba9572.jpg?v=1745998088"},
+{id:99,name:"Singer Tikiş Maşını 3333",brand:"Singer",cat:"Tikiş maşını",mrp:569.99,rrp:499.99,img:"http://europe.singer.com/cdn/shop/files/bhexn7fizfvjoy1dsz55.jpg?v=1744287258"},
+{id:100,name:"Singer Tikiş Maşını C5205 Coral",brand:"Singer",cat:"Tikiş maşını",mrp:799.99,rrp:689.99,img:"https://www.singer.com.tr/assets/img/uploads/product/431_20200528111144.jpg"},
+{id:101,name:"Singer Mini Tikiş Maşını 250091076",brand:"Singer",cat:"Tikiş maşını",mrp:62,rrp:49.99,img:"https://static.elitoptimal.az/ElitOptimal/9870548c-2f9a-4528-be26-58e25bb6ce28_Thumb.jpeg"},
+{id:102,name:"Gastro Qaz Plitəsi OC31P2",brand:"Gastro",cat:"Qaz plitəsi",mrp:309.99,rrp:209.99,img:"https://storage.irshad.az/products/resized/RWvcU16QCSk1QsZ1n30kwuIU6Vn4Bg5SHU3izH6l.webp"},
+{id:103,name:"Gastro Qaz Plitəsi OCH31P2",brand:"Gastro",cat:"Qaz plitəsi",mrp:359.99,rrp:259.99,img:"https://storage.irshad.az/products/resized/LEmMRtj0T84Jev7UjTaGTgsj5nhy5T5DvqGc4iUX.webp"},
+{id:104,name:"Gastro Qaz Plitəsi OM31C3",brand:"Gastro",cat:"Qaz plitəsi",mrp:409.99,rrp:309.99,img:"https://cdn.megamart.az/products/112408-198717-thickbox.jpg"},
+{id:105,name:"Gastro Mini Soba G3G42E Silver",brand:"Gastro",cat:"Mini soba",mrp:199.99,rrp:169.99,img:"https://storage.irshad.az/products/resized/GrkPPiYOjEkBLj2CDj2KRvRXyrQJDeOCAPue3kxg.webp"},
+{id:106,name:"Gastro Mini Soba G3B42E Black",brand:"Gastro",cat:"Mini soba",mrp:199.99,rrp:169.99,img:"https://storage.irshad.az/products/resized/2xL3VXBVzik4cWvdi4BdP7iwysRpepC9NIekayyi.png"},
+{id:107,name:"Gastro Mini Soba G3G42G Grill",brand:"Gastro",cat:"Mini soba",mrp:219.99,rrp:189.99,img:"https://cdn.megamart.az/products/112414-198725-thickbox.jpg"},
+{id:108,name:"Gastro Toster GPRS Rosie",brand:"Gastro",cat:"Toster",mrp:149.99,rrp:119.99,img:"https://media.bakuelectronics.az/media/inventImages/IZGARA_GASTRO_GPRS_Rosie_1.webp"},
+{id:109,name:"Gastro Toster BKRS Black-Rosie",brand:"Gastro",cat:"Toster",mrp:149.99,rrp:119.99,img:"https://media.bakuelectronics.az/media/inventImages/Gastro_BKRS_Black-Rosie.webp"},
+{id:110,name:"TESTA Mini Soba TE45F Black",brand:"Gastro",cat:"Mini soba",mrp:239.99,rrp:199.99,img:"https://cdn.megamart.az/products/112439-198815-thickbox.jpg"},
+{id:111,name:"TESTA Mini Soba TE45F Silver",brand:"Gastro",cat:"Mini soba",mrp:239.99,rrp:199.99,img:"https://cdn.megamart.az/products/112440-198818-thickbox.jpg"},
+{id:112,name:"BergHOFF RETRO Blender 400W Cream",brand:"BergHOFF",cat:"Blender",mrp:179.99,rrp:139.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-400-w-krem-rengi-elektrikli-dograyici-16526-dograyici-rondo-berghoff-938864-16-B.jpg"},
+{id:113,name:"BergHOFF RETRO Blender 400W Green",brand:"BergHOFF",cat:"Blender",mrp:179.99,rrp:139.99,img:"https://media.bakuelectronics.az/media/inventImages/dc101dccb9573cc9d768-0.webp"},
+{id:114,name:"BergHOFF RETRO Kombayn 5L Green",brand:"BergHOFF",cat:"Kombayn",mrp:1179.99,rrp:899.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-dijital-gostergeli-5-lt-vanilya-krem-rengi-stand-mikser-stand-mikser-berghoff-931187-16-K.jpg"},
+{id:115,name:"BergHOFF RETRO Kombayn 7L Cream",brand:"BergHOFF",cat:"Kombayn",mrp:2050,rrp:1669.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-dijital-gostergeli-5-lt-vanilya-krem-rengi-stand-mikser-stand-mikser-berghoff-931187-16-K.jpg"},
+{id:116,name:"BergHOFF RETRO Kombayn 7L Red",brand:"BergHOFF",cat:"Kombayn",mrp:2050,rrp:1669.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7231458/833cb462d578538c6708-0.jpg"},
+{id:117,name:"BergHOFF RETRO Pizza Sobası 2000W Cream",brand:"BergHOFF",cat:"Mini soba",mrp:1000,rrp:749.99,img:"https://cdn.karaca.com/image/marketplace-mirakll/7226437/2dab744b89e529e1bba8-0.jpg"},
+{id:118,name:"BergHOFF RETRO Toster 2-li Cream",brand:"BergHOFF",cat:"Toster",mrp:209.99,rrp:159.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-krem-rengi-dort-dilim-ekmek-kizartma-makinesi-ekmek-kizartma-makineleri-berghoff-938857-16-O.jpg"},
+{id:119,name:"BergHOFF RETRO Toster 2-li Green",brand:"BergHOFF",cat:"Toster",mrp:209.99,rrp:159.99,img:"https://www.luckyart.com.tr/berghoff-gem-retro-krem-rengi-dort-dilim-ekmek-kizartma-makinesi-ekmek-kizartma-makineleri-berghoff-938857-16-O.jpg"},
+{id:120,name:"BergHOFF RETRO Toster 4-lü Green",brand:"BergHOFF",cat:"Toster",mrp:300,rrp:239.99,img:"https://productimages.hepsiburada.net/s/777/222-222/110000681715070.jpg"},
+{id:121,name:"BergHOFF RETRO Kofe Maşını Red",brand:"BergHOFF",cat:"Kofe aparatı",mrp:199.99,rrp:159.99,img:"https://cdn.karaca.com/rcman/cw695h695q90gm/image/marketplace-mirakll/7216200/394d1b652af3dad81c4e-0.jpg"},
+{id:122,name:"Fakir Blender ATOMIC CHOPPER Rosie",brand:"Fakir",cat:"Blender",mrp:149.99,rrp:119.99,img:"https://fakirglobal.com/fakir-atomic-chopper-rosie-rondo-fakir-861-41-O.png"},
+{id:123,name:"Fakir Blender ATOMIC CHOPPER Violet",brand:"Fakir",cat:"Blender",mrp:149.99,rrp:119.99,img:"https://fakirglobal.com/fakir-atomic-chopper-rouge-rondo-fakir-860-41-O.png"},
+{id:124,name:"Fakir Blender LUCCA SET Rose",brand:"Fakir",cat:"Blender",mrp:159.99,rrp:129.99,img:"https://www.fakir.az/lucca-q-blender-seti-rosie-fakir-l-blenderi-fakir-913-11-O.png"},
+{id:125,name:"Fakir Blender LUCCA SET Rouge",brand:"Fakir",cat:"Blender",mrp:159.99,rrp:129.99,img:"https://www.fakir.az/lucca-q-blender-seti-rouge-l-blenderi-fakir-915-11-O.png"},
+{id:126,name:"Fakir Blender LUCCA SET Silver Stone",brand:"Fakir",cat:"Blender",mrp:159.99,rrp:129.99,img:"https://www.fakir.az/lucca-q-blender-seti-violet-l-blenderi-fakir-914-11-O.jpg"},
+{id:127,name:"Fakir Blender LUCCA SET Violet",brand:"Fakir",cat:"Blender",mrp:159.99,rrp:129.99,img:"https://www.fakir.az/lucca-q-blender-seti-violet-l-blenderi-fakir-914-11-O.jpg"},
+{id:128,name:"Fakir Blender Lucina Red",brand:"Fakir",cat:"Blender",mrp:159.99,rrp:129.99,img:"https://www.fakir.az/lucina-blender-seti-kirmizi-l-blenderi-fakir-920-11-O.jpg"},
+{id:129,name:"Fakir Blender MR.CHEF Black",brand:"Fakir",cat:"Blender",mrp:199.99,rrp:179.99,img:"https://www.fakir.az/fakir-mr-chef-quadro-blender-desti-ag-l-blenderi-fakir-2256-12-O.png"},
+{id:130,name:"Fakir Blender MR.CHEF Cream",brand:"Fakir",cat:"Blender",mrp:199.99,rrp:179.99,img:"https://www.fakir.az/fakir-mr-chef-quadro-blender-desti-ag-l-blenderi-fakir-2256-12-O.png"},
+{id:131,name:"Fakir Blender MR.CHEF Gray",brand:"Fakir",cat:"Blender",mrp:199.99,rrp:179.99,img:"https://www.fakir.az/fakir-mr-chef-quadro-blender-desti-ag-l-blenderi-fakir-2256-12-O.png"},
+{id:132,name:"Fakir Blender MR.CHEF Red",brand:"Fakir",cat:"Blender",mrp:199.99,rrp:179.99,img:"https://www.fakir.az/fakir-mr-chef-quadro-blender-desti-ag-l-blenderi-fakir-2256-12-O.png"},
+{id:133,name:"Fakir Blender MR.CHEF Rouge",brand:"Fakir",cat:"Blender",mrp:199.99,rrp:179.99,img:"https://www.fakir.az/fakir-mr-chef-quadro-blender-desti-ag-l-blenderi-fakir-2256-12-O.png"},
+{id:134,name:"Fakir Blender MR.CHEF Sand Beige",brand:"Fakir",cat:"Blender",mrp:199.99,rrp:179.99,img:"https://www.fakir.az/fakir-mr-chef-quadro-blender-desti-ag-l-blenderi-fakir-2256-12-O.png"},
+{id:135,name:"Fakir Blender MR.CHEF Violet",brand:"Fakir",cat:"Blender",mrp:199.99,rrp:179.99,img:"https://www.fakir.az/fakir-mr-chef-quadro-blender-desti-ag-l-blenderi-fakir-2256-12-O.png"},
+{id:136,name:"Fakir Blender MR.CHEF White",brand:"Fakir",cat:"Blender",mrp:199.99,rrp:179.99,img:"https://www.fakir.az/fakir-mr-chef-quadro-blender-desti-ag-l-blenderi-fakir-2256-12-O.png"},
+{id:137,name:"Fakir Blender STOR Black-Rosie",brand:"Fakir",cat:"Blender",mrp:149.99,rrp:109.99,img:"https://fakirglobal.com/stor-blender-set-black-rosie-724-56-K.png"},
+{id:138,name:"Fakir Blender STOR Cream",brand:"Fakir",cat:"Blender",mrp:149.99,rrp:109.99,img:"https://fakirglobal.com/stor-blender-set-cream-858-56-K.jpg"},
+{id:139,name:"Fakir Blender SPEED LUCCA Black Copper",brand:"Fakir",cat:"Blender",mrp:179.99,rrp:149.99,img:"https://fakirglobal.com/speed-lucca-blender-seti-black-copper-863-56-K.png"},
+{id:140,name:"Fakir Blender SPEED MULTI Black Copper",brand:"Fakir",cat:"Blender",mrp:249.99,rrp:224.99,img:"https://www.fakir.az/speed-multi-blender-seti-copper-el-blenderi-fakir-1599-11-O.png"},
+{id:141,name:"Fakir Blender SPEED MULTI Black Silver",brand:"Fakir",cat:"Blender",mrp:249.99,rrp:224.99,img:"https://www.fakir.az/speed-multi-blender-seti-black-silver-l-blenderi-fakir-1585-11-O.jpg"},
+{id:142,name:"Fakir Blender SPEED QUADRO Black Copper",brand:"Fakir",cat:"Blender",mrp:269.99,rrp:219.99,img:"https://fakirglobal.com/speed-quadro-blender-seti-black-copper-292-56-K.jpg"},
+{id:143,name:"Fakir Blender STOR LUCINA Black Rosie",brand:"Fakir",cat:"Blender",mrp:189.99,rrp:179.99,img:"https://fakirglobal.com/fakir-stor-hand-blender-set-black-rosie-hand-blender-fakir-859-56-O.png"},
+{id:144,name:"Fakir Blender STOR LUCINA Cream",brand:"Fakir",cat:"Blender",mrp:189.99,rrp:179.99,img:"https://fakirglobal.com/fakir-stor-hand-blender-set-cream-hand-blender-fakir-858-56-O.jpg"},
+{id:145,name:"Fakir Blender STOR STICK",brand:"Fakir",cat:"Blender",mrp:93.99,rrp:83.99,img:"https://cf6ad7-evidea.akinoncloudcdn.com/products/2025/10/10/131872/bd23fa59-771c-4c29-b1d5-b16980d6023b_size616x616_cropTop.jpg"},
+{id:146,name:"Fakir Blender STORCHOP Cream",brand:"Fakir",cat:"Blender",mrp:119.99,rrp:99.99,img:"https://fakirglobal.com/storchop-dograyici-cream-773-59-K.png"},
+{id:147,name:"Fakir Çay aparatı BESTEA Black Red",brand:"Fakir",cat:"Çaydan",mrp:219.99,rrp:189.99,img:"https://fakirglobal.com/bestea-tea-machine-black-red-2834-48-K.jpg"},
+{id:148,name:"Fakir Çay aparatı BESTEA Black Violet",brand:"Fakir",cat:"Çaydan",mrp:219.99,rrp:189.99,img:"https://fakirglobal.com/bestea-tea-machine-black-violet-2836-48-K.png"},
+{id:149,name:"Fakir Çay aparatı BESTEA Red Black",brand:"Fakir",cat:"Çaydan",mrp:219.99,rrp:189.99,img:"https://fakirglobal.com/bestea-tea-machine-black-red-2834-48-K.jpg"},
+{id:150,name:"Fakir Çay aparatı BESTEA Violet Black",brand:"Fakir",cat:"Çaydan",mrp:219.99,rrp:189.99,img:"https://fakirglobal.com/bestea-tea-machine-violet-black-2835-48-K.jpg"},
+{id:151,name:"Fakir Çay aparatı CHAIZEN Inox",brand:"Fakir",cat:"Çaydan",mrp:229.99,rrp:189.99,img:"https://tokgozticaret.com.tr/image/cache/catalog/Urunler/FAKIR-CHAIZEN-INOX-1-600x315w.jpg"},
+{id:152,name:"Fakir Çay aparatı CHAIZEN Rouge",brand:"Fakir",cat:"Çaydan",mrp:229.99,rrp:189.99,img:"https://tokgozticaret.com.tr/image/cache/catalog/Urunler/FAKIR-CHAIZEN-INOX-1-600x315w.jpg"},
+{id:153,name:"Fakir Çay aparatı TASTEA Black Rose",brand:"Fakir",cat:"Çaydan",mrp:159.99,rrp:129.99,img:"https://fakir.witcdn.net/tastea-cay-makinesi-siyah-rose-fakir-8678-37-B.jpg"},
+{id:154,name:"Fakir Çay aparatı TASTEA Rouge",brand:"Fakir",cat:"Çaydan",mrp:159.99,rrp:129.99,img:"https://fakir.witcdn.net/tastea-cay-makinesi-kirmizi-siyah-fakir-8800-37-B.jpg"},
+{id:155,name:"Fakir Çay aparatı TASTEA White Grey",brand:"Fakir",cat:"Çaydan",mrp:159.99,rrp:129.99,img:"https://fakir.witcdn.net/tastea-cay-makinesi-siyah-rose-fakir-8678-37-B.jpg"},
+{id:156,name:"Fakir Çaynik ADELL Gray",brand:"Fakir",cat:"Çaydan",mrp:0,rrp:0,img:"https://fakirglobal.com/adell-steel-kettle-matte-1897-10-K.jpg"},
+{id:157,name:"Fakir Çaynik ADELL Matt",brand:"Fakir",cat:"Çaydan",mrp:0,rrp:0,img:"https://fakirglobal.com/adell-steel-kettle-matte-1897-10-K.jpg"},
+{id:158,name:"Fakir Çaynik ADELL Rosie",brand:"Fakir",cat:"Çaydan",mrp:0,rrp:0,img:"https://fakirglobal.com/adell-steel-kettle-rosie-2126-23-K.jpg"},
+{id:159,name:"Fakir Çaynik WK1001 White",brand:"Fakir",cat:"Çaydan",mrp:68.99,rrp:53.99,img:"https://www.fakir.az/fakir-wk1001-plastik-caydan-ag-su-isidici-caydan-fakir-2090-11-O.webp"},
+{id:160,name:"Fakir Çaynik WK1101 Glass",brand:"Fakir",cat:"Çaydan",mrp:99.99,rrp:79.99,img:"https://www.fakir.az/fakir-wk-1101-caydan-suse-su-isidici-caydan-fakir-2093-11-O.jpg"},
+{id:161,name:"Fakir Çaynik WK1103 Steel",brand:"Fakir",cat:"Çaydan",mrp:89.99,rrp:69.99,img:"https://neonzonemall.com/wp-content/uploads/2022/10/Fakir-Kettle-WK1103_prev_ui-1.png"},
+{id:162,name:"Fakir Divan Xalça Temizleyici SPOT PR1018",brand:"Fakir",cat:"Buxarlı təmizləyici",mrp:399.99,rrp:299.99,img:"https://www.fakir.az/fakir-xalcadivan-temizleyici-spot-cleaner-pr1018-buxarli-tmizlyici-fakir-2243-12-O.jpg"},
+{id:163,name:"Fakir Divan Xalça Temizleyici SPOT PR7020",brand:"Fakir",cat:"Buxarlı təmizləyici",mrp:599.99,rrp:499.99,img:"https://fakir.witcdn.net/spot-cleaner-pr7020-buhar-leke-temizleyici-fakir-8719-59-O.jpg"},
+{id:164,name:"Fakir Doğrayıcı FW3503",brand:"Fakir",cat:"Blender",mrp:259.99,rrp:209.99,img:"https://www.fakir.az/fakir-mr-chef-quadro-blender-desti-ag-l-blenderi-fakir-2256-12-O.png"},
+{id:165,name:"Fakir Dondurma PREMIUM ICY",brand:"Fakir",cat:"Digər",mrp:0,rrp:0,img:"https://fakir.witcdn.net/fakir-premium-icy-dondurma-yapma-mak-beyaz-fakir-7997-59-O.jpg"},
+{id:166,name:"Fakir Et Kiyma TORQUE 2000 PRO",brand:"Fakir",cat:"Dig?r",mrp:489.99,rrp:409.99,img:"https://fakir.witcdn.net/fakir-torque-1800-et-kiyma-makinesi-fakir-8880-60-O.jpg"},
+{id:167,name:"Fakir Fen AIRFORM Styler Set",brand:"Fakir",cat:"Saç feni",mrp:0,rrp:0,img:"https://fakir.witcdn.net/fakir-airform-sac-sekillendirici-set-fakir-8848-59-O.jpg"},
+{id:168,name:"Fakir Fen AIRTOUCH Styler Set",brand:"Fakir",cat:"Saç feni",mrp:0,rrp:0,img:"https://fakir.witcdn.net/airtouch-sac-sekillendirici-set-fakir-8850-60-O.jpg"},
+{id:169,name:"Fakir Fen NOBLE PROFESSIONAL",brand:"Fakir",cat:"Saç feni",mrp:0,rrp:0,img:"https://fakir.witcdn.net/t-shot-sac-kurutma-makinesi-fakir-8873-42-O.jpg"},
+{id:170,name:"Fakir Fen T-SHOT",brand:"Fakir",cat:"Saç feni",mrp:0,rrp:0,img:"https://fakir.witcdn.net/t-shot-sac-kurutma-makinesi-fakir-8873-42-O.jpg"},
+{id:171,name:"Fakir Fritoz MONO CHEFRY",brand:"Fakir",cat:"Airfryer",mrp:299.99,rrp:229.99,img:"https://fakirglobal.com/magichef-kitchen-chef-2960-60-K.png"},
+{id:172,name:"Fakir Hava Temizleyici VIGOR PLUS",brand:"Fakir",cat:"Digər",mrp:0,rrp:0,img:"https://fakirglobal.com/magichef-kitchen-chef-2960-60-K.png"},
+{id:173,name:"Fakir Hidrogenli Su AQUA GIO",brand:"Fakir",cat:"Digər",mrp:0,rrp:0,img:"https://fakirglobal.com/aqua-gio-hidrojenli-su-uretme-cihazi-2869-46-K.png"},
+{id:174,name:"Fakir İzqara COOKWELL",brand:"Fakir",cat:"Toster",mrp:199.99,rrp:169.99,img:"https://fakirglobal.com/n-joy-tost-makinesi-rosie-221-42-K.jpg"},
+{id:175,name:"Fakir Kaave DUAL PRO Antrasite",brand:"Fakir",cat:"Kofe aparatı",mrp:749.99,rrp:399.99,img:"https://www.fakir.az/fakir-kaavedualpro-turk-kofe-mashini-antrasit-turk-qhvbisirn-fakir-936-11-O.png"},
+{id:176,name:"Fakir Kaave DUAL PRO Brown",brand:"Fakir",cat:"Kofe aparatı",mrp:749.99,rrp:399.99,img:"https://cdn.dsmcdn.com/ty1723/product/media/images/prod/PIM/20250811/10/30bd0ae1-c8d1-428b-afb1-3d888b60718e/1_org_zoom.jpg"},
+{id:177,name:"Fakir Kaave DUAL PRO Rouge",brand:"Fakir",cat:"Kofe aparatı",mrp:749.99,rrp:399.99,img:"https://www.istanbulavm.com.tr/image/cache/catalog/elden-taksitli-urunler/10148277551154-1000x1000.jpg"},
+{id:178,name:"Fakir Kaave DUAL PRO Violet",brand:"Fakir",cat:"Kofe aparatı",mrp:749.99,rrp:399.99,img:"https://cdn.dsmcdn.com/ty52/product/media/images/20210112/7/51673272/104707228/1/1_org_zoom.jpg"},
+{id:179,name:"Fakir Kaave Turkish Brown",brand:"Fakir",cat:"Kofe aparatı",mrp:219.99,rrp:179.99,img:"https://fakirglobal.com/kaave-uno-pro-turk-kahve-makinesi-kahve-179-35-K.jpg"},
+{id:180,name:"Fakir Kaave Turkish Rose",brand:"Fakir",cat:"Kofe aparatı",mrp:219.99,rrp:179.99,img:"https://fakirglobal.com/kaave-turk-kahvesi-makinesi-rouge-77-14-K.png"},
+{id:181,name:"Fakir Kaave Turkish Rouge",brand:"Fakir",cat:"Kofe aparatı",mrp:219.99,rrp:179.99,img:"https://fakirglobal.com/kaave-turk-kahvesi-makinesi-rouge-77-14-K.png"},
+{id:182,name:"Fakir Kaave Turkish Violet",brand:"Fakir",cat:"Kofe aparatı",mrp:219.99,rrp:179.99,img:"https://fakirglobal.com/kaave-uno-pro-turk-kahve-makinesi-violet-176-35-K.jpg"},
+{id:183,name:"Fakir Kaave Turkish White",brand:"Fakir",cat:"Kofe aparatı",mrp:219.99,rrp:179.99,img:"https://fakirglobal.com/kaave-turk-kahvesi-makinesi-beyaz-80-15-K.jpg"},
+{id:184,name:"Fakir Kaave MONO Gray",brand:"Fakir",cat:"Kofe aparatı",mrp:159.99,rrp:129.99,img:"https://fakir.witcdn.net/kaave-mono-turk-kahvesi-makinesi-gri-fakir-8691-59-K.jpg"},
+{id:185,name:"Fakir Kaave MONO Rouge",brand:"Fakir",cat:"Kofe aparatı",mrp:159.99,rrp:129.99,img:"https://fakirglobal.com/kaave-turk-kahvesi-makinesi-rouge-77-14-K.png"},
+{id:186,name:"Fakir Kaave MONO Sand Beige",brand:"Fakir",cat:"Kofe aparatı",mrp:159.99,rrp:129.99,img:"https://fakirglobal.com/kaave-turk-kahvesi-makinesi-rouge-77-14-K.png"},
+{id:187,name:"Fakir Kaave MONO Violet",brand:"Fakir",cat:"Kofe aparatı",mrp:159.99,rrp:129.99,img:"https://fakirglobal.com/kaave-turk-kahvesi-makinesi-rouge-77-14-K.png"},
+{id:188,name:"Fakir Kaave MONO White",brand:"Fakir",cat:"Kofe aparatı",mrp:159.99,rrp:129.99,img:"https://fakir.witcdn.net/kaave-mono-turk-kahvesi-makinesi-beyaz-fakir-8692-32-O.jpg"},
+{id:189,name:"Fakir Kofe AROMA GOURMET",brand:"Fakir",cat:"Kofe aparatı",mrp:0,rrp:0,img:"https://fakir.witcdn.net/aroma-gourmet-filtre-kahve-makinesi-copper-fakir-8679-32-O.jpg"},
+{id:190,name:"Fakir Kofe KAAVE PLUS Copper",brand:"Fakir",cat:"Kofe aparatı",mrp:0,rrp:0,img:"https://fakirglobal.com/kaave-plus-turkish-coffee-maker-copper-turkish-coffee-maker-fakir-771-58-K.jpg"},
+{id:191,name:"Fakir Kofe KAAVE PLUS Silver",brand:"Fakir",cat:"Kofe aparatı",mrp:0,rrp:0,img:"https://fakirglobal.com/kaave-plus-turk-kahvesi-makinesi-silver-297-58-K.jpg"},
+{id:192,name:"Fakir Kofe KAAVE STEEL Rosie",brand:"Fakir",cat:"Kofe aparatı",mrp:0,rrp:0,img:"https://fakirglobal.com/kaave-steel-turk-kahvesi-makinesi-rosie-230-43-K.jpg"},
+{id:193,name:"Fakir Kofe KAAVE STEEL Rouge",brand:"Fakir",cat:"Kofe aparatı",mrp:0,rrp:0,img:"https://fakirglobal.com/kaave-steel-turk-kahvesi-makinesi-rouge-436-43-K.png"},
+{id:194,name:"Fakir Kofe VKM6018 Fully Auto",brand:"Fakir",cat:"Kofe aparatı",mrp:0,rrp:0,img:"https://fakirglobal.com/magichef-kitchen-chef-2960-60-K.png"},
+{id:195,name:"Fakir Kokteyl DYNAMIC Rosie",brand:"Fakir",cat:"Blender",mrp:155.99,rrp:135.99,img:"https://fakirglobal.com/dynamic-personal-blender-rosie-2226-34-K.png"},
+{id:196,name:"Fakir Kokteyl DYNAMIC Rouge",brand:"Fakir",cat:"Blender",mrp:155.99,rrp:135.99,img:"https://fakirglobal.com/dynamic-kisisel-blender-rouge-2225-33-K.png"},
+{id:197,name:"Fakir Kokteyl MIX IT EASY Black",brand:"Fakir",cat:"Blender",mrp:149.99,rrp:129.99,img:"https://fakirglobal.com/magichef-kitchen-chef-2960-60-K.png"},
+{id:198,name:"Fakir Kokteyl MIX IT EASY Green",brand:"Fakir",cat:"Blender",mrp:149.99,rrp:129.99,img:"https://www.fakir.az/fakir-mr-chef-quadro-blender-desti-ag-l-blenderi-fakir-2256-12-O.png"},
+{id:199,name:"Fakir Kokteyl MIX IT EASY Red",brand:"Fakir",cat:"Blender",mrp:149.99,rrp:129.99,img:"https://www.fakir.az/fakir-mr-chef-quadro-blender-desti-ag-l-blenderi-fakir-2256-12-O.png"},
+{id:200,name:"Fakir Kombayn CULINA ROBOT Rosie",brand:"Fakir",cat:"Kombayn",mrp:409.99,rrp:369.99,img:"https://fakirglobal.com/culina-chef-kitchen-circle-rosie-1710-28-K.webp"},
+{id:201,name:"Fakir Kombayn FLOURISH MIXER Latte",brand:"Fakir",cat:"Kombayn",mrp:349.99,rrp:269.99,img:"https://fakirglobal.com/culina-chef-kitchen-trying-rouge-1711-28-K.png"},
+{id:202,name:"Fakir Makaron PASTAMORE",brand:"Fakir",cat:"Digər",mrp:0,rrp:0,img:"https://fakir.witcdn.net/pastamore-makarna-yapma-makinesi-fakir-8784-60-O.jpg"},
+{id:203,name:"Fakir Mikrodalğalı COZINESS 20LT",brand:"Fakir",cat:"Digər",mrp:249.99,rrp:209.99,img:"https://fakirglobal.com/magichef-kitchen-chef-2960-60-K.png"},
+{id:204,name:"Fakir Mikser HM5019",brand:"Fakir",cat:"Digər",mrp:0,rrp:0,img:"https://fakir.witcdn.net/fakir-hm5019-el-mikseri-fakir-7475-60-O.jpg"},
+{id:205,name:"Fakir Mikser SIERRA Rouge",brand:"Fakir",cat:"Digər",mrp:149.99,rrp:124.99,img:"https://fakirglobal.com/magichef-kitchen-chef-2960-60-K.png"},
+{id:206,name:"Fakir Mikser SIERRA Silverstone",brand:"Fakir",cat:"Digər",mrp:149.99,rrp:124.99,img:"https://fakirglobal.com/magichef-kitchen-chef-2960-60-K.png"},
+{id:207,name:"Fakir Robot Şüşə Temizleyici FR6019",brand:"Fakir",cat:"Digər",mrp:429.99,rrp:349.99,img:"https://fakirglobal.com/magichef-kitchen-chef-2960-60-K.png"},
+{id:208,name:"Fakir Saç Buran GLOW KERATIN",brand:"Fakir",cat:"Digər",mrp:129.99,rrp:109.99,img:"https://fakir.witcdn.net/glow-keratin-sac-masasi-fakir-8855-58-O.jpg"},
+{id:209,name:"Fakir Saç Buran ION FUSION",brand:"Fakir",cat:"Digər",mrp:129.99,rrp:109.99,img:"https://fakir.witcdn.net/ion-fusion-sac-masasi-fakir-8861-42-O.jpg"},
+{id:210,name:"Fakir Saç Buran ION FUSION BEACH WAVE",brand:"Fakir",cat:"Digər",mrp:159.99,rrp:129.99,img:"https://fakir.witcdn.net/ion-fusion-beach-waves-wag-masasi-fakir-8859-42-O.jpg"},
+{id:211,name:"Fakir Saç Buran SAPPHIRE LUXE",brand:"Fakir",cat:"Digər",mrp:159.99,rrp:139.99,img:"https://fakir.witcdn.net/sapphire-luxe-wag-masasi-fakir-8871-42-O.jpg"},
+{id:212,name:"Fakir Saç Qırxan EXECARE ALL IN ONE",brand:"Fakir",cat:"Digər",mrp:0,rrp:0,img:"https://fakir.witcdn.net/fakir-execare-tiras-makinesi-fakir-8847-60-O.jpg"},
+{id:213,name:"Fakir Saç Qırxan EXECUTE 2 BLADE Black",brand:"Fakir",cat:"Digər",mrp:99.99,rrp:79.99,img:"https://fakirglobal.com/execute-2-blade-mens-care-kit-black-2753-44-K.jpg"},
+{id:214,name:"Fakir Saç Ütüsü ILLUSION Anthrasite",brand:"Fakir",cat:"Digər",mrp:129.99,rrp:99.99,img:"https://fakirglobal.com/illusion-effect-iyonlu-sac-duzlestirici-firca-antrasit-2078-19-K.png"},
+{id:215,name:"Fakir Saç Ütüsü ILLUSION Violet",brand:"Fakir",cat:"Digər",mrp:129.99,rrp:99.99,img:"https://fakirglobal.com/illusion-effect-ionian-hair-straightener-brush-violet-2077-20-K.png"},
+{id:216,name:"Fakir Saç Ütüsü GLOW KERATIN",brand:"Fakir",cat:"Digər",mrp:149.99,rrp:119.99,img:"https://fakirglobal.com/magichef-kitchen-chef-2960-60-K.png"},
+{id:217,name:"Fakir Saç Ütüsü HARVEY Black Rose",brand:"Fakir",cat:"Digər",mrp:39.99,rrp:32.99,img:"https://fakirglobal.com/harvey-hair-straighing-black-rosie-chrome-2145-24-K.jpg"},
+{id:218,name:"Fakir Saç Ütüsü HARVEY White Rose",brand:"Fakir",cat:"Digər",mrp:39.99,rrp:32.99,img:"https://fakirglobal.com/harvey-hair-straightener-white-rosie-chromium-2146-24-K.jpg"},
+{id:219,name:"Fakir Saç Ütüsü LYRIC SONG White Rose",brand:"Fakir",cat:"Digər",mrp:89.99,rrp:79.99,img:"https://fakir.witcdn.net/lyric-poem-sac-masasi-beyaz-rose-chrome-fakir-8864-32-O.jpg"},
+{id:220,name:"Fakir Saç Ütüsü LYRIC VOICE White",brand:"Fakir",cat:"Digər",mrp:99.99,rrp:89.99,img:"https://fakir.witcdn.net/lyric-poem-sac-masasi-fakir-8864-32-K.jpg"},
+{id:221,name:"Fakir Saç Ütüsü SAPPHIRE LUXE BRUSH",brand:"Fakir",cat:"Digər",mrp:174.99,rrp:144.99,img:"https://fakir.witcdn.net/sapphire-luxe-duzlestirici-firca-fakir-8868-58-O.jpg"},
+{id:222,name:"Fakir Şirə Çəkən SLOW JUICER VITALY",brand:"Fakir",cat:"Digər",mrp:359.99,rrp:299.99,img:"https://fakirglobal.com/vitaly-meyve-ve-sebze-sikacagi-yavas-sikim-123-25-K.png"},
+{id:223,name:"Fakir Tərəzi HERCULES BODY",brand:"Fakir",cat:"Digər",mrp:59.99,rrp:49.99,img:"https://fakirglobal.com/hercules-body-analysis-printing-1760-49-K.jpg"},
+{id:224,name:"Fakir Tərəzi MOLLY Orange",brand:"Fakir",cat:"Digər",mrp:69.99,rrp:59.99,img:"https://fakirglobal.com/molly-dijital-mutfak-tartisi-turuncu-42-84-K.webp"},
+{id:225,name:"Fakir Tərəzi MOLLY White",brand:"Fakir",cat:"Digər",mrp:69.99,rrp:59.99,img:"https://fakirglobal.com/molly-dijital-mutfak-tartisi-beyaz-43-85-K.webp"},
+{id:226,name:"Fakir Tərəzi NORA Gold",brand:"Fakir",cat:"Digər",mrp:0,rrp:0,img:"https://fakir.witcdn.net/nora-dijital-cam-baskul-tarti-altin-fakir-8783-60-O.jpg"},
+{id:227,name:"Fakir Tərəzi NORA Silver",brand:"Fakir",cat:"Digər",mrp:0,rrp:0,img:"https://fakir.witcdn.net/nora-dijital-cam-baskul-tarti-fakir-8783-60-K.jpg"},
+{id:228,name:"Fakir Tost ALBA Rouge",brand:"Fakir",cat:"Toster",mrp:99.99,rrp:79.99,img:"https://fakirglobal.com/alba-bread-frying-machine-rouge-2826-44-K.png"},
+{id:229,name:"Fakir Tost ALBA Violet",brand:"Fakir",cat:"Toster",mrp:99.99,rrp:79.99,img:"https://fakirglobal.com/alba-bread-frying-machine-rosie-1860-44-K.png"},
+{id:230,name:"Fakir Tost ALBA White",brand:"Fakir",cat:"Toster",mrp:99.99,rrp:79.99,img:"https://fakirglobal.com/alba-bread-frying-machine-rosie-1860-44-K.png"},
+{id:231,name:"Fakir Tost CRISPY Silverstone",brand:"Fakir",cat:"Toster",mrp:0,rrp:0,img:"https://fakir.witcdn.net/crispy-tost-makinesi-silverstone-fakir-8829-60-O.jpg"},
+{id:232,name:"Fakir Tost GRILL EXPERT Smart",brand:"Fakir",cat:"Toster",mrp:439.99,rrp:369.99,img:"https://fakirglobal.com/grill-expert-smart-grill-toaster-2927-55-K.png"},
+{id:233,name:"Fakir Tost N JOY Rouge",brand:"Fakir",cat:"Toster",mrp:259.99,rrp:209.99,img:"https://fakirglobal.com/n-joy-tost-makinesi-rouge-223-43-K.jpg"},
+{id:234,name:"Fakir Tost N JOY Silver",brand:"Fakir",cat:"Toster",mrp:259.99,rrp:209.99,img:"https://fakirglobal.com/n-joy-tost-makinesi-silver-stone-259-51-K.jpg"},
+{id:235,name:"Fakir Tost N JOY Violet",brand:"Fakir",cat:"Toster",mrp:259.99,rrp:209.99,img:"https://fakirglobal.com/n-joy-tost-makinesi-silver-stone-259-51-K.jpg"},
+{id:236,name:"Fakir Tost TASTE N JOY Antrasite",brand:"Fakir",cat:"Toster",mrp:259.99,rrp:209.99,img:"https://fakirglobal.com/n-joy-tost-makinesi-rosie-221-42-K.jpg"},
+{id:237,name:"Fakir Tost TASTE N JOY Inox",brand:"Fakir",cat:"Toster",mrp:259.99,rrp:209.99,img:"https://fakirglobal.com/n-joy-tost-makinesi-rosie-221-42-K.jpg"},
+{id:238,name:"Fakir Tost TASTE N JOY Rosie",brand:"Fakir",cat:"Toster",mrp:259.99,rrp:209.99,img:"https://fakirglobal.com/n-joy-tost-makinesi-rosie-221-42-K.jpg"},
+{id:239,name:"Fakir Tost TASTE N JOY Rouge",brand:"Fakir",cat:"Toster",mrp:259.99,rrp:209.99,img:"https://fakirglobal.com/n-joy-tost-makinesi-rosie-221-42-K.jpg"},
+{id:240,name:"Fakir Tost TASTE N JOY Violet",brand:"Fakir",cat:"Toster",mrp:259.99,rrp:209.99,img:"https://fakir.witcdn.net/taste-n-joy-6-dilim-kapasiteli-tostmakinesi-violet-fakir-8820-60-K.jpg"},
+{id:241,name:"Fakir Tozsoran 21Lt Black",brand:"Fakir",cat:"Tozsoran",mrp:229.99,rrp:159.99,img:"https://fakirglobal.com/darkys-two-in-one-vertical-cable-dry-vacuum-broom-rouge-2139-26-K.jpg"},
+{id:242,name:"Fakir Tozsoran 21Lt Bordeaux",brand:"Fakir",cat:"Tozsoran",mrp:229.99,rrp:159.99,img:"https://fakirglobal.com/darkys-two-in-one-vertical-cable-dry-vacuum-broom-rouge-2139-26-K.jpg"},
+{id:243,name:"Fakir Tozsoran DARKY'S Black",brand:"Fakir",cat:"Tozsoran",mrp:169.99,rrp:149.99,img:"https://fakirglobal.com/darkys-two-in-one-vertical-cable-dry-vacuum-broom-red-2079-21-K.png"},
+{id:244,name:"Fakir Tozsoran DARKY'S Red",brand:"Fakir",cat:"Tozsoran",mrp:169.99,rrp:149.99,img:"https://fakirglobal.com/darkys-two-in-one-vertical-cable-dry-vacuum-broom-red-2079-21-K.png"},
+{id:245,name:"Fakir Tozsoran DARKY'S Rosie",brand:"Fakir",cat:"Tozsoran",mrp:169.99,rrp:149.99,img:"https://fakirglobal.com/darkys-two-in-one-vertical-cable-dry-vacuum-vacuum-cleaner-roise-2137-26-K.jpg"},
+{id:246,name:"Fakir Tozsoran DARKY'S Violet",brand:"Fakir",cat:"Tozsoran",mrp:169.99,rrp:149.99,img:"https://fakirglobal.com/darkys-two-in-one-vertical-cable-dry-vacuum-vacuum-cleaner-violet-2138-26-K.jpg"},
+{id:247,name:"Fakir Tozsoran FREELANDER BL6050 Pearl",brand:"Fakir",cat:"Tozsoran",mrp:379.99,rrp:319.99,img:"https://fakir.witcdn.net/fakir-freelander-bl-6056-supurge-slvrstn-7837-38-K.jpg"},
+{id:248,name:"Fakir Tozsoran FREELANDER BL6058 Blue",brand:"Fakir",cat:"Tozsoran",mrp:379.99,rrp:319.99,img:"https://fakir.witcdn.net/fakir-freelander-bl-6058-supurge-blue-6887-38-K.jpg"},
+{id:249,name:"Fakir Tozsoran LUCKY BL100 Sand",brand:"Fakir",cat:"Tozsoran",mrp:149.99,rrp:119.99,img:"https://fakirglobal.com/lucky-bl-100-dikey-kablolu-kuru-vakum-supurgesi-kum-beji-173-33-K.jpg"},
+{id:250,name:"Fakir Tozsoran Ranger Black",brand:"Fakir",cat:"Tozsoran",mrp:339.99,rrp:269.99,img:"https://fakirglobal.com/darkys-two-in-one-vertical-cable-dry-vacuum-broom-rouge-2139-26-K.jpg"},
+{id:251,name:"Fakir Tozsoran Ranger Red",brand:"Fakir",cat:"Tozsoran",mrp:339.99,rrp:269.99,img:"https://fakirglobal.com/darkys-two-in-one-vertical-cable-dry-vacuum-broom-rouge-2139-26-K.jpg"},
+{id:252,name:"Fakir Tozsoran WD6 Pure Clean 2in1",brand:"Fakir",cat:"Tozsoran",mrp:0,rrp:0,img:"https://fakir.witcdn.net/wd-6-pure-clean-2-in-1-islak-kuru-dikey-sarjli-supurge-fakir-8747-59-O.jpg"},
+{id:253,name:"Fakir Ütü PERLE Buxarlı",brand:"Fakir",cat:"Ütü",mrp:0,rrp:0,img:"https://www.fakir.az/fakir-skyfall-buxarli-utu-buxarli-utu-fakir-2072-11-O.jpg"},
+{id:254,name:"Fakir Ütü RUMY GARMENT STEAMER",brand:"Fakir",cat:"Ütü",mrp:119.99,rrp:99.99,img:"https://www.fakir.az/fakir-skyfall-buxarli-utu-buxarli-utu-fakir-2072-11-O.jpg"},
+{id:255,name:"Fakir Ütü SKYGO",brand:"Fakir",cat:"Ütü",mrp:109.99,rrp:89.99,img:"https://www.fakir.az/fakir-skyfall-buxarli-utu-buxarli-utu-fakir-2072-11-O.jpg"},
+{id:256,name:"Fakir Ütü VALENS STEAM Beige",brand:"Fakir",cat:"Ütü",mrp:0,rrp:0,img:"https://www.fakir.az/fakir-skyfall-buxarli-utu-buxarli-utu-fakir-2072-11-O.jpg"},
+{id:257,name:"Fakir Yoğurt PASTEUR",brand:"Fakir",cat:"Digər",mrp:359.99,rrp:299.99,img:"https://fakir.witcdn.net/pasteur-pastorize-yogurt-makines-3litre-dijital-ekran-fakir-7157-58-O.jpg"},
+{id:258,name:"Gastro Aspirator D60C2",brand:"Gastro",cat:"Digər",mrp:329.99,rrp:229.99,img:"https://texnohome.az/image/catalog/12.07.2025/gastro-d60c2-1.jpg"},
+{id:259,name:"Gastro Qaz Plitəsi OR31C2",brand:"Gastro",cat:"Qaz plitəsi",mrp:399.99,rrp:299.99,img:"https://texnohome.az/image/catalog/12.07.2025/images-1.jpeg"},
+{id:260,name:"Gastro Mini Soba G3C42E Cream",brand:"Gastro",cat:"Mini soba",mrp:199.99,rrp:149.99,img:"https://storage.irshad.az/products/resized/0WjsgEVWWBOeIcXQ520B2o1e9srXctIPnRzW1xqg.png"},
+{id:261,name:"Gastro Mini Soba G3I42E Inox",brand:"Gastro",cat:"Mini soba",mrp:199.99,rrp:179.99,img:"https://storage.irshad.az/products/resized/BAkknTl9BmtduQiGDdAf2rY6IDxLG9zkCDOFW9ok.webp"},
+{id:262,name:"Gastro Mini Soba G3R42E Rosie",brand:"Gastro",cat:"Mini soba",mrp:199.99,rrp:179.99,img:"https://storage.irshad.az/products/resized/2VSOcI5ZoUjuvqBxqCHlwH0vSVzKPlfpcVjPpi2A.webp"},
+{id:263,name:"Gastro Toster GPBK Black",brand:"Gastro",cat:"Toster",mrp:0,rrp:0,img:"https://storage.irshad.az/products/resized/Gy9HefG6paubsTKR6eQAKWPaIIu7xVOU1VGn2YLo.webp"},
+{id:264,name:"TESTA Mini Soba TE45FG Grey",brand:"Gastro",cat:"Mini soba",mrp:249.99,rrp:219.99,img:"https://storage.irshad.az/products/resized/7TuNsj0MkzKYyKRPrHUiXXklDGH91bLs6sAexqDk.webp"},
+{id:265,name:"Singer Buxarlı Əl Ütüsü ZDML Mini",brand:"Singer",cat:"Ütü",mrp:0,rrp:0,img:"https://www.singer.com.tr/assets/img/uploads/product/MiniDuzlestirici_01.jpg"},
+{id:266,name:"Singer Tikiş Maşını 1412",brand:"Singer",cat:"Tikiş maşını",mrp:429.99,rrp:379.99,img:"https://singersa.com/cdn/shop/files/singer-1412-domestic-sewing-machine.jpg?v=1767883321"},
+{id:267,name:"Singer Tikiş Maşını 3223R",brand:"Singer",cat:"Tikiş maşını",mrp:469.99,rrp:419.99,img:"https://www.singer.com.tr/assets/img/uploads/product/3223R-01.jpg"},
+{id:268,name:"Singer Tikiş Maşını 3229",brand:"Singer",cat:"Tikiş maşını",mrp:469.99,rrp:419.99,img:"https://www.singer.com.tr/assets/img/uploads/product/210d587f1cf2cc7b074770f740bf9481.jpg"},
+{id:269,name:"Singer Tikiş Maşını 3323",brand:"Singer",cat:"Tikiş maşını",mrp:599.99,rrp:449.99,img:"https://singersa.com/cdn/shop/files/3323-Talent-front-3-singer-sewing-machines.jpg?v=1746702009"},
+{id:270,name:"Singer Tikiş Maşını 3337",brand:"Singer",cat:"Tikiş maşını",mrp:0,rrp:0,img:"https://www.singer.com.tr/assets/img/uploads/product/3337Blush_01.jpg"},
+{id:271,name:"Singer Tikiş Maşını 8280",brand:"Singer",cat:"Tikiş maşını",mrp:419.99,rrp:389.99,img:"https://singersa.com/cdn/shop/files/Prelude-8280-15-Free-Arm-singer-sewing-machines_80be91f7-98e8-47b4-980b-ccf30bd940fa.jpg?v=1694807425"},
+{id:272,name:"Singer Tikiş Maşını C5205 Turq",brand:"Singer",cat:"Tikiş maşını",mrp:799.99,rrp:649.99,img:"https://www.singer.com.tr/assets/img/uploads/product/430_20200528103034.jpg"},
+{id:273,name:"Singer Tikiş Maşını CE677",brand:"Singer",cat:"Tikiş maşını",mrp:1089.99,rrp:939.99,img:"https://www.singer.com.tr/assets/img/uploads/product/458_20210208182706.jpg"},
+{id:274,name:"Singer Tikiş Maşını M1255",brand:"Singer",cat:"Tikiş maşını",mrp:409.99,rrp:349.99,img:"https://www.singer.com.tr/assets/img/uploads/product/M1255_01.jpg"},
+{id:275,name:"Singer Tikiş Maşını M1505",brand:"Singer",cat:"Tikiş maşını",mrp:409.99,rrp:349.99,img:"https://singersa.com/cdn/shop/files/M1505-singer-sewing-machines_5253686c-b6f3-4f32-8d46-7ec35a65e722.jpg?v=1694808943"},
+{id:276,name:"Singer Tikiş Maşını M2105",brand:"Singer",cat:"Tikiş maşını",mrp:599.99,rrp:399.99,img:"https://www.singer.com.tr/assets/img/uploads/product/436_20200204165950.jpg"},
+{id:277,name:"Singer Tikiş Maşını M3205",brand:"Singer",cat:"Tikiş maşını",mrp:509.99,rrp:449.99,img:"https://singersa.com/cdn/shop/files/M3205-singer-sewing-machines_1287345e-a2dd-4247-a64b-c2e41ce60218.jpg?v=1694807351"},
+{id:278,name:"Singer Tikiş Maşını M3335",brand:"Singer",cat:"Tikiş maşını",mrp:499.99,rrp:399.99,img:"https://www.singer.com.tr/assets/img/uploads/product/M3325_01.jpg"},
+{id:279,name:"Singer Tikiş Maşını M3405",brand:"Singer",cat:"Tikiş maşını",mrp:0,rrp:0,img:"https://www.singer.com.tr/assets/img/uploads/product/440_20200204163850.jpg"},
+{id:280,name:"Singer Tikiş Maşını M3505",brand:"Singer",cat:"Tikiş maşını",mrp:0,rrp:0,img:"https://www.singer.com.tr/assets/img/uploads/product/441_20200204163541.jpg"},
+{id:281,name:"Qurutmalıq HYDRA ONYX 18M",brand:"Fakir",cat:"Digər",mrp:129,rrp:109,img:"https://fakirglobal.com/magichef-kitchen-chef-2960-60-K.png"},
+{id:282,name:"Qurutmalıq WING FUJI 20M",brand:"Fakir",cat:"Digər",mrp:109,rrp:89.99,img:"https://fakirglobal.com/magichef-kitchen-chef-2960-60-K.png"},
+{id:283,name:"Ütü masası KUMA",brand:"Fakir",cat:"Digər",mrp:119,rrp:99,img:"https://www.fakir.az/fakir-skyfall-buxarli-utu-buxarli-utu-fakir-2072-11-O.jpg"},
+];
+
+// Build category filter options
+const allCats=[...new Set(PROD.map(p=>p.cat))].sort();
+
+// Product Detail Modal
+function openProdModal(event,id){
+  if(event.target.closest('.add-btn'))return;
+  const p=PROD.find(x=>x.id===id);
+  if(!p)return;
+  document.getElementById('prodModalOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  const mainImg=document.getElementById('pmMainImg').querySelector('img');
+  mainImg.src=p.img;
+  mainImg.alt=p.name;
+  mainImg.onerror=function(){this.style.display='none';this.parentNode.classList.add('img-placeholder');this.parentNode.setAttribute('data-label',this.alt.split(' ').slice(0,3).join(' '))};
+  const disc=p.mrp?Math.round((1-p.rrp/p.mrp)*100):0;
+  const savings=p.mrp?p.mrp-p.rrp:0;
+  const label=p.name.split(' ').slice(0,3).join(' ');
+  const thumbsHtml=`<div class="pm-thumb active" onclick="document.querySelectorAll('.pm-thumb').forEach(x=>x.classList.remove('active'));this.classList.add('active');var pm=document.getElementById('pmMainImg').querySelector('img');if(pm){pm.src=this.querySelector('img').src}else{document.getElementById('pmMainImg').innerHTML='<img src=\\\"'+this.querySelector('img').src+'\\\" alt=\\\"\\\" onerror=\\\"this.style.display=\\'none\\';this.parentNode.classList.add(\\'img-placeholder\\');this.parentNode.setAttribute(\\'data-label\\',\\'${label}\\')\\\" />'}"><img src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.parentNode.classList.add('img-placeholder');this.parentNode.setAttribute('data-label','${label}')" /></div>`;
+  document.getElementById('pmThumbs').innerHTML=thumbsHtml;
+  let infoHtml='';
+  infoHtml+=`<span class="pm-brand">${p.brand}</span>`;
+  infoHtml+=`<h2 class="pm-title">${p.name}</h2>`;
+  if(!p.mrp){
+    infoHtml+=`<div style="color:var(--pink);font-weight:600;font-size:16px;margin:8px 0">Qiymət sorğusu üçün zəng edin</div>`;
+  }else{
+  infoHtml+=`<div class="pm-prices">`;
+  infoHtml+=`<span class="pm-rrp">${p.rrp.toFixed(2)} ₼</span>`;
+  if(p.mrp!==p.rrp){infoHtml+=`<span class="pm-mrp">${p.mrp.toFixed(2)} ₼</span>`;infoHtml+=`<span class="pm-discount">-${disc}%</span>`}
+  infoHtml+=`</div>`;
+  if(savings>0){infoHtml+=`<span class="pm-savings">💎 ${savings.toFixed(2)} ₼ qənaət edirsiniz!</span>`}
+  }
+  infoHtml+=`<div class="pm-stock"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Stokda var</span><span class="pm-delivery-est">· Çatdırılma: 1-3 iş günü</span></div>`;
+  infoHtml+=`<div class="pm-divider"></div>`;
+
+  // Tabbed section: Specs | Reviews
+  infoHtml+=`<div class="pm-tabs">`;
+  infoHtml+=`<button class="pm-tab active" onclick="pmSwitchTab('specs',this)">Texniki xüsusiyyətlər</button>`;
+  infoHtml+=`<button class="pm-tab" onclick="pmSwitchTab('reviews',this)">Reytinq və rəylər (<span class="pm-review-count-${id}">0</span>)</button>`;
+  infoHtml+=`</div>`;
+
+  // Specs tab panel
+  infoHtml+=`<div id="pmTabSpecs" class="pm-tab-panel active">`;
+  infoHtml+=`<div class="pm-specs">`;
+  if(p.specs){
+    Object.keys(p.specs).forEach(k=>{infoHtml+=`<div class="pm-spec"><span>${k}</span><span>${p.specs[k]}</span></div>`});
+  }
+  infoHtml+=`<div class="pm-spec"><span>Məhsul kodu</span><span>#${p.id}</span></div>`;
+  infoHtml+=`</div></div>`;
+
+  // Reviews tab panel
+  infoHtml+=`<div id="pmTabReviews" class="pm-tab-panel" style="display:none">`;
+  infoHtml+=buildReviewsHTML(id);
+  infoHtml+=`</div>`;
+
+  infoHtml+=`<div class="pm-divider"></div>`;
+  infoHtml+=`<div class="pm-warranty"><h4>Zəmanət seçimi</h4><div class="pm-warranty-options">`;
+  infoHtml+=`<button class="pm-warranty-btn active" onclick="document.querySelectorAll('.pm-warranty-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');window.pmWarrantyCost=0">Standart (2 il) — Pulsuz</button>`;
+  infoHtml+=`<button class="pm-warranty-btn" onclick="document.querySelectorAll('.pm-warranty-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');window.pmWarrantyCost=${p.mrp?(p.rrp*0.05).toFixed(2):0}">Uzadılmış (3 il) — +${p.mrp?(p.rrp*0.05).toFixed(2):0} ₼</button>`;
+  infoHtml+=`</div></div>`;
+  infoHtml+=`<div class="pm-delivery"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 1 1-4 0V7l2-2h6l2 4h8l2 4v4"/><circle cx="19" cy="17" r="2"/><circle cx="9" cy="17" r="2"/></svg> 400 AZN-dən yuxarı sifarişlərdə <strong>Pulsuz çatdırılma</strong></div>`;
+  if(p.mrp){infoHtml+=`<button class="pm-add-btn" id="pmAddBtn" onclick="pmAddToCart(this,${id})"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Səbətə əlavə et</button>`}
+  document.getElementById('pmInfo').innerHTML=infoHtml;
+  window.pmCurrentProductId=id;
+  window.pmWarrantyCost=0;
+}
+
+function buildReviewsHTML(id){
+  const reviews=JSON.parse(localStorage.getItem('reviews_'+id)||'[]');
+  let html='';
+  if(reviews.length>0){
+    const avg=(reviews.reduce((s,r)=>s+r.rating,0)/reviews.length).toFixed(1);
+    html+=`<div class="pm-rating-summary"><span class="pm-avg-stars">${'★'.repeat(Math.round(avg))}${'☆'.repeat(5-Math.round(avg))}</span><span class="pm-avg-num">${avg} / 5</span><span class="pm-review-total">(${reviews.length} rəy)</span></div>`;
+    reviews.slice().reverse().forEach(r=>{
+      html+=`<div class="pm-review-item"><div class="pm-review-header"><span class="pm-review-author">${r.author}</span><span class="pm-review-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</span><span class="pm-review-date">${r.date}</span></div><p class="pm-review-text">${r.text}</p></div>`;
+    });
+  }else{
+    html+=`<div class="pm-no-reviews"><div style="font-size:32px;margin-bottom:8px">⭐</div><p style="font-weight:600">Hələ rəy yoxdur</p><p style="color:#999;font-size:13px">Bu məhsul üçün ilk rəyi siz yazın!</p></div>`;
+  }
+  html+=`<div class="pm-review-form"><h4>Rəy yaz</h4><div class="pm-star-select" id="starSelect_${id}">${[1,2,3,4,5].map(n=>`<span class="pm-star" data-val="${n}" onclick="selectStar(${id},${n})">☆</span>`).join('')}</div><input id="reviewAuthor_${id}" type="text" placeholder="Adınız" class="pm-review-input" maxlength="40" /><textarea id="reviewText_${id}" placeholder="Rəyinizi yazın..." class="pm-review-textarea" rows="3" maxlength="300"></textarea><button class="pm-review-submit" onclick="submitReview(${id})">Göndər</button></div>`;
+  return html;
+}
+
+function pmSwitchTab(tab,btn){
+  document.querySelectorAll('.pm-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('pmTabSpecs').style.display=tab==='specs'?'':'none';
+  document.getElementById('pmTabReviews').style.display=tab==='reviews'?'':'none';
+}
+
+function selectStar(id,val){
+  window['starVal_'+id]=val;
+  document.querySelectorAll('#starSelect_'+id+' .pm-star').forEach((s,i)=>{
+    s.textContent=i<val?'★':'☆';
+    s.classList.toggle('active',i<val);
+  });
+}
+
+function submitReview(id){
+  const rating=window['starVal_'+id]||0;
+  const author=document.getElementById('reviewAuthor_'+id).value.trim();
+  const text=document.getElementById('reviewText_'+id).value.trim();
+  if(!rating){alert('Zəhmət olmasa ulduz seçin');return;}
+  if(!author){alert('Adınızı yazın');return;}
+  if(!text){alert('Rəy mətni yazın');return;}
+  const reviews=JSON.parse(localStorage.getItem('reviews_'+id)||'[]');
+  reviews.push({rating,author,text,date:new Date().toLocaleDateString('az-AZ')});
+  localStorage.setItem('reviews_'+id,JSON.stringify(reviews));
+  document.getElementById('pmTabReviews').innerHTML=buildReviewsHTML(id);
+  document.querySelectorAll('.pm-review-count-'+id).forEach(el=>el.textContent=reviews.length);
+}
+
+function closeProdModal(){
+  document.getElementById('prodModalOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function pmAddToCart(btn,id){
+  if(!currentUser){pendingAddId=id;openAuthModal();return}
+  const cart=getCart();
+  const existing=cart.find(i=>i.id===id);
+  if(existing){existing.qty++}else{const p=PROD.find(x=>x.id===id);if(p)cart.push({...p,qty:1})}
+  saveCart(cart);
+  btn.innerHTML='✓ Səbətə əlavə olundu';
+  btn.classList.add('added');
+}
+
+function toggleCatalog(){
+  document.getElementById('catalogOverlay').classList.toggle('open');
+  document.getElementById('catalogPanel').classList.toggle('open');
+}
+function closeCatalog(){
+  document.getElementById('catalogOverlay').classList.remove('open');
+  document.getElementById('catalogPanel').classList.remove('open');
+}
+
+function init(){
+  const savedUser = JSON.parse(localStorage.getItem('au_current') || 'null');
+  if (savedUser) currentUser = savedUser;
+  updateUserUI();
+  updateCartCount();
+  prodData=PROD;
+  // Categories grid
+  const cg=document.getElementById('catGrid');
+  cg.innerHTML=CATEGORIES_DISPLAY.map((c,i)=>`<div class="cat-card reveal reveal-d${i%9}" data-cat="${c.label}" onclick="clickCat('${c.label}',this)"><div class="cat-icon">${c.icon}</div><span>${c.label}</span></div>`).join('');
+
+  // Catalog panel
+  const cl=document.getElementById('catalogList');
+  cl.innerHTML=CATEGORIES_DISPLAY.map(c=>`<div class="catalog-item" onclick="closeCatalog();setCategory('${c.label}');document.getElementById('products').scrollIntoView({behavior:'smooth'})"><span class="catalog-item-icon">${c.icon}</span><span class="catalog-item-label">${c.label}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></div>`).join('')+`<div class="catalog-item" onclick="closeCatalog();setFilter('all');setCategory('');document.getElementById('products').scrollIntoView({behavior:'smooth'})"><span class="catalog-item-icon">🏠</span><span class="catalog-item-label">Bütün məhsullar</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></div>`;
+
+  // Category filter select
+  const sel=document.getElementById('catFilter');
+  sel.innerHTML=`<option value="">${tr('allCat')}</option>`+allCats.map(c=>`<option value="${c}">${c}</option>`).join('');
+
+  // Brands marquee
+  const bm=['BergHOFF','Fakir Hausgerate','Singer','IYO','Hazel Azerbaijan','Gastro'];
+  document.getElementById('marqueeTrack').innerHTML=bm.map(b=>`<div class="brand-card">${b}</div>`).join('')+bm.map(b=>`<div class="brand-card">${b}</div>`).join('');
+
+  applyLang();
+  render();
+
+  // Scroll reveal
+  const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+  setTimeout(()=>{document.querySelectorAll('.reveal:not(.visible)').forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight)el.classList.add('visible')})},150);
+
+  // Counters with ease-out spring
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    new IntersectionObserver(([e])=>{if(e.isIntersecting&&!el.dataset.animated){el.dataset.animated='1';const t=parseInt(el.dataset.count);const d=1500;const s=Date.now();function tick(){const p=Math.min((Date.now()-s)/d,1);const ep=1-Math.pow(1-p,3);const v=Math.round(ep*t);el.textContent=v===t?(t===1000?'1000+':t+'+'):v;if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)}},{threshold:0.5}).observe(el)
+  });
+
+  // Header scroll + progress bar
+  const sp=document.getElementById('scrollProgress');
+  window.addEventListener('scroll',()=>{
+    const h=document.documentElement;
+    const p=Math.min((h.scrollTop||document.body.scrollTop)/((h.scrollHeight||document.body.scrollHeight)-h.clientHeight)*100,100);
+    sp.style.width=p+'%';
+    document.getElementById('header').classList.toggle('scrolled',window.scrollY>40);
+  });
+
+  // ESC close for product modal
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeProdModal();closeAuthModal();closeCartModal()}});
+}
+
+function clickCat(cat,el){
+  // bounce animation on click
+  const cards=document.querySelectorAll('.cat-card');
+  cards.forEach(c=>c.classList.remove('active'));
+  const target=el||document.querySelector(`.cat-card[data-cat="${cat}"]`);
+  if(target){
+    target.classList.add('active');
+    target.style.transform='scale(0.92)';
+    setTimeout(()=>{target.style.transform='scale(1.04)'},80);
+    setTimeout(()=>{target.style.transform=''},180);
+  }
+  document.getElementById('catFilter').value=cat;
+  curCat=cat;
+  document.getElementById('products').scrollIntoView({behavior:'smooth'});
+  render();
+}
+
+function render(){
+  const grid=document.getElementById('prodGrid');
+  const wrap=document.getElementById('showMoreWrap');
+  const filtered = PROD.filter(p => {
+    if(curSearch && !(
+      p.name.toLowerCase().includes(curSearch) ||
+      p.brand.toLowerCase().includes(curSearch) ||
+      p.cat.toLowerCase().includes(curSearch)
+    )) return false;
+    if(curFilter !== 'all' && p.brand !== curFilter) return false;
+    if(curCat && p.cat !== curCat) return false;
+    if(p.rrp > curPrice) return false;
+    return true;
+  });
+  const total=filtered.length;
+  // Fade out, then update, then fade in
+  grid.classList.add('filtering');
+  setTimeout(()=>{
+  let batch;
+  if(curSearch){
+    prodData = filtered;
+    batch = filtered;
+    wrap.style.display = 'none';
+  } else {
+    shown = shown || pageSize;
+    prodData = filtered.slice(0, shown);
+    batch = filtered.slice(0, shown);
+    wrap.style.display = filtered.length > shown ? '' : 'none';
+  }
+  if(batch.length===0){
+    grid.innerHTML=`<div class="empty-state" style="animation:none;opacity:1"><div class="empty-icon">🔍</div><p>${tr('emptySearch')}</p></div>`;
+    wrap.style.display='none';
+  }else{
+    grid.innerHTML=batch.map((p,i)=>{
+      const disc=p.mrp?Math.round((1-p.rrp/p.mrp)*100):0;
+      return `<div class="prod-card" onclick="openProdModal(event,${p.id})" style="animation:cardAppear 0.5s var(--spring) both;animation-delay:${Math.min(i,11)*0.04}s"><div class="img-wrap">${!p.mrp?'':disc>0?`<span class="discount-badge">-${disc}%</span>`:''}<span class="brand-pill">${p.brand}</span><img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('img-placeholder');this.parentNode.setAttribute('data-label','${p.name.split(' ').slice(0,3).join(' ')}')" /></div><div class="body"><h3>${p.name}</h3>${!p.mrp?`<div style="color:var(--pink);font-weight:600;font-size:14px;margin-bottom:12px">Qiymət sorğusu üçün zəng edin</div>`:`<div class="prices">${p.mrp!==p.rrp?`<span class="mrp">${p.mrp.toFixed(2)} ₼</span>`:''}<span class="rrp">${p.rrp.toFixed(2)} ₼</span></div>`}${!p.mrp?'':`<button class="add-btn" onclick="event.stopPropagation();addCart(this,${p.id})"><span class="btn-icon">${tr('addCart')}</span></button>`}</div></div>`
+    }).join('');
+  }
+  grid.classList.remove('filtering');
+  },200);
+  document.getElementById('resultsCount').textContent=`${total} ${tr('results')}`;
+  document.getElementById('showMoreBtn').textContent=filtered.length>shown?`${tr('showMore')} (${filtered.length-shown}) ↓`:tr('showMore');
+  document.getElementById('showMoreWrap').style.display=filtered.length>shown?'':'none';
+}
+
+function showMore(){
+  shown=Math.min(shown+pageSize,PROD.length);
+  render();
+}
+
+function setFilter(brand){
+  curFilter=brand;
+  document.querySelectorAll('.filter-pill').forEach(b=>{
+    const active=b.dataset.filter===brand;
+    b.classList.toggle('active',active);
+    if(active){b.style.transform='scale(0.92)';setTimeout(()=>{b.style.transform='scale(1.04)'},80);setTimeout(()=>{b.style.transform=''},180)}
+  });
+  shown=0;
+  render();
+}
+
+function setCategory(cat){
+  curCat=cat;
+  shown=0;
+  render();
+}
+
+function setPrice(val){
+  curPrice=Number(val);
+  document.getElementById('priceLabel').textContent=curPrice+'₼';
+  shown=0;
+  render();
+}
+
+function onSearchInput(val){
+  curSearch = val.trim().toLowerCase();
+  shown = 0;
+  render();
+  if(curSearch){
+    document.getElementById('products').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+}
+
+// Auth system
+let currentUser = null;
+let pendingAddId = null;
+
+function handleRegister(e) {
+  e.preventDefault();
+  const name = document.getElementById('regName').value.trim();
+  const phone = document.getElementById('regPhone').value.trim();
+  const email = document.getElementById('regEmail').value.trim();
+  const pass = document.getElementById('regPassword').value;
+  const confirm = document.getElementById('regConfirm').value;
+  const err = document.getElementById('regError');
+  if (pass !== confirm) { err.textContent = 'Şifrələr uyğun gəlmir'; err.style.display = 'block'; return; }
+  const users = JSON.parse(localStorage.getItem('au_users') || '[]');
+  if (users.find(u => u.email === email)) { err.textContent = 'Bu e-poçt artıq qeydiyyatdan keçib'; err.style.display = 'block'; return; }
+  const userObj = { name, phone, email, password: pass };
+  users.push(userObj);
+  localStorage.setItem('au_users', JSON.stringify(users));
+  localStorage.setItem('au_user', JSON.stringify(userObj));
+  currentUser = { name, phone, email };
+  localStorage.setItem('au_current', JSON.stringify(currentUser));
+  updateUserUI();
+  closeAuthModal();
+  if (pendingAddId) { doAddCart(pendingAddId); pendingAddId = null; }
+}
+
+function handleLogin(e) {
+  e.preventDefault();
+  const email = document.getElementById('loginEmail').value.trim();
+  const pass = document.getElementById('loginPass').value;
+  const err = document.getElementById('loginError');
+  const users = JSON.parse(localStorage.getItem('au_users') || '[]');
+  const user = users.find(u => u.email === email && u.password === pass);
+  if (!user) { err.textContent = 'E-poçt və ya şifrə yanlışdır'; err.style.display = 'block'; return; }
+  localStorage.setItem('au_user', JSON.stringify(user));
+  currentUser = { name: user.name, phone: user.phone, email: user.email };
+  localStorage.setItem('au_current', JSON.stringify(currentUser));
+  updateUserUI();
+  closeAuthModal();
+  if (pendingAddId) { doAddCart(pendingAddId); pendingAddId = null; }
+}
+
+function openAuthModal() {
+  document.getElementById('authOverlay').classList.add('open');
+  document.getElementById('loginError').style.display = 'none';
+  document.getElementById('regError').style.display = 'none';
+}
+function closeAuthModal() {
+  document.getElementById('authOverlay').classList.remove('open');
+  pendingAddId = null;
+}
+function switchAuthTab(tab) {
+  document.querySelectorAll('.auth-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+  document.querySelectorAll('.auth-form').forEach(f => f.classList.toggle('active', f.id === tab + 'Form'));
+  document.getElementById('loginError').style.display = 'none';
+  document.getElementById('regError').style.display = 'none';
+}
+function logout() {
+  currentUser = null;
+  localStorage.removeItem('au_current');
+  updateUserUI();
+}
+function updateUserUI() {
+  const btn = document.getElementById('userBtn');
+  if (currentUser) {
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="user-name">' + currentUser.name + '</span><button class="logout-btn" onclick="event.stopPropagation();logout()">Çıxış</button>';
+  } else {
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span id="userLabel">Giriş</span>';
+  }
+}
+
+// Cart system
+function getCart() { return JSON.parse(localStorage.getItem('au_cart') || '[]'); }
+function saveCart(cart) { localStorage.setItem('au_cart', JSON.stringify(cart)); updateCartCount(); }
+
+function updateCartCount() {
+  const cart = getCart();
+  const total = cart.reduce((s, i) => s + i.qty, 0);
+  document.querySelectorAll('.cart-count').forEach(el => el.textContent = total);
+}
+
+function doAddCart(id) {
+  const cart = getCart();
+  const existing = cart.find(i => i.id === id);
+  if (existing) { existing.qty++; } else { const p = PROD.find(x => x.id === id); if (p) cart.push({ ...p, qty: 1 }); }
+  saveCart(cart);
+  document.querySelectorAll('.add-btn').forEach(b => {
+    const m = b.getAttribute('onclick');
+    if (m && m.includes(',' + id + ')') && !b.classList.contains('added')) {
+      b.textContent = '✓';
+      b.classList.add('added');
+      const fly = document.createElement('div');
+      fly.className = 'cart-fly';
+      fly.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>';
+      const rect = b.getBoundingClientRect();
+      fly.style.left = (rect.left + rect.width / 2 - 12) + 'px';
+      fly.style.top = (rect.top - 12) + 'px';
+      document.body.appendChild(fly);
+      setTimeout(() => fly.remove(), 900);
+      setTimeout(() => { b.textContent = tr('addCart'); b.classList.remove('added'); }, 1500);
+    }
+  });
+}
+
+function addCart(btn, id) {
+  if (!currentUser) {
+    pendingAddId = id;
+    openAuthModal();
+    return;
+  }
+  doAddCart(id);
+}
+
+
+function openCartModal() {
+  renderCart();
+  document.getElementById('cartOverlay').classList.add('open');
+}
+function closeCartModal() {
+  document.getElementById('cartOverlay').classList.remove('open');
+}
+
+function renderCart() {
+  const el = document.getElementById('cartContent');
+  localStorage.removeItem('au_order_status');
+  const cart = getCart();
+  if (!cart.length) {
+    el.innerHTML = '<div class="cart-empty"><div class="ce-icon">🛒</div><p>Səbət boşdur</p></div>';
+    return;
+  }
+  const selDelivery = document.querySelector('input[name="delivery"]:checked');
+  const itemsTotal = cart.reduce((s, i) => s + i.rrp * i.qty, 0);
+  const freeDelivery = itemsTotal >= 400;
+  let rawCost = 0;
+  if (selDelivery) {
+    if (selDelivery.value === 'city') rawCost = freeDelivery ? 0 : 10;
+    else if (selDelivery.value === 'courier') rawCost = freeDelivery ? 0 : 6;
+    else rawCost = 0;
+  } else { rawCost = 10; }
+  const displayCost = rawCost;
+  const grandTotal = itemsTotal + displayCost;
+  let html = '<div class="cart-items">';
+  cart.forEach(item => {
+    html += '<div class="cart-item"><img src="' + item.img + '" alt="' + item.name + '" /><div class="cart-item-info"><h4>' + item.name + '</h4><div class="ci-price">' + item.rrp.toFixed(2) + ' ₼</div></div><div class="cart-item-qty"><button onclick="changeQty(' + item.id + ',-1)">−</button><span>' + item.qty + '</span><button onclick="changeQty(' + item.id + ',1)">+</button></div><button class="cart-item-del" onclick="removeFromCart(' + item.id + ')">✕</button></div>';
+  });
+  html += '</div>';
+  html += '<div class="cart-delivery"><h4>Çatdırılma</h4>';
+  html += '<label class="delivery-option"><input type="radio" name="delivery" value="city" onchange="renderCart()" ' + (selDelivery && selDelivery.value === 'city' ? 'checked' : '') + ' /><span class="do-label">Şəhər daxili çatdırılma</span><span class="do-price">' + (freeDelivery ? '<span class="do-strike">10 AZN</span><span class="do-free">0 AZN - Pulsuz!</span>' : '10 AZN') + '</span></label>';
+  html += '<label class="delivery-option"><input type="radio" name="delivery" value="courier" onchange="renderCart()" ' + (selDelivery && selDelivery.value === 'courier' ? 'checked' : '') + ' /><span class="do-label">Kuryer ilə çatdırılma</span><span class="do-price">' + (freeDelivery ? '<span class="do-strike">6 AZN</span><span class="do-free">0 AZN - Pulsuz!</span>' : '6 AZN') + '</span></label>';
+  html += '<label class="delivery-option"><input type="radio" name="delivery" value="pickup" onchange="renderCart()" ' + (selDelivery && selDelivery.value === 'pickup' ? 'checked' : '') + ' /><span class="do-label">Mağazadan götürmə</span><span class="do-price">Pulsuz</span></label>';
+  html += '</div>';
+  html += '<div class="cart-pay-select"><h4>Ödəniş üsulu</h4>';
+  html += '<label class="delivery-option"><input type="radio" name="paymethod" value="cash" onchange="renderCart()" checked /><span class="do-label">💵 Nağd ödəniş</span><span class="do-price" style="font-size:12px;color:#999">Kuryerə nağd öd</span></label>';
+  html += '<label class="delivery-option"><input type="radio" name="paymethod" value="card" onchange="renderCart()" /><span class="do-label">💳 Kartla onlayn ödəniş</span><span class="do-price" style="font-size:12px;color:#999">Visa / Mastercard / Birbank</span></label>';
+  html += '</div>';
+  html += '<div class="cart-summary"><div class="cs-row"><span>Məhsullar cəmi</span><span>' + itemsTotal.toFixed(2) + ' ₼</span></div><div class="cs-row"><span>Çatdırılma</span><span>' + (displayCost === 0 ? 'Pulsuz' : displayCost.toFixed(2) + ' ₼') + '</span></div><div class="cs-row total"><span>Ümumi cəm</span><span>' + grandTotal.toFixed(2) + ' ₼</span></div></div>';
+  const selPay = document.querySelector('input[name="paymethod"]:checked');
+  const isCard = selPay && selPay.value === 'card';
+  if (isCard) {
+    html += '<button class="cart-checkout card-btn" onclick="openBirbankModal(' + grandTotal.toFixed(2) + ')">💳 Kartla ödə — ' + grandTotal.toFixed(2) + ' ₼</button>';
+  } else {
+    html += '<button class="cart-checkout cash-btn" onclick="checkout()">💵 Nağd ödəniş</button>';
+  }
+  el.innerHTML = html;
+}
+
+function changeQty(id, delta) {
+  let cart = getCart();
+  const item = cart.find(i => i.id === id);
+  if (item) {
+    item.qty += delta;
+    if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+    saveCart(cart);
+    renderCart();
+  }
+}
+function removeFromCart(id) {
+  let cart = getCart().filter(i => i.id !== id);
+  saveCart(cart);
+  renderCart();
+}
+async function confirmOrder(cart, deliveryVal, subtotal, deliveryCost, total) {
+  const user = JSON.parse(localStorage.getItem('au_user') || '{}');
+  const deliveryLabel = deliveryVal === 'city' ? 'Şəhər daxili çatdırılma' : deliveryVal === 'courier' ? 'Kuryer ilə çatdırılma' : 'Mağazadan götürmə';
+  let cartText = '';
+  cart.forEach(item => {
+    cartText += '• ' + item.name + ' - ' + item.qty + ' ədəd - ' + item.rrp + ' AZN\n';
+  });
+  const message = '🛒 YENİ SİFARİŞ\n\n👤 Müştəri: ' + (user.name || '-') + '\n📞 Telefon: ' + (user.phone || '-') + '\n📧 E-mail: ' + (user.email || '-') + '\n\n🛍️ Sifariş:\n' + cartText + '\n🚚 Çatdırılma: ' + deliveryLabel + '\n💰 Məhsullar cəmi: ' + subtotal + ' AZN\n💰 Çatdırılma: ' + deliveryCost + ' AZN\n💰 Ümumi: ' + total + ' AZN';
+  try {
+    const response = await fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: message })
+    });
+    const result = await response.json();
+    const orderId = result.orderId;
+    localStorage.setItem('au_order_status', JSON.stringify({ status: 'sent', orderId: orderId }));
+  } catch(e) {
+    console.error('Telegram xətası:', e);
+    localStorage.setItem('au_order_status', JSON.stringify({ status: 'sent', orderId: null }));
+  }
+}
+function updateOrderStatusUI(status) {
+  const el = document.getElementById('cartContent');
+  var s1 = '', s2 = '', s3 = '';
+  if (status === 'sent') { s1 = ' active'; }
+  else if (status === 'confirmed') { s1 = ' active'; s2 = ' active'; }
+  else if (status === 'delivered') { s1 = ' active'; s2 = ' active'; s3 = ' active'; }
+  el.innerHTML = '<div class="cart-thanks"><div class="ct-icon">✅</div><p>Sifarişiniz qəbul edildi! Tezliklə sizinlə əlaqə saxlayacağıq.</p></div><div class="order-track" style="margin-top:0;border-top:none"><h4>Sifarişin gedişatı</h4><div class="track-steps"><div class="track-step' + s1 + '"><span class="ts-icon">✉️</span> Sifariş ofisə göndərildi</div><div class="track-step' + s2 + '"><span class="ts-icon">✅</span> Sifariş təsdiqləndi</div><div class="track-step' + s3 + '"><span class="ts-icon">📦</span> Sifariş çatdırıldı</div></div></div>';
+}
+
+function checkout() {
+  const cart = getCart();
+  if (!cart.length) return;
+  const delivery = document.querySelector('input[name="delivery"]:checked');
+  const deliveryVal = delivery ? delivery.value : 'pickup';
+  let subtotal = cart.reduce((s, i) => s + i.rrp * i.qty, 0);
+  const freeDelivery = subtotal >= 400;
+  let deliveryCost = deliveryVal === 'city' ? (freeDelivery ? 0 : 10) : deliveryVal === 'courier' ? (freeDelivery ? 0 : 6) : 0;
+  const total = subtotal + deliveryCost;
+
+  const orderRecord = {
+    id: Date.now(),
+    date: new Date().toLocaleString('az-AZ'),
+    items: cart.map(i => ({ name: i.name, qty: i.qty, price: i.rrp })),
+    total: total,
+    delivery: deliveryVal === 'city' ? 'Şəhər daxili' : deliveryVal === 'courier' ? 'Kuryer' : 'Mağazadan götürmə',
+    deliveryCost: deliveryCost
+  };
+  const history = JSON.parse(localStorage.getItem('orderHistory') || '[]');
+  history.unshift(orderRecord);
+  localStorage.setItem('orderHistory', JSON.stringify(history));
+
+  localStorage.removeItem('au_cart');
+  updateCartCount();
+
+  confirmOrder(cart, deliveryVal, subtotal, deliveryCost, total).then(function() {
+    updateOrderStatusUI('sent');
+  });
+}
+
+function updateCartText(){
+  document.querySelectorAll('.add-btn').forEach(b=>{if(!b.classList.contains('added'))b.textContent=tr('addCart')});
+}
+
+function openMobile(){document.getElementById('mobileNav').classList.add('open');document.getElementById('mobileOverlay').classList.add('open')}
+function closeMobile(){document.getElementById('mobileNav').classList.remove('open');document.getElementById('mobileOverlay').classList.remove('open')}
+function handleForm(e){e.preventDefault();const btn=e.target.querySelector('.submit-btn');btn.textContent='✓ Göndərildi';btn.style.background='#22c55e';setTimeout(()=>{btn.textContent=tr('contact');btn.style.background='';e.target.reset()},2500)}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}}));
+
+document.addEventListener('DOMContentLoaded',init);
+
+var _birbankTotal=0;function openBirbankModal(total){_birbankTotal=total;document.getElementById('birbankAmount').textContent=total.toFixed(2)+' ₼';document.getElementById('birbankName').value='';document.getElementById('birbankPhone').value='';const user=JSON.parse(localStorage.getItem('au_user')||'{}');if(user.name)document.getElementById('birbankName').value=user.name;if(user.phone)document.getElementById('birbankPhone').value=user.phone;document.getElementById('birbankOverlay').classList.add('open')}function closeBirbankModal(){document.getElementById('birbankOverlay').classList.remove('open')}async function redirectToBirbank(){const name=document.getElementById('birbankName').value.trim();const phone=document.getElementById('birbankPhone').value.trim();if(!name){alert('Adınızı daxil edin');return}if(!phone){alert('Telefon nömrəsini daxil edin');return}const cart=getCart();const cartText=cart.map(i=>i.name+' × '+i.qty).join(', ');const birbankUrl='https://app.birbank.az/qp?t=2&id=19F94C0A2EE5E3A2E0630100007FE546&amount='+_birbankTotal.toFixed(2);const message='💳 YENİ KART ÖDƏNİŞİ\n\n👤 Ad: '+name+'\n📱 Tel: '+phone+'\n💰 Məbləğ: '+_birbankTotal.toFixed(2)+' ₼\n🛒 Məhsullar: '+cartText+'\n⏰ Vaxt: '+new Date().toLocaleString('az-AZ');try{await fetch('https://telegram-notify.kenanabdullayev2004.workers.dev/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:message})})}catch(e){console.error('Telegram xətası:',e)}const delivery=document.querySelector('input[name="delivery"]:checked');const deliveryVal=delivery?delivery.value:'pickup';const orderRecord={id:Date.now(),date:new Date().toLocaleString('az-AZ'),items:cart.map(i=>({name:i.name,qty:i.qty,price:i.rrp})),total:_birbankTotal,delivery:deliveryVal==='city'?'Şəhər daxili':deliveryVal==='courier'?'Kuryer':'Mağazadan götürmə',deliveryCost:0,payMethod:'kart'};const history=JSON.parse(localStorage.getItem('orderHistory')||'[]');history.unshift(orderRecord);localStorage.setItem('orderHistory',JSON.stringify(history));localStorage.removeItem('au_cart');updateCartCount();closeBirbankModal();closeCartModal();setTimeout(function(){window.location.href=birbankUrl},300)}
+
+function openOrdersModal(){renderOrders();document.getElementById('ordersOverlay').classList.add('open')}
+function closeOrdersModal(){document.getElementById('ordersOverlay').classList.remove('open')}
+function renderOrders(){const el=document.getElementById('ordersContent');const history=JSON.parse(localStorage.getItem('orderHistory')||'[]');if(!history.length){el.innerHTML='<div class="cart-empty"><div class="ce-icon">📋</div><p>Hələ sifariş yoxdur</p></div>';return}el.innerHTML=history.map(function(o){return'<div class="order-history-card"><div class="ohc-header"><span class="ohc-date">📅 '+o.date+'</span><span class="ohc-total">'+o.total.toFixed(2)+' ₼</span></div><div class="ohc-items">'+o.items.map(function(i){return'<div class="ohc-item"><span class="ohc-name">'+i.name+'</span><span class="ohc-qty">'+i.qty+' ədəd × '+i.price.toFixed(2)+' ₼</span></div>'}).join('')+'</div><div class="ohc-footer"><span class="ohc-delivery">🚚 '+(o.delivery||'Çatdırılma')+(o.deliveryCost>0?' — '+o.deliveryCost+' ₼':' — Pulsuz')+'</span></div></div>'}).join('')}
+</script>
+
+
+<!-- ORDERS MODAL -->
+<div class="modal-overlay" id="ordersOverlay" onclick="if(event.target===this)closeOrdersModal()">
+  <div class="cart-modal" id="ordersModal">
+    <button class="auth-close" onclick="closeOrdersModal()">✕</button>
+    <h2>Sifarişlərim</h2>
+    <div id="ordersContent"></div>
+  </div>
+</div>
+
+</body>
+</html>
