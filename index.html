@@ -61,6 +61,8 @@ section{padding:80px 0}
 .exp-tab.lang-active{color:var(--pink);background:var(--pink-light)}
 .exp-tab-label{max-width:0;opacity:0;overflow:hidden;padding-left:0;display:inline-block;transition:max-width 0.4s cubic-bezier(0.16,1,0.3,1),opacity 0.2s,padding-left 0.35s;vertical-align:middle}
 .exp-tab.open .exp-tab-label{max-width:80px;opacity:1;padding-left:5px}
+.exp-tab.social-link{text-decoration:none}
+.exp-tab.social-link .exp-tab-label{max-width:90px;opacity:1;padding-left:5px}
 .exp-sep{width:1px;height:20px;background:var(--gray-100);margin:0 2px;flex-shrink:0;align-self:center}
 .cart-count{min-width:16px;height:16px;background:var(--pink);color:#fff;font-size:10px;font-weight:700;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;padding:0 4px;margin-left:2px;flex-shrink:0}
 .logout-inline{margin-left:6px;font-size:11px;color:var(--pink);cursor:pointer;opacity:0.8}
@@ -620,6 +622,7 @@ section{padding:80px 0}
       <button class="exp-tab lang-exp" data-lang="RU" onclick="setLangTab(this)"><svg width="20" height="13" viewBox="0 0 20 13" style="border-radius:2px;display:block"><rect width="20" height="4.3" fill="#fff" stroke="#e0e0e0" stroke-width="0.3"/><rect y="4.3" width="20" height="4.3" fill="#003DA5"/><rect y="8.6" width="20" height="4.4" fill="#D52B1E"/></svg><span class="exp-tab-label">RU</span></button>
       <button class="exp-tab lang-exp" data-lang="EN" onclick="setLangTab(this)"><svg width="20" height="13" viewBox="0 0 20 13" style="border-radius:2px;display:block"><rect width="20" height="13" fill="#012169"/><path d="M0,0 L20,13 M20,0 L0,13" stroke="#fff" stroke-width="2.5"/><path d="M0,0 L20,13 M20,0 L0,13" stroke="#C8102E" stroke-width="1.5"/><rect x="8.5" width="3" height="13" fill="#fff"/><rect y="5" width="20" height="3" fill="#fff"/><rect x="9" width="2" height="13" fill="#C8102E"/><rect y="5.5" width="20" height="2" fill="#C8102E"/></svg><span class="exp-tab-label">EN</span></button>
       <div class="exp-sep"></div>
+      <a class="exp-tab social-link" href="https://www.instagram.com/altohousgerate.az/" target="_blank" rel="noopener" aria-label="Instagram"><span>IG</span><span class="exp-tab-label">Instagram</span></a>
       <button class="exp-tab" id="userBtn" onclick="toggleExpTab(this);openAuthModal()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="exp-tab-label" id="userLabel">Giriş</span></button>
       <button class="exp-tab" onclick="toggleExpTab(this);openCartModal()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span class="cart-count">0</span><span class="exp-tab-label">Səbət</span></button>
       <button class="exp-tab" onclick="toggleExpTab(this);openOrdersModal()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg><span class="exp-tab-label">Sifarişlər</span></button>
@@ -648,6 +651,7 @@ section{padding:80px 0}
   <a href="#brands" onclick="closeMobile()" data-i18n="brands">Brendlər</a>
   <a href="#about" onclick="closeMobile()" data-i18n="about">Haqqımızda</a>
   <a href="#contact" onclick="closeMobile()" data-i18n="contact">Əlaqə</a>
+  <a href="https://www.instagram.com/altohousgerate.az/" target="_blank" rel="noopener" onclick="closeMobile()">Instagram</a>
   <div class="mobile-lang">
     <button class="lang-btn active" data-lang="AZ" onclick="setLang('AZ')">AZ</button>
     <button class="lang-btn" data-lang="RU" onclick="setLang('RU')">RU</button>
@@ -821,7 +825,7 @@ section{padding:80px 0}
         <div class="contact-item"><div class="ci-icon">📞</div><div><h4 data-i18n="phone">Telefon</h4><a href="tel:+994517290386">+994 51 729 03 86</a></div></div>
         <div class="contact-item"><div class="ci-icon">✉️</div><div><h4>E-poçt</h4><a href="mailto:altohausgereta@gmail.com">altohausgereta@gmail.com</a></div></div>
         <div class="contact-item"><div class="ci-icon">🕐</div><div><h4 data-i18n="hours">İş saatları</h4><p data-i18n="hoursVal">Bazar ertəsi — Şənbə: 09:00 — 19:00</p></div></div>
-        <div class="contact-item"><div class="ci-icon">📸</div><div><h4>Instagram</h4><a href="https://www.instagram.com/altohousgerate.az" target="_blank" rel="noopener">@altohousgerate.az</a></div></div>
+        <div class="contact-item"><div class="ci-icon">📸</div><div><h4>Instagram</h4><a href="https://www.instagram.com/altohousgerate.az/" target="_blank" rel="noopener">@altohousgerate.az</a></div></div>
       </div>
       <form class="contact-form reveal reveal-d1" onsubmit="handleForm(event)">
         <div class="input-wrap"><input type="text" id="formName" placeholder="Adınız" required /></div>
@@ -843,7 +847,7 @@ section{padding:80px 0}
       </div>
       <div><h4 data-i18n="pages">Səhifələr</h4><ul><li><a href="#hero" data-i18n="home">Ana Səhifə</a></li><li><a href="#products" data-i18n="products">Məhsullar</a></li><li><a href="#brands" data-i18n="brands">Brendlər</a></li><li><a href="#about" data-i18n="about">Haqqımızda</a></li><li><a href="#contact" data-i18n="contact">Əlaqə</a></li></ul></div>
       <div><h4 data-i18n="partners">Partnyorlar</h4><ul><li><a href="#">BergHOFF</a></li><li><a href="#">Fakir</a></li><li><a href="#">Singer</a></li><li><a href="#">IYO</a></li><li><a href="#">Gastro</a></li></ul></div>
-      <div><h4 data-i18n="contact">Əlaqə</h4><ul><li><a href="tel:+994517290386">+994 51 729 03 86</a></li><li><a href="mailto:altohausgereta@gmail.com">altohausgereta@gmail.com</a></li><li><a href="https://www.instagram.com/altohousgerate.az" target="_blank" rel="noopener">@altohousgerate.az</a></li><li><a href="#">Bakı, Azərbaycan</a></li></ul></div>
+      <div><h4 data-i18n="contact">Əlaqə</h4><ul><li><a href="tel:+994517290386">+994 51 729 03 86</a></li><li><a href="mailto:altohausgereta@gmail.com">altohausgereta@gmail.com</a></li><li><a href="https://www.instagram.com/altohousgerate.az/" target="_blank" rel="noopener">@altohousgerate.az</a></li><li><a href="#">Bakı, Azərbaycan</a></li></ul></div>
     </div>
     <div class="footer-bottom"><span>© 2025 Alto. Hausgerate. Bütün hüquqlar qorunur.</span><span data-i18n="footerBottom">Professional məişət texnikası mağazası</span></div>
   </div>
